@@ -1,0 +1,2 @@
+module Public::SaunnersHelper
+end
