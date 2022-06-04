@@ -1,24 +1,40 @@
-# README
+# everybody SAUNA
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
 
-Things you may want to cover:
+- 各サウナ施設でのサ活(サウナ活動)を投稿し、他の人のサ活を検索でき、<br>
+且つサウナー同士でコミュニティーを作りコミュニケーションをとれるサイト
 
-* Ruby version
+### テーマを選んだ理由
 
-* System dependencies
+- サウナが好きで、もっとサウナーを増やしサウナ界を盛り上げたいと思い、このテーマにしました。<br>
+また類似サイトの機能に加えコミュニティ機能も追加し、サウナー同士でコミュニケーションをとり、<br>
+より良いサ活に繋げて頂けるようにしております。
 
-* Configuration
+### ターゲットユーザ
 
-* Database creation
+- 全国のサウナー
+- ビギナーサウナーやサウナに興味のある人
+- 全国のサウナ施設関係者
 
-* Database initialization
+### 主な利用シーン
 
-* How to run the test suite
+- サウナーがまだ知らないサウナ施設の検索し、存在を知ってもらえる。
+- サウナを利用した後にサ活内容を投稿し、他のサウナーへの情報共有や自身のサ活の記録に役立てられる。
+- サ活の内容から、ビギナーサウナーやサウナに興味はあるけどサウナの入り方が
+  わからない方にとって参考にできる。
+- サウナ施設関係者からも自身の施設の評価の一つとして参考にしてもらえる。
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* ...
+
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
