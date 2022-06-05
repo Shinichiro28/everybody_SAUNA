@@ -4,4 +4,7 @@ class Chat < ApplicationRecord
   belongs_to :saunner
   belongs_to :chat_group
 
+    #バリデーション
+  validates :message, presence: true
+
 end

@@ -4,4 +4,7 @@ class ChatGroup < ApplicationRecord
   has_many :chats, dependent: :destroy
   has_many :chat_group_users
 
+    #バリデーション
+  validates :name, presence: true
+
 end

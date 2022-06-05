@@ -12,5 +12,8 @@ class Saunner < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :saunas
 
+    #バリデーション
+  validates :last_name, presence: true
+  validates :first_name, presence: true
 
 end
