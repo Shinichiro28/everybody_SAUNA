@@ -12,6 +12,17 @@
   </head>
 
   <body>
+    <% if saunner_signed_in? %>
+      <%= render 'layouts/login_saunner_header' %>
+    <% elsif admin_signed_in? %>
+      <%= render 'layouts/admin_header' %>
+    <% else %>
+      <%= render 'layouts/saunner_header' %>
+    <% end %>
+    <main>
+
+    </main>
+    <%= render 'layouts/footer' %>
     <%= yield %>
   </body>
 </html>
