@@ -1,0 +1,9 @@
+<h1>チャット新規作成</h1>
+
+<%= form_with url: chat_groups_path, model: @chat_group do |f| %>
+  <div>チャットグループ名</div>
+  <div><%= f.text_field :name, placeholder: "例) サウナトーク" %></div>
+  <div>グループの説明</div>
+  <div><%= f.text_area :introduction, placeholder: "例) 好きなサウナについてトークするグループです。" %></div>
+  <div><%= f.submit 'グループを作る', class: "btn btn-outline-primary" %></div>
+  <% end %>
