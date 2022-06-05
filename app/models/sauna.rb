@@ -35,5 +35,9 @@ class Sauna < ApplicationRecord
   enum saunaboard: { exist: 0, not_exist: 1 }
   enum is_active: { release: 0, close: 1 }
 
+    #アソシエーション
+  has_many :posts, dependent: :destroy
+  belongs_to :saunner
+
 
 end

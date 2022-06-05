@@ -4,11 +4,13 @@ class Saunner < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+    #アソシエーション
   has_many :favorites, dependent: :destroy
   has_many :chats, dependent: :destroy
   has_many :chat_group_users, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :saunas
 
 
 end
