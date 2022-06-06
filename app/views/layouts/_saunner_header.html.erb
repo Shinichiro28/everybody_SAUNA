@@ -1,0 +1,35 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #b0c4de; height: 100px;">
+    <div class="container">
+      <div>
+        <ul class="navbar-nav ml-auto d-block">
+          <li class="d-inline-block">
+            <%= link_to about_path,class: 'nav-link text-light' do %>
+              everybodySAUNAとは？
+            <% end %>
+          </li>
+          <li class="d-inline-block">
+            <%= link_to new_post_path,class: 'nav-link text-light' do %>
+              サ活
+            <% end %>
+          </li>
+          <li class="d-inline-block">
+            <%= link_to new_sauna_path,class: 'nav-link text-light' do %>
+              施設登録
+            <% end %>
+          </li>
+          <li class="d-inline-block" style="margin-left: 600px">
+            <%= link_to new_saunner_session_path ,class: 'nav-link text-light' do %>
+              ログイン
+            <% end %>
+          </li>
+          <li class="d-inline-block">
+            <%= link_to new_saunner_registration_path,class: 'nav-link text-light' do %>
+              新規登録
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
