@@ -13,4 +13,7 @@ class Post < ApplicationRecord
   validates :sauna_times, presence: true
   validates :sauna_post, presence: true
 
+  has_one_attached :sauna_image
+  has_one_attached :food_image
+
 end

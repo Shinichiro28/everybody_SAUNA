@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  root to: "public/homes#top"
+  get "/about" => "public/homes#about", as: "about"
+
+  get "/saunners/my_page" => "public/saunners#show", as: "my_page"
+  get "/saunners/edit" => "public/saunners#edit", as: "edit_saunners"
+  patch "saunners" => "public/saunners#update"
+  get "/saunners/unsubscribe" => "public/saunners#unsubscribe", as: "unsubscribe"
+  patch "/saunners/withdrawal" => "public/saunners#withdrawal", as: "withdrawal"
+
+
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
@@ -9,15 +19,6 @@ Rails.application.routes.draw do
   sessions: 'public/sessions'
 }
 
-
-  root to: "public/homes#top"
-  get "/about" => "public/homes#about", as: "about"
-
-  get "/saunners/my_page" => "public/saunners#show", as: "my_page"
-  get "/saunners/edit" => "public/saunners#edit", as: "edit_saunners"
-  patch "saunners" => "public/saunners#update"
-  get "/saunners/unsubscribe" => "public/saunners#unsubscribe", as: "unsubscribe"
-  patch "/saunners/withdrawal" => "public/saunners#withdrawal", as: "withdrawal"
 
   resources :saunas, controller: "public/saunas"
   resources :posts, controller: "public/posts"
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
     resources :comments, only:[:index,:show,:destroy]
   end
 
+  get "/admin/chat_groups" => "admin/chat_groups#index"
   get "/admin" => "admin/homes#top", as: "admin"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

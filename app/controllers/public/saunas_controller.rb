@@ -1,6 +1,7 @@
 class Public::SaunasController < ApplicationController
 
   def new
+    @sauna = Sauna.new
   end
 
   def show

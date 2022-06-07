@@ -46,6 +46,6 @@ class Sauna < ApplicationRecord
   validates :address, presence: true
   validates :tel, presence: true
 
-
+  has_one_attached :store_image
 
 end

@@ -31,3 +31,31 @@
 .image5 {
   background-image: url(image5.jpeg);
 }
+
+body{
+  position: relative;
+}
+
+footer{
+  position: absolute;
+  height: 100px;
+  width: 100%;
+  background-color: #b0c4de;
+}
+
+.about{
+  padding-bottom: 50px;
+}
+
+.top-text{
+  font-weight: bold;
+  font-size: large;
+}
+
+.mypage{
+  padding-bottom: 194px;
+}
+
+.saunner-edit{
+  padding-bottom: 165px;
+}
