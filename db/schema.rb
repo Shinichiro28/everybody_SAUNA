@@ -83,9 +83,9 @@ ActiveRecord::Schema.define(version: 2022_06_05_030410) do
   create_table "saunas", force: :cascade do |t|
     t.integer "saunner_id"
     t.string "name"
-    t.string "type"
-    t.boolean "target", default: true
-    t.boolean "swap", default: false
+    t.string "store_type"
+    t.string "target"
+    t.string "swap"
     t.string "prefecture"
     t.string "postcode"
     t.string "address"
@@ -99,43 +99,43 @@ ActiveRecord::Schema.define(version: 2022_06_05_030410) do
     t.string "heat_source"
     t.integer "sauna_temperature"
     t.integer "sauna_capacity"
-    t.boolean "tv", default: false
+    t.string "tv"
     t.text "complement"
     t.integer "mizu_temperature"
     t.integer "mizu_capacity"
     t.integer "depth"
-    t.boolean "vibra", default: false
-    t.boolean "break_space", default: false
-    t.boolean "air_bath", default: false
+    t.string "vibra"
+    t.string "break_space"
+    t.string "air_bath"
     t.string "chair"
     t.integer "chair_quantity"
-    t.boolean "aufguss", default: false
+    t.string "aufguss"
     t.string "aufguss_frequency"
-    t.boolean "auto_loyly", default: false
+    t.string "auto_loyly"
     t.string "auto_loyly_frequency"
-    t.boolean "self_loyly", default: false
-    t.boolean "inside_break_space", default: false
-    t.boolean "wi_fi", default: false
-    t.boolean "supply", default: false
-    t.boolean "work_space", default: false
-    t.boolean "restaurant", default: false
-    t.boolean "parking", default: false
-    t.boolean "dispenser", default: false
-    t.boolean "oropo", default: false
-    t.boolean "tattoo", default: false
-    t.boolean "shampoo", default: false
-    t.boolean "conditioner", default: false
-    t.boolean "bodysoap", default: false
-    t.boolean "facesoap", default: false
-    t.boolean "razor", default: false
-    t.boolean "toothbrush", default: false
-    t.boolean "nylon_towel", default: false
-    t.boolean "hairdryer", default: false
-    t.boolean "facetowel", default: false
-    t.boolean "bathtowell", default: false
-    t.boolean "pants", default: false
-    t.boolean "saunamat", default: false
-    t.boolean "saunaboard", default: false
+    t.string "self_loyly"
+    t.string "inside_break_space"
+    t.string "wi_fi"
+    t.string "supply"
+    t.string "work_space"
+    t.string "restaurant"
+    t.string "parking"
+    t.string "dispenser"
+    t.string "oropo"
+    t.string "tattoo"
+    t.string "shampoo"
+    t.string "conditioner"
+    t.string "bodysoap"
+    t.string "facesoap"
+    t.string "razor"
+    t.string "toothbrush"
+    t.string "nylon_towell"
+    t.string "hairdryer"
+    t.string "facetowell"
+    t.string "bathtowell"
+    t.string "pants"
+    t.string "saunamat"
+    t.string "saunaboard"
     t.text "free_text"
     t.boolean "is_active", default: false
     t.datetime "created_at", precision: 6, null: false
@@ -148,12 +148,12 @@ ActiveRecord::Schema.define(version: 2022_06_05_030410) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "last_name", null: false
-    t.string "first_name", null: false
+    t.string "last_name"
+    t.string "first_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_deleted", default: false
-    t.string "nickname", null: false
+    t.string "nickname"
     t.index ["email"], name: "index_saunners_on_email", unique: true
     t.index ["reset_password_token"], name: "index_saunners_on_reset_password_token", unique: true
   end

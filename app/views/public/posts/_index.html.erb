@@ -1,0 +1,19 @@
+<% posts.each do |post| %>
+  <div class="row">
+    <%= link_to sauna_post_path(post) do %>
+      <div>
+        <h4><%= saunner.name %></h4>
+        <div class="pt-3 pl-3">
+          <h4><%= sauna.name %></h4>
+          <p><%= sauna.address %></p>
+          <p>サウナ室温度：<%= post.sauna_temperature %>℃</p>
+          <p>水風呂温度：<%= post.mizu_temperature %>℃</p>
+          <p>サウナ時間：<%= post.sauna_minutes %>分</p>
+          <p>水風呂時間：<%= post.mizu_minutes %>分</p>
+          <p>ととのい時間：<%= post.totonoi_minutes %>分</p>
+          <p>セット数：<%= post.sauna_times %>回</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

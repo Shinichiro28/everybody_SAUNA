@@ -1,0 +1,15 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <h2>サ活投稿</h2>
+    <%= render "/layouts/errors", obj: @post %>
+  </div>
+  <div>
+    <h3 class="container"><%= @sauna.name %></h3>
+    <%= form_with model: post, url: {controller: 'public/posts', action: 'create'} do |f| %>
+      <%= render 'form' %>
+      <div class="actions m-2 pull-right">
+        <%= f.submit "新規登録" , class: "btn btn-outline-success col-md-offset-6" %>
+      </div>
+    <% end %>
+  </div>
+</div>

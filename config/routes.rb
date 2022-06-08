@@ -20,8 +20,10 @@ Rails.application.routes.draw do
 }
 
 
-  resources :saunas, controller: "public/saunas"
-  resources :posts, controller: "public/posts"
+  resources :saunas, controller: "public/saunas" do
+    resources :posts, controller: "public/posts"
+  end
+  resources :posts, only:[:index], controller: "public/posts"
   resources :favorites, only:[:create,:destroy], controller: "public/favorites"
   resources :comments, only:[:create,:destroy], controller: "public/comments"
   resources :chats, only:[:index], controller: "public/chats"
