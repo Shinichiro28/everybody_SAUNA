@@ -1,12 +1,5 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
-    <h2><%= sauna.name %></h2>
-    <div class="row">
-      <h4><%= @saunner.name %></h4>
-      <p><%= @post.visit_date %></p>
-      <div class="pt-3 pl-3">
-        <h4>◆サウナ</h4>
-      </div>
-    </div>
+    <%= render 'show', sauna: @sauna, post: @post, saunner: @saunner %>
   </div>
 </div>

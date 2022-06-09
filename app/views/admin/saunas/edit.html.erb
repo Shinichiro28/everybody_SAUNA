@@ -1,0 +1,21 @@
+<div class='container px-5 px-sm-0'>
+  <div class='col-md-12'>
+    <div class="mb-5">
+      <h2><i class="fas fa-pen-nib"></i> 施設情報更新</h2>
+    </div>
+    <%= render "/layouts/errors", obj: @sauna %>
+    <%= form_with model: @sauna, url: {controller: 'admin/saunas', action: 'update'} do |f| %>
+      <%= render 'public/saunas/form' %>
+      <div class="form-group row">
+        <%= f.label "販売ステータス", class: "col-md-3" %>
+          <%= f.radio_button :is_active, :true %>
+          <%= f.label :is_active, "販売中", {value: :true} %>
+          <%= f.radio_button :is_active, :false %>
+          <%= f.label :is_active, "販売停止中", {value: :false} %>
+      </div>
+      <div class="actions m-2 pull-right">
+        <%= f.submit "編集更新" , class: "btn btn-outline-success col-md-offset-6" %>
+      </div>
+    <% end %>
+  </div>
+</div>

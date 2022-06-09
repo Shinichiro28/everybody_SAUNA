@@ -1,0 +1,33 @@
+
+<div class="mt-5 container">
+  <div class="row">
+    <div class='col-md-12'>
+        <h3><%= @saunner.last_name %> <%= @saunner.first_name %>さんの会員詳細</h3>
+        <table class="table">
+          <tr>
+            <th>会員ID</th>
+            <td><%= @saunner.id %></td>
+          </tr>
+          <tr>
+            <th>氏名</th>
+            <td><%= @saunner.last_name %> <%= @saunner.first_name %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= @saunner.email %></td>
+          </tr>
+          <tr>
+            <th>会員ステータス</th>
+            <td>
+              <% if @saunner.is_deleted %>
+               <span class="text-secondary">退会</span>
+              <% else %>
+               <span class="text-success font-weight-bold">有効</span>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+        <%= link_to "編集する", edit_admin_saunner_path(@saunner.id), class: "mr-3 btn btn-outline-success" %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="mt-5 container">
+  <h3><%= @saunner.last_name %> <%= @saunner.first_name %>さんの会員情報編集</h3>
+  <%= render 'layouts/errors', obj: @saunner %>
+    <%= form_with model: @saunner, url: {controller: 'admin/saunners', action: 'update' } do |saunner| %>
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <%= saunner.label :id,"会員ID" %>
+        </div>
+        <div class="col-sm-10">
+          <%= @saunner.id %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <%= saunner.label :last_name,"氏名" %>
+        </div>
+        <div class="col-sm-10">
+          <%= saunner.text_field :last_name %>
+          <%= saunner.text_field :first_name %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <%= saunner.label :email,"メールアドレス" %>
+        </div>
+        <div class="col-sm-10">
+          <%= saunner.email_field :email %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <%= saunner.label :is_deleted, "会員ステータス" %>
+        </div>
+        <div class="col-sm-10">
+          <%= saunner.radio_button :is_deleted, :false %>
+          <%= saunner.label :is_deleted, "有効", class: "text-success font-weight-bold" %>
+          <%= saunner.radio_button :is_deleted, :true %>
+          <%= saunner.label :is_deleted, "退会", class: "text-secondary" %>
+        </div>
+      </div>
+        <%= button_tag type: "submit", class: "btn btn-outline-success" do %>
+          変更を保存
+        <% end %>
+   <% end %>
+</div>

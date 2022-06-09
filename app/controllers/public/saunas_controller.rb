@@ -12,9 +12,6 @@ class Public::SaunasController < ApplicationController
     @saunas = Sauna.all
   end
 
-  def edit
-  end
-
   def create
     @sauna = Sauna.new(sauna_params)
     if @sauna.save
@@ -23,12 +20,6 @@ class Public::SaunasController < ApplicationController
     else
       render 'new'
     end
-  end
-
-  def update
-  end
-
-  def destroy
   end
 
   private
