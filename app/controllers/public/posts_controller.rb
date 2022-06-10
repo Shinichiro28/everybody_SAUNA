@@ -7,16 +7,16 @@ class Public::PostsController < ApplicationController
   end
 
   def show
+    @sauna = Sauna.find_by(params[sauna_id])
     @post = Post.find(params[:id])
+    @sauna_post_comment = Comment.new
+    @sauna_post_comments = @post.Comment.all
   end
 
   def index
-    @post = Post.all
-    if get sauna_posts_path(sauna_id)
-      @sauna = Sauna.find(params[:sauna_id])
-    else
-    end
-    @saunner = Saunner.find(params[:saunner_id])
+    @posts = Post.all
+
+    @sauna = Sauna.find(params[:sauna_id])
   end
 
   def edit
@@ -25,7 +25,8 @@ class Public::PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(sauna_params)
+    @sauna = Sauna.find(params[:sauna_id])
+    @post = Post.new(post_params)
     if @post.save
       flash[:notice] = "サ活投稿に成功しました！"
       redirect_to sauna_path(@post.id)

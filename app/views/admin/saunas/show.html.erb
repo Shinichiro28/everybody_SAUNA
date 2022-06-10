@@ -1,11 +1,75 @@
 <div class='container px-5 px-sm-0'>
-  <div class='row'>
-    <%= render 'public/saunas/show', sauna: @sauna %>
+  <p><%= @sauna.prefecture %></p>
+  <h3><%= @sauna.name %></h3>
+  <p>利用対象：<%= @sauna.target %></p>
+  <p>サウナ男女入れ替え制：<%= @sauna.swap %></p>
+
+  <div class="row">
+    <div class="col">
+      <h4 class="text-center">サウナ室</h4>
+      <p class="text-center">温度：<%= @sauna.sauna_temperature %>℃</p>
+      <p class="text-center">収容人数：<%= @sauna.sauna_capacity %>人</p>
+      <div class="justify-content-center row">
+        <p>ストーブ：<%= @sauna.stove %></p>
+        <p class="pl-4">熱源：<%= @sauna.heat_source %></p>
+        <p class="pl-4">TV：<%= @sauna.tv %></p>
+      </div>
+      <p class="text-center"><%= @sauna.complement %></p>
+    </div>
+    <div class="col">
+      <h4 class="text-center">水風呂</h4>
+      <p class="text-center">温度：<%= @sauna.mizu_temperature %>℃</p>
+
+      <p class="text-center">収容人数：<%= @sauna.mizu_capacity %>人</p>
+      <p class="text-center">水深：<%= @sauna.depth %>m</p>
+      <p class="text-center">バイブラ：<%= @sauna.vibra %></p>
+    </div>
+  </div>
+  <div class="pt-5">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>アウフグース</th>
+          <td><%= @sauna.aufguss %></td>
+          <td><%= @sauna.aufguss_frequency %></td>
+        </tr>
+        <tr>
+          <th>オートロウリュ</th>
+          <th><%= @sauna.auto_loyly %></th>
+          <th><%= @sauna.auto_loyly_frequency %></th>
+        </tr>
+        <tr>
+          <th>セルフロウリュ</th>
+          <td><%= @sauna.self_loyly %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>外気浴</th>
+          <td><%= @sauna.air_bath %></td>
+          <td></td>
+        </tr>
+          <tr>
+          <th>ととのいスペース</th>
+          <td><%= @sauna.break_space %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>イスの種類</th>
+          <td><%= @sauna.chair %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>椅子の個数</th>
+          <td><%= @sauna.chair_quantity %></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
     <table>
       <tr>
 　　    <th>販売ステータス</th>
 　　    <td>
-　　      <% if @product.is_active %>
+　　      <% if @sauna.is_active %>
             <span>販売中</span>
 　　      <% else %>
             <span>販売停止中</span>
@@ -14,5 +78,4 @@
 　　  </tr>
     </table>
     <%= link_to '編集する', edit_admin_sauna_path(@sauna), class: "btn btn-outline-success" %>
-  </div>
 </div>

@@ -2,9 +2,26 @@
   <div class='row'>
     <h2>施設一覧</h2>
     <% @saunas.each do |sauna| %>
-      <%= link_to admin_sauna_path do %>
-      <%= render 'public/saunas/index' %>
-      <% end %>
+    <%= link_to admin_sauna_path(sauna.id) do %>
+    <div class="row">
+      <div class="col-4">
+        <%= sauna.store_image %>
+      </div>
+      <div class="col-8">
+        <h4><%= sauna.name %></h4>
+        <p><%= sauna.address %></p>
+        <p>
+          サ：<%= sauna.sauna_temperature %>℃
+          水：<%= sauna.mizu_temperature %>℃
+          と：<%= sauna.break_space %>
+        </p>
+        <p>
+          料金：<%= sauna.fee %>円
+          定休日：<%= sauna.holiday %>
+        </p>
+      </div>
+    </div>
+    <% end %>
     <% end %>
   </div>
 </div>

@@ -2,4 +2,7 @@
   <div class="row">
     <%= render 'show', sauna: @sauna, post: @post, saunner: @saunner %>
   </div>
+  <%= render 'favorites/sauna_post_favorite', post: @post %>
+  <%= render 'comments/form', sauna: @sauna, post: @post, sauna_post_comment: @sauna_post_comment %>
+  <%= render 'comments/index', suana: @sauna, post: @post, sauna_post_comment: @sauna_post_comment %>
 </div>

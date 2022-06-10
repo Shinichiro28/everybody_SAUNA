@@ -21,14 +21,22 @@ Rails.application.routes.draw do
 
 
   resources :saunas, controller: "public/saunas" do
-    resources :posts, controller: "public/posts"
+    resources :posts, controller: "public/posts" do
+      resource :favorites, only:[:create, :destroy], controller: "public/favorites"
+      resources :comments, only:[:create,:destroy], controller: "public/comments"
+    end
   end
-  resources :posts, only:[:index], controller: "public/posts"
-  resources :favorites, only:[:create,:destroy], controller: "public/favorites"
-  resources :comments, only:[:create,:destroy], controller: "public/comments"
+
+  resources :posts, only:[:index], controller: "public/posts" do
+    resource :favorites, only:[:create,:destroy], controller: "public/favorites"
+    resources :comments, only:[:create,:destroy], controller: "public/comments"
+  end
+
+
   resources :chats, only:[:index], controller: "public/chats"
   resources :chat_groups, expect:[:edit,:update], controller: "public/chat_groups"
 
+  get "/public/search" => "pblic/searches#search", as: "search"
 
   namespace :admin do
     resources :saunners, expect:[:new,:create,:destroy]

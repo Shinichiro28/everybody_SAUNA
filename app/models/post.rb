@@ -2,9 +2,9 @@ class Post < ApplicationRecord
 
     #アソシエーション
   has_many :comments, dependent: :destroy
-  belongs_to :favorite
-  belongs_to :sauna
-  belongs_to :saunner
+  has_many :favorites, dependent: :destroy
+  belongs_to :sauna, optional: true
+  belongs_to :saunner, optional: true
 
     #バリデーション
   validates :sauna_minutes, presence: true

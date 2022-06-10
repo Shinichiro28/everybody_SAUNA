@@ -4,7 +4,8 @@ class Sauna < ApplicationRecord
 
     #アソシエーション
   has_many :posts, dependent: :destroy
-  belongs_to :saunner
+  belongs_to :saunner, optional: true
+  has_many :favorites, through: :posts
 
     #バリデーション
   validates :name, presence: true
@@ -14,5 +15,13 @@ class Sauna < ApplicationRecord
   validates :tel, presence: true
 
   has_one_attached :store_image
+
+  def self.looks(search, word)
+    if search == "partial_match"
+      @sauna = Sauna.where("title LIKE?","%#{word}%")
+    else
+      @book = Book.all
+    end
+  end
 
 end

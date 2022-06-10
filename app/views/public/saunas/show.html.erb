@@ -1,5 +1,189 @@
 <div class='container px-5 px-sm-0'>
-  <div class='row'>
-    <%= render 'show', sauna: @sauna %>
+  <p><%= @sauna.prefecture %></p>
+  <h3><%= @sauna.name %></h3>
+  <p>利用対象：<%= @sauna.target %></p>
+  <p>サウナ男女入れ替え制：<%= @sauna.swap %></p>
+  <p><%= link_to "サ活投稿", new_sauna_post_path(@sauna.id) %></p>
+  <div class="row">
+    <div class="col">
+      <h4 class="text-center">サウナ室</h4>
+      <p class="text-center">温度：<%= @sauna.sauna_temperature %>℃</p>
+      <p class="text-center">収容人数：<%= @sauna.sauna_capacity %>人</p>
+      <div class="justify-content-center row">
+        <p>ストーブ：<%= @sauna.stove %></p>
+        <p class="pl-4">熱源：<%= @sauna.heat_source %></p>
+        <p class="pl-4">TV：<%= @sauna.tv %></p>
+      </div>
+      <p class="text-center"><%= @sauna.complement %></p>
+    </div>
+    <div class="col">
+      <h4 class="text-center">水風呂</h4>
+      <p class="text-center">温度：<%= @sauna.mizu_temperature %>℃</p>
+
+      <p class="text-center">収容人数：<%= @sauna.mizu_capacity %>人</p>
+      <p class="text-center">水深：<%= @sauna.depth %>m</p>
+      <p class="text-center">バイブラ：<%= @sauna.vibra %></p>
+    </div>
   </div>
+  <div class="pt-5">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>アウフグース</th>
+          <td><%= @sauna.aufguss %></td>
+          <td><%= @sauna.aufguss_frequency %></td>
+        </tr>
+        <tr>
+          <th>オートロウリュ</th>
+          <th><%= @sauna.auto_loyly %></th>
+          <th><%= @sauna.auto_loyly_frequency %></th>
+        </tr>
+        <tr>
+          <th>セルフロウリュ</th>
+          <td><%= @sauna.self_loyly %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>外気浴</th>
+          <td><%= @sauna.air_bath %></td>
+          <td></td>
+        </tr>
+          <tr>
+          <th>ととのいスペース</th>
+          <td><%= @sauna.break_space %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>イスの種類</th>
+          <td><%= @sauna.chair %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>椅子の個数</th>
+          <td><%= @sauna.chair_quantity %></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+    <h4 class="pt-5">館内設備</h4>
+    <table class="table">
+      <tr>
+        <th>館内休憩スペース</th>
+        <td><%= @sauna.inside_break_space %></td>
+        <th>作業スペース</th>
+        <td><%= @sauna.work_space %></td>
+        <th>Wi-fi</th>
+        <td><%= @sauna.wi_fi %></td>
+        <th>電源</th>
+        <td><%= @sauna.supply %></td>
+      </tr>
+      <tr>
+        <th>食事処</th>
+        <td><%= @sauna.restaurant %></td>
+        <th>駐車場</th>
+        <td><%= @sauna.parking %></td>
+        <th>給水器</th>
+        <td><%= @sauna.dispenser %></td>
+        <th>オロポ</th>
+        <td><%= @sauna.oropo %></td>
+      </tr>
+      <tr>
+        <th>タトゥー可</th>
+        <td><%= @sauna.tattoo %></td>
+        <th></th>
+        <td></td>
+        <th></th>
+        <td></td>
+        <th></th>
+        <td></td>
+      </tr>
+    </table>
+
+    <h4 class="pt-5">アメニティ</h4>
+    <table class="table">
+      <tr>
+        <th>シャンプー</th>
+        <td><%= @sauna.shampoo %></td>
+        <th>コンディショナー</th>
+        <td><%= @sauna.conditioner %></td>
+        <th>ボディソープ</th>
+        <td><%= @sauna.bodysoap %></td>
+        <th>フェイスソープ</th>
+        <td><%= @sauna.facesoap %></td>
+      </tr>
+      <tr>
+        <th>カミソリ</th>
+        <td><%= @sauna.razor %></td>
+        <th>歯ブラシ</th>
+        <td><%= @sauna.toothbrush %></td>
+        <th>ドライヤー</th>
+        <td><%= @sauna.hairdryer %></td>
+        <th>ナイロンタオル</th>
+        <td><%= @sauna.nylon_towell %></td>
+      </tr>
+      <tr>
+        <th>バスタオル</th>
+        <td><%= @sauna.bathtowell %></td>
+        <th>フェイスタオル</th>
+        <td><%= @sauna.facetowell %></td>
+        <th>サウナパンツ</th>
+        <td><%= @sauna.pants %></td>
+        <th>サウナマット</th>
+        <td><%= @sauna.saunamat %></td>
+      </tr>
+      <tr>
+        <th>ビート板</th>
+        <td><%= @sauna.saunaboard %></td>
+        <th></th>
+        <td></td>
+        <th></th>
+        <td></td>
+        <th></th>
+        <td></td>
+      </tr>
+    </table>
+
+    <h4 class="pt-5">施設補足事項</h4>
+    <p><%= @sauna.free_text %></p>
+
+    <table class="table pt-3">
+      <tr>
+        <th>施設名</th>
+        <td><%= @sauna.name %></td>
+      </tr>
+      <tr>
+        <th>施設タイプ</th>
+        <td><%= @sauna.store_type %></td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td><%= @sauna.address %></td>
+      </tr>
+      <tr>
+        <th>アクセス</th>
+        <td><%= @sauna.access %></td>
+      </tr>
+      <tr>
+        <th>TEL</th>
+        <td><%= @sauna.tel %></td>
+      </tr>
+      <tr>
+        <th>HP</th>
+        <td><%= @sauna.hp %></td>
+      </tr>
+      <tr>
+        <th>定休日</th>
+        <td><%= @sauna.holiday %></td>
+      </tr>
+      <tr>
+        <th>営業時間</th>
+        <td><%= @sauna.open %></td>
+      </tr>
+      <tr>
+        <th>料金</th>
+        <td><%= @sauna.fee %></td>
+      </tr>
+    </table>
 </div>

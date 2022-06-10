@@ -56,8 +56,9 @@ ActiveRecord::Schema.define(version: 2022_06_05_030410) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "saunner_id"
-    t.integer "post_id"
+    t.integer "saunner_id", null: false
+    t.integer "post_id", null: false
+    t.integer "sauna_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

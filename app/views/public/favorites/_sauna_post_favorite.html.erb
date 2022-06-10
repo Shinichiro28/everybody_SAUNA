@@ -1,0 +1,11 @@
+<% if post.favorite?(current_user) %>
+    <!-- 一致するレコードが存在する＝いいね済みの場合はdestroyアクションへ-->
+  <%= link_to sauna_post_favorite_path(post.id), method: :delete do %>
+  <span style="color:red;">❤︎</span>
+  <% end %>
+<% else %>
+    <!--# 一致するレコードが存在しない＝いいねしていない場合はcreateアクションへ-->
+  <%= link_to sauna_post_favorites_path(post.id), method: :post do %>
+  <span>❤︎</span>
+  <% end %>
+<% end %>

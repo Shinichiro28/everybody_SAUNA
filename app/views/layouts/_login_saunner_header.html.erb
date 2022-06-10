@@ -18,7 +18,10 @@
               施設登録
             <% end %>
           </li>
-          <li class="d-inline-block" style="margin-left: 550px">
+          <li class="d-inline-block" style="padding-left: 250px;">
+            <%= render 'public/searches/search' %>
+          </li>
+          <li class="d-inline-block">
             <%= link_to destroy_saunner_session_path, method: :delete, class: 'nav-link text-light' do %>
               ログアウト
             <% end %>
