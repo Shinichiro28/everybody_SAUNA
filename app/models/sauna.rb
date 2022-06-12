@@ -6,6 +6,8 @@ class Sauna < ApplicationRecord
   has_many :posts, dependent: :destroy
   belongs_to :saunner, optional: true
   has_many :favorites, through: :posts
+  has_many :comments, dependent: :destroy
+
 
     #バリデーション
   validates :name, presence: true
@@ -22,6 +24,10 @@ class Sauna < ApplicationRecord
     else
       @book = Book.all
     end
+  end
+
+  def get_store_image
+      (store_image.attached?) ? store_image : 'no_store.jpeg'
   end
 
 end

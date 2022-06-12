@@ -1,28 +1,16 @@
-<h2><%= sauna.name %></h2>
-<div class="row">
-  <h4><%= saunner.name %></h4>
-  <p><%= post.visit_date %></p>
-  <div class="pt-3 pl-3">
-    <h4>◆サウナ</h4>
-    <div>
-      <em>サウナ時間：<%= post.sauna_minutes %>分</em>
-      <em>水風呂時間：<%= post.mizu_minutes %>分</em>
-      <em>ととのい時間：<%= post.totonoi_minutes %>分</em>
-      <em>セット数：<%= post.sauna_times %>回</em>
-    </div>
-    <div>
-      <em>サウナ室温度：<%= post.sauna_temperature %>℃</em>
-      <em>水風呂温度：<%= post.mizu_temperature %>℃</em>
-    </div>
-    <div>
-      <%= post.sauna_post %>
-    </div>
+<div class="card">
+  <div class="card-header">
+    <p><%= saunner.nickname %></p>
+    <p style="font-size: small;">訪問日時：<%= post.visit_date %></p>
   </div>
-  <div class="pt-3 pl-3">
-    <h4>サウナ飯</h4>
-    <p><%= post.food_name %></p>
-    <div>
-      <%= post.food_post %>
-    </div>
+  <div class="card-body">
+    <p class="card-title" style="font-size: small;"><strong><%= sauna.name %></strong><%= sauna.prefecture %></p>
+    <p class="card-text">サウナ時間：<%= post.sauna_minutes %>分</p>
+    <p class="card-text">水風呂時間：<%= post.mizu_minutes %>分</p>
+    <p class="card-text">ととのい時間：<%= post.totonoi_minutes %>分</p>
+    <p class="card-text">セット数：<%= post.sauna_times %>回</p>
+    <p class="card-text">サウナ室温度：<%= post.sauna_temperature %>℃</p>
+    <p class="card-text">水風呂温度：<%= post.mizu_temperature %>℃</p>
+    <p class="card-text"><%= post.sauna_post %></p>
   </div>
 </div>

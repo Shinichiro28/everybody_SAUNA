@@ -6,11 +6,15 @@
     </tr>
   </thead>
   <tbody>
-    <%= sauna_post_comments.each do |comment| %>
+    <% comments.each do |comment| %>
     <tr>
-      <td><%= comment.user.name %></td>
+      <td><%= saunner.nickname %></td>
       <td><%= comment.comment %></td>
-      <td><%= link_to "削除", sauna_post_comment_path(sauna, post, comment), method: :delete %></td>
+      <td>
+        <% if comment.saunner == current_saunner %>
+        <%= link_to "削除", sauna_post_comment_path(sauna, post, comment), method: :delete, class: "btn btn-sm btn-danger" %>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>

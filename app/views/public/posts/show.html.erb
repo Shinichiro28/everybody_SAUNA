@@ -1,8 +1,30 @@
-<div class="container px-5 px-sm-0">
-  <div class="row">
-    <%= render 'show', sauna: @sauna, post: @post, saunner: @saunner %>
+<div class="container">
+  <div class="card" style="width: 100%; height: 100%;">
+    <div class="card-header">
+      <a><%= @saunner.nickname %></a>
+      <a style="font-size: small;">訪問日時：<%= @post.visit_date %></a>
+      <a class="card-title pl-5"><%= @sauna.name %></a><a style="font-size: small; color: gray;"><%= @sauna.prefecture %></a>
+    </div>
+    <div class="card-body text-center">
+      <div class="container row">
+        <div class="col">
+          <p class="card-text">サウナ時間：<%= @post.sauna_minutes %>分</p>
+          <p class="card-text">水風呂時間：<%= @post.mizu_minutes %>分</p>
+          <p class="card-text">ととのい時間：<%= @post.totonoi_minutes %>分</p>
+          <p class="card-text">セット数：<%= @post.sauna_times %>回</p>
+          <p class="card-text">サウナ室温度：<%= @post.sauna_temperature %>℃</p>
+          <p class="card-text">水風呂温度：<%= @post.mizu_temperature %>℃</p>
+        </div>
+        <div class="col">
+          <%= image_tag @post.get_sauna_image, size:'400x200' %>
+          <p class="card-text"><%= @post.sauna_post %></p>
+        </div>
+      </div>
+      <div class="pt-5">
+        <p class="card-text"><%= render 'public/favorites/sauna_post_favorite', post: @post, sauna: @sauna %></p>
+        <p class="card-text"><%= render 'public/comments/form', sauna: @sauna, post: @post, comment: @comment %></p>
+        <p class="card-text"><%= render 'public/comments/index', sauna: @sauna, post: @post, comments: @comments %></p>
+      </div>
+    </div>
   </div>
-  <%= render 'favorites/sauna_post_favorite', post: @post %>
-  <%= render 'comments/form', sauna: @sauna, post: @post, sauna_post_comment: @sauna_post_comment %>
-  <%= render 'comments/index', suana: @sauna, post: @post, sauna_post_comment: @sauna_post_comment %>
 </div>

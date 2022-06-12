@@ -34,7 +34,7 @@ class Public::SaunnersController < ApplicationController
   private
 
   def saunner_params
-    params.require(:saunner).permit(:last_name,:first_name,:nickname, :email)
+    params.require(:saunner).permit(:last_name,:first_name,:nickname, :email, :sauna_image)
   end
 
 end

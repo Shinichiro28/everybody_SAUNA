@@ -1,21 +1,21 @@
 <div class="container">
-    <div id="slide">
-        <div id="theTarget" style="position: relative;">
-            <div class="image1"></div>
-            <div class="image2"></div>
-            <div class="image3"></div>
-            <div class="image4"></div>
-            <div class="image5"></div>
-        </div>
+  <div id="slide">
+    <div id="theTarget" style="position: relative;">
+      <div class="image1"></div>
+      <div class="image2"></div>
+      <div class="image3"></div>
+      <div class="image4"></div>
+      <div class="image5"></div>
     </div>
-    <div class="container top-text">
-        全てのサウナーのサウナ生活のサポートを・・・
-    </div>
-    <div>
-        <施設検索機能>
-    </div>
-    <div>
-        <グループ一覧(新規5つ)>
-        <リンク>
-    </div>
+  </div>
+  <div class="container top-text">
+    全てのサウナーのサウナ生活のサポートを・・・
+  </div>
+  <h5 class="pt-5"><新規サ活投稿></h5>
+  <%= render 'post', new_posts: @new_posts, saunas: @saunas, saunners: @saunners %>
+  <div class="container">
+  <h5 class="pt-5"><新規施設情報></h5>
+  <%= render 'sauna', new_saunas: @new_saunas %>
+  </div>
 </div>
+  <リンク>

@@ -2,26 +2,27 @@ class Public::PostsController < ApplicationController
 
 
   def new
-    @post = Post.new
+    @post = Post.new(saunner_id: current_saunner.id, sauna_id: params[:sauna_id])
     @sauna = Sauna.find(params[:sauna_id])
   end
 
   def show
-    @sauna = Sauna.find_by(params[sauna_id])
-    @post = Post.find(params[:id])
-    @sauna_post_comment = Comment.new
-    @sauna_post_comments = @post.Comment.all
+    @saunner = Saunner.find(params[:saunner_id])
+    @sauna = Sauna.find_by(params[:sauna_id], saunner_id: params[:saunner_id])
+    @post = Post.find_by(params[:id], saunner_id: current_saunner.id, sauna_id: params[:sauna_id])
+    @comment = Comment.new(saunner_id: current_saunner.id, id: params[:id])
+    @comments = @post.comments
   end
 
   def index
-    @posts = Post.all
-
     @sauna = Sauna.find(params[:sauna_id])
+    @saunner = Saunner.find(params[:saunner_id])
+    @posts = @sauna.posts
   end
 
   def edit
-    @post = Post.find(params[:id])
-    @sauna = Sauna.find(params[:sauna_id])
+    @post = Post.find_by(post_id: params[:id], saunner_id: current_saunner.id, sauna_id: params[:sauna_id])
+    @sauna = Sauna.find_by(saunner_id: current_saunner.id, sauna_id: params[:sauna_id])
   end
 
   def create

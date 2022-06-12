@@ -43,6 +43,12 @@ footer{
   background-color: #b0c4de;
 }
 
+.top-sauna{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .about{
   padding-bottom: 50px;
 }
@@ -59,3 +65,4 @@ footer{
 .saunner-edit{
   padding-bottom: 165px;
 }
+

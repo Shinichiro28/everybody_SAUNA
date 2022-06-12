@@ -16,4 +16,12 @@ class Post < ApplicationRecord
   has_one_attached :sauna_image
   has_one_attached :food_image
 
+  def get_sauna_image
+      (sauna_image.attached?) ? sauna_image : 'no_sauna.jpeg'
+  end
+
+  def favorited?(saunner)
+    favorites.where(saunner_id: saunner.id).exists?
+  end
+
 end
