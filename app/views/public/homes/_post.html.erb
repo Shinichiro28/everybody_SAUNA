@@ -1,22 +1,23 @@
-<div class="row pt-5 pl-3">
-    <div class="col">
+<div class="container-fluid pt-5 pl-3">
+  <div class="row">
     <% @new_posts.each do |post| %>
-    <% @saunners.each do |saunner| %>
-    <% @saunas.each do |sauna| %>
-      <div class="card" style="width: 300px; height: 350px">
-      <%= image_tag post.get_sauna_image, width: '100%', height: '50%' %>
+    <%# @saunners.each do |saunner| %>
+    <%# @saunas.each do |sauna| %>
+    <div class="col mb-3">
+      <div class="card" style="width: 18rem;">
+        <%= image_tag post.get_sauna_image, width: '100%', height: '50%' %>
         <div class="card-body">
           <table>
             <thead>
               <tr>
                 <td style="font-size: small;">
-                <%= saunner.nickname %>
+                <%#= post.saunner.nickname %>
                 </td>
               </tr>
               <tr>
                 <th>
-                 <a style="color: blue; clamp(1px, 18px, 18px);"><%= sauna.name %></a><br>
-                 <a style="color: gray; font-size: small;">[<%= sauna.prefecture %>]</a>
+                 <a style="color: blue; clamp(1px, 18px, 18px);"><%#= post.sauna.name %></a><br>
+                 <a style="color: gray; font-size: small;">[<%#= post.sauna.prefecture %>]</a>
                 </th>
               </tr>
             </thead>
@@ -38,8 +39,8 @@
         </div>
       </div>
     </div>
-  <% end %>
-  <% end %>
+  <%# end %>
+  <%# end %>
   <% end %>
   </div>
 </div>

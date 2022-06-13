@@ -7,16 +7,15 @@ class Public::PostsController < ApplicationController
   end
 
   def show
-    @saunner = Saunner.find(params[:saunner_id])
-    @sauna = Sauna.find_by(params[:sauna_id], saunner_id: params[:saunner_id])
-    @post = Post.find_by(params[:id], saunner_id: current_saunner.id, sauna_id: params[:sauna_id])
+    @sauna = Sauna.find(params[:sauna_id])
+    @post = Post.find(params[:id])
     @comment = Comment.new(saunner_id: current_saunner.id, id: params[:id])
     @comments = @post.comments
   end
 
   def index
     @sauna = Sauna.find(params[:sauna_id])
-    @saunner = Saunner.find(params[:saunner_id])
+    @saunner = Saunner.find_by(params[:saunner_id])
     @posts = @sauna.posts
   end
 
@@ -27,10 +26,15 @@ class Public::PostsController < ApplicationController
 
   def create
     @sauna = Sauna.find(params[:sauna_id])
-    @post = Post.new(post_params)
+    p "ここだよ------------------------------------------------------------------------------------------"
+    p @sauna
+    p params[:sauna_id]
+
+    @post = @sauna.posts.new(post_params)
     if @post.save
+      p @post
       flash[:notice] = "サ活投稿に成功しました！"
-      redirect_to sauna_path(@post.id)
+      redirect_to sauna_post_path(@sauna.id, @post.id)
     else
       render 'new'
     end

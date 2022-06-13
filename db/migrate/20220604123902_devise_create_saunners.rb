@@ -35,6 +35,8 @@ class DeviseCreateSaunners < ActiveRecord::Migration[6.1]
       t.string :last_name
       t.string :first_name
       t.boolean :is_deleted
+      t.integer :post_id, foreign_key: true
+      t.integer :sauna_id, foreign_key: true
 
 
       t.timestamps null: false

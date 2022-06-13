@@ -11,11 +11,13 @@
   <div class="container top-text">
     全てのサウナーのサウナ生活のサポートを・・・
   </div>
-  <h5 class="pt-5"><新規サ活投稿></h5>
-  <%= render 'post', new_posts: @new_posts, saunas: @saunas, saunners: @saunners %>
   <div class="container">
-  <h5 class="pt-5"><新規施設情報></h5>
-  <%= render 'sauna', new_saunas: @new_saunas %>
+    <h5 class="pt-5"><新規サ活投稿></h5>
+    <%= render 'post', new_posts: @new_posts, saunas: @saunas, saunners: @saunners %>
+  </div>
+  <div class="container">
+    <h5 class="pt-5"><新規施設情報></h5>
+    <%= render 'sauna', new_saunas: @new_saunas %>
   </div>
 </div>
   <リンク>

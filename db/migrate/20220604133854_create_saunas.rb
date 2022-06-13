@@ -2,7 +2,8 @@ class CreateSaunas < ActiveRecord::Migration[6.1]
   def change
     create_table :saunas do |t|
 
-      t.integer :saunner_id
+      t.integer :saunner_id, foreign_key: true
+      t.integer :post_id, foreign_key: true
       t.string :name
       t.string :store_type
       t.string :target
@@ -26,6 +27,7 @@ class CreateSaunas < ActiveRecord::Migration[6.1]
       t.integer :mizu_capacity
       t.integer :depth
       t.string :vibra
+      t.text :mizu_complement
       t.string :break_space
       t.string :air_bath
       t.string :chair

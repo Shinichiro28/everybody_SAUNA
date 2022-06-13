@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 2022_06_11_073844) do
 
   create_table "saunas", force: :cascade do |t|
     t.integer "saunner_id"
+    t.integer "post_id"
     t.string "name"
     t.string "store_type"
     t.string "target"
@@ -138,6 +139,7 @@ ActiveRecord::Schema.define(version: 2022_06_11_073844) do
     t.integer "mizu_capacity"
     t.integer "depth"
     t.string "vibra"
+    t.text "mizu_complement"
     t.string "break_space"
     t.string "air_bath"
     t.string "chair"
@@ -183,6 +185,8 @@ ActiveRecord::Schema.define(version: 2022_06_11_073844) do
     t.datetime "remember_created_at"
     t.string "last_name"
     t.string "first_name"
+    t.integer "post_id"
+    t.integer "sauna_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_deleted", default: false
