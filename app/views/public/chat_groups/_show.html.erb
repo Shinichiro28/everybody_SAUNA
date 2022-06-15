@@ -1,0 +1,29 @@
+<!--一般的な一覧画面-->
+<% chat_groups.each do |chat_group| %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>グループ名</th>
+        <th>グループ説明</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td><%= chat_group.name %></td>
+        <td><%= chat_group.introduction %></td>
+        <td>
+          <% if chat_group.is_owned_by?(current_saunner) %>
+            <%= link_to "編集", edit_chat_group_path(chat_group.id), class: "btn btn-sm btn-outline-success" %>
+          <% elsif chat_group.includesSaunner?(current_saunner) %>
+            <%= link_to "退会する", chat_group_chat_group_users_path(chat_group.id), method: :delete, class: "btn btn-sm btn-outline-danger" %>
+          <% else %>
+            <%= link_to "参加する", chat_group_chat_group_users_path(chat_group.id), method: :post, class: "btn btn-sm btn-outline-success" %>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>

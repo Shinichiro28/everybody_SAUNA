@@ -272,9 +272,9 @@
       <div class="form-group row">
         <%= f.label "販売ステータス", class: "col-md-3" %>
           <%= f.radio_button :is_active, :true %>
-          <%= f.label :is_active, "販売中", {value: :true} %>
+          <%= f.label :is_active, "公開中", {value: :true} %>
           <%= f.radio_button :is_active, :false %>
-          <%= f.label :is_active, "販売停止中", {value: :false} %>
+          <%= f.label :is_active, "公開停止中", {value: :false} %>
       </div>
       <div class="actions m-2 pull-right">
         <%= f.submit "編集更新" , class: "btn btn-outline-success col-md-offset-6" %>

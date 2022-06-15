@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   sessions: 'public/sessions'
 }
 
+  devise_scope :saunner do
+    post 'saunners/guest_sign_in', to: 'public/saunners/sessions#guest_sign_in'
+  end
+
 
   resources :saunas, controller: "public/saunas" do
     resources :posts, controller: "public/posts" do
@@ -32,21 +36,25 @@ Rails.application.routes.draw do
     resources :comments, only:[:create,:destroy], controller: "public/comments"
   end
 
+  resources :chat_groups, controller: "public/chat_groups" do
+    get "join" => "chat_groups#join"
+    delete "all_destroy" => 'chat_groups#all_destroy'
+    resources :chats, only:[:show,:create,:destroy], controller: "public/chats"
+  end
 
-  resources :chats, only:[:index], controller: "public/chats"
-  resources :chat_groups, expect:[:edit,:update], controller: "public/chat_groups"
-
-  get "/public/search" => "pblic/searches#search", as: "search"
+  get "/public/search" => "public/searches#search", as: "search"
 
   namespace :admin do
     resources :saunners, expect:[:new,:create,:destroy]
     resources :saunas, expect:[:new,:create]
     resources :posts, only:[:index,:show,:destroy]
     resources :comments, only:[:index,:show,:destroy]
+    root "homes#top"
   end
 
   get "/admin/chat_groups" => "admin/chat_groups#index"
   get "/admin" => "admin/homes#top", as: "admin"
+  get "/admin/search" => "admin/searches#search"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

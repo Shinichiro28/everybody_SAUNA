@@ -3,6 +3,7 @@ class Public::CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
+    @comment.saunner = current_saunner
     if @comment.save
       flash[:notice] = "コメント投稿に成功しました！"
       redirect_to request.referer

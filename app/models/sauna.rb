@@ -1,6 +1,5 @@
 class Sauna < ApplicationRecord
 
-  enum is_active: { release: 0, close: 1 }
 
     #アソシエーション
   has_many :posts, dependent: :destroy
@@ -20,9 +19,9 @@ class Sauna < ApplicationRecord
 
   def self.looks(search, word)
     if search == "partial_match"
-      @sauna = Sauna.where("title LIKE?","%#{word}%")
+      @sauna = Sauna.where("name LIKE?","%#{word}%").where(is_active: true)
     else
-      @book = Book.all
+      @sauna = Sauna.where(is_active: true)
     end
   end
 

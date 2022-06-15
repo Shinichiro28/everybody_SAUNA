@@ -53,24 +53,27 @@ ActiveRecord::Schema.define(version: 2022_06_11_073844) do
   end
 
   create_table "chat_group_users", force: :cascade do |t|
-    t.integer "saunner_id"
-    t.integer "chat_group_id"
+    t.integer "saunner_id", null: false
+    t.integer "chat_group_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "chat_groups", force: :cascade do |t|
-    t.string "name"
-    t.text "introduction"
+    t.string "name", null: false
+    t.text "introduction", null: false
     t.integer "owner_id"
+    t.string "status"
+    t.integer "saunner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["saunner_id"], name: "index_chat_groups_on_saunner_id"
   end
 
   create_table "chats", force: :cascade do |t|
-    t.integer "saunner_id"
-    t.integer "chat_group_id"
-    t.string "message"
+    t.integer "saunner_id", null: false
+    t.integer "chat_group_id", null: false
+    t.string "message", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -96,13 +99,13 @@ ActiveRecord::Schema.define(version: 2022_06_11_073844) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "saunner_id"
-    t.integer "sauna_id"
-    t.date "visit_date"
-    t.integer "sauna_minutes"
-    t.integer "mizu_minutes"
-    t.integer "totonoi_minutes"
-    t.integer "sauna_times"
+    t.integer "saunner_id", null: false
+    t.integer "sauna_id", null: false
+    t.date "visit_date", null: false
+    t.integer "sauna_minutes", null: false
+    t.integer "mizu_minutes", null: false
+    t.integer "totonoi_minutes", null: false
+    t.integer "sauna_times", null: false
     t.text "sauna_post"
     t.string "food_name"
     t.text "food_post"
@@ -114,63 +117,63 @@ ActiveRecord::Schema.define(version: 2022_06_11_073844) do
   end
 
   create_table "saunas", force: :cascade do |t|
-    t.integer "saunner_id"
+    t.integer "saunner_id", null: false
     t.integer "post_id"
-    t.string "name"
-    t.string "store_type"
-    t.string "target"
-    t.string "swap"
-    t.string "prefecture"
-    t.string "postcode"
-    t.string "address"
-    t.string "tel"
-    t.string "hp"
-    t.string "access"
-    t.string "holiday"
-    t.string "open"
-    t.string "fee"
-    t.string "stove"
-    t.string "heat_source"
-    t.integer "sauna_temperature"
-    t.integer "sauna_capacity"
-    t.string "tv"
+    t.string "name", null: false
+    t.string "store_type", null: false
+    t.string "target", null: false
+    t.string "swap", null: false
+    t.string "prefecture", null: false
+    t.string "postcode", null: false
+    t.string "address", null: false
+    t.string "tel", null: false
+    t.string "hp", null: false
+    t.string "access", null: false
+    t.string "holiday", null: false
+    t.string "open", null: false
+    t.string "fee", null: false
+    t.string "stove", null: false
+    t.string "heat_source", null: false
+    t.integer "sauna_temperature", null: false
+    t.integer "sauna_capacity", null: false
+    t.string "tv", null: false
     t.text "complement"
-    t.integer "mizu_temperature"
-    t.integer "mizu_capacity"
-    t.integer "depth"
-    t.string "vibra"
+    t.integer "mizu_temperature", null: false
+    t.integer "mizu_capacity", null: false
+    t.integer "depth", null: false
+    t.string "vibra", null: false
     t.text "mizu_complement"
-    t.string "break_space"
-    t.string "air_bath"
-    t.string "chair"
+    t.string "break_space", null: false
+    t.string "air_bath", null: false
+    t.string "chair", null: false
     t.integer "chair_quantity"
-    t.string "aufguss"
+    t.string "aufguss", null: false
     t.string "aufguss_frequency"
-    t.string "auto_loyly"
+    t.string "auto_loyly", null: false
     t.string "auto_loyly_frequency"
-    t.string "self_loyly"
-    t.string "inside_break_space"
-    t.string "wi_fi"
-    t.string "supply"
-    t.string "work_space"
-    t.string "restaurant"
-    t.string "parking"
-    t.string "dispenser"
-    t.string "oropo"
-    t.string "tattoo"
-    t.string "shampoo"
-    t.string "conditioner"
-    t.string "bodysoap"
-    t.string "facesoap"
-    t.string "razor"
-    t.string "toothbrush"
-    t.string "nylon_towell"
-    t.string "hairdryer"
-    t.string "facetowell"
-    t.string "bathtowell"
-    t.string "pants"
-    t.string "saunamat"
-    t.string "saunaboard"
+    t.string "self_loyly", null: false
+    t.string "inside_break_space", null: false
+    t.string "wi_fi", null: false
+    t.string "supply", null: false
+    t.string "work_space", null: false
+    t.string "restaurant", null: false
+    t.string "parking", null: false
+    t.string "dispenser", null: false
+    t.string "oropo", null: false
+    t.string "tattoo", null: false
+    t.string "shampoo", null: false
+    t.string "conditioner", null: false
+    t.string "bodysoap", null: false
+    t.string "facesoap", null: false
+    t.string "razor", null: false
+    t.string "toothbrush", null: false
+    t.string "nylon_towell", null: false
+    t.string "hairdryer", null: false
+    t.string "facetowell", null: false
+    t.string "bathtowell", null: false
+    t.string "pants", null: false
+    t.string "saunamat", null: false
+    t.string "saunaboard", null: false
     t.text "free_text"
     t.boolean "is_active", default: false
     t.datetime "created_at", precision: 6, null: false
@@ -183,8 +186,8 @@ ActiveRecord::Schema.define(version: 2022_06_11_073844) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "last_name"
-    t.string "first_name"
+    t.string "last_name", null: false
+    t.string "first_name", null: false
     t.integer "post_id"
     t.integer "sauna_id"
     t.datetime "created_at", precision: 6, null: false

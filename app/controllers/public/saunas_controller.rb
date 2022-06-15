@@ -9,11 +9,12 @@ class Public::SaunasController < ApplicationController
   end
 
   def index
-    @saunas = Sauna.all
+    @saunas = Sauna.where(is_active: true)
   end
 
   def create
-    @sauna = Sauna.new(sauna_params)
+    @saunner = Saunner.find_by(params[:saunner_id])
+    @sauna = @saunner.saunas.new(sauna_params)
     if @sauna.save
       flash[:notice] = "施設登録申請に成功しました。表示されるまでもう少しお待ちくださいませ。"
       redirect_to root_path

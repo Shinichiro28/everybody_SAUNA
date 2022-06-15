@@ -11,7 +11,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @saunnera.each do |saunner| %>
+          <% @saunners.each do |saunner| %>
             <tr onclick='window.location="<%= '/admin/saunners/' + saunner.id.to_s %>"' role="link" >
               <td><%= saunner.id %></td>
               <td><%= saunner.last_name %> <%= saunner.first_name %></td>

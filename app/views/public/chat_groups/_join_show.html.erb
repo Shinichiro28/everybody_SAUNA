@@ -1,0 +1,33 @@
+<!--作成グループの有無の条件分岐-->
+<h5 class="mt-3">参加グループ一覧</h5>
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>グループ名</th>
+        <th>グループ説明</th>
+        <th>メンバー数</th>
+        <th>編集</th>
+        <th>削除</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td><%= chat_group.name %></td>
+        <td><%= chat_group.introduction %></td>
+        <td><%= chat_group.saunners.count %></td>
+        <!--作成グループがある場合-->
+        <% if chat_group.owner_id = current_saunner.id %>
+        <td><%= link_to '編集', edit_chat_group_path(chat_group), class: "btn btn-sm btn-outline-success" %></td>
+        <td><%= link_to '削除', chat_group_path(chat_group), method: :delete, class: "btn btn-sm btn-outline-danger" %></td>
+        <!--作成グループがない場合-->
+        <% else %>
+        <td></td>
+        <td></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>

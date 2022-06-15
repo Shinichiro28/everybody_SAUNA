@@ -1,0 +1,28 @@
+<div class="container-fluid pt-5 pl-3">
+  <div class="row">
+    <% new_saunas.each do |sauna| %>
+    <%= link_to admin_sauna_path(sauna.id) do %>
+    <div class="col mb-3">
+      <div class="card" style="width: 18rem;">
+        <%= image_tag sauna.get_store_image, width: '100%', height: '50%' %>
+        <div class="card-body">
+          <h5 class="card-title"><%= sauna.name %><br><small class="text-muted"><%= sauna.prefecture %></small></h5>
+          <p class="card-text">サウナ室温度：<%= sauna.sauna_temperature %>℃</p>
+          <p class="card-text">水風呂温度：<%= sauna.mizu_temperature %>℃</p>
+          <p class="card-text">ととのいスポット：<%= sauna.break_space %></p>
+          <p class="card-text top-sauna">料金：<%= sauna.fee %></p>
+          <p class="card-text top-sauna">定休日：<%= sauna.holiday %></p>
+          <strong style="color: red;">ステータス：
+            <% if sauna.is_active %>
+            <span>公開中</span>
+　　        <% else %>
+            <span>公開停止中</span>
+　　        <% end %>
+　　      </strong>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <h2> <%= @chat_group.name %></h2>
+
+      <table class="message table">
+        <thead>
+          <tr>
+            <th style="text-align: left; font-size: 20px;"><%= current_saunner.name %></th>
+            <th style="text-align: right; font-size: 20px;"><%#= chat.saunner_id.name %></th>
+          </tr>
+        </thead>
+        <% @chats.each do |chat| %>
+          <% if chat.saunner_id == current_saunner.id %>
+          <tbody>
+            <tr>
+              <th>
+                <p style="text-align: left;"><%= chat.message %></p>
+              </th>
+              <th></th>
+            </tr>
+          <% else %>
+            <tr>
+              <th></th>
+              <th>
+                <p style="text-align: right;"><%= chat.message %></p>
+              </th>
+            </tr>
+          </tbody>
+          <% end %>
+        <% end %>
+      </table>
+
+      <%= form_with model: @chat, remote: true do |f| %>
+        <%= f.text_field :message %>
+        <%= f.hidden_field :chat_group_id %>
+        <%= f.submit "送信", class:"btn btn-sm btn-outline-success chat-btn" %>
+      <% end %>
+    </div>
+  </div>
+</div>

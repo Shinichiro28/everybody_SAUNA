@@ -1,11 +1,11 @@
 class Admin::PostsController < ApplicationController
 
   def show
-    @post = find.(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def index
-    @post = Post.all
+    @posts = Post.all
   end
 
   def destroy
@@ -13,7 +13,7 @@ class Admin::PostsController < ApplicationController
     id @post.update(post_params)
     flash[:notice] = "投稿削除に成功しました。"
   end
-  
+
   private
 
   def post_params
