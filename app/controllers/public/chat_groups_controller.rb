@@ -22,8 +22,7 @@ class Public::ChatGroupsController < ApplicationController
   end
 
   def create
-    @saunner = Saunner.find(params[:saunner_id])
-    @chat_group_user = @saunner.chat_group_users.find_by(params[:chat_group_user])
+    @chat_group_user = ChatGroupUser.find(params[:chat_group_user_id])
     @chat_group = @chat_group_user.owned_chat_groups.new(chat_group_params)
     @chat_group.owner_id = current_saunner.id
      #作成と同時にそのグループのメンバー
