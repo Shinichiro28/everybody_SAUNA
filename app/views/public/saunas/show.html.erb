@@ -3,7 +3,10 @@
   <h3><%= @sauna.name %></h3>
   <p>利用対象：<%= @sauna.target %></p>
   <p>サウナ男女入れ替え制：<%= @sauna.swap %></p>
-  <p><%= link_to "サ活投稿", new_sauna_post_path(@sauna.id) %></p>
+  <div class="mb-3">
+    <a><%= link_to "サ活投稿", new_sauna_post_path(@sauna.id) %></a>
+    <a class="ml-3"><%= link_to "サ活一覧", sauna_posts_path(@sauna) %></a>
+  </div>
 
   <div class="card" style="width: 100%;">
     <div class="card-body row">

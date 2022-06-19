@@ -23,11 +23,11 @@ class Saunner < ApplicationRecord
   has_one_attached :profile_image
 
   def self.guest
-    find_or_create_by!(first_name: 'guest', last_name: 'saunner', nickname: 'gestsaunner' ,email: 'guest@example.com') do |saunner|
+    find_or_create_by!(first_name: 'guest', last_name: 'saunner', nickname: 'guestsaunner' ,email: 'guest@example.com') do |saunner|
       saunner.password = SecureRandom.urlsafe_base64
       saunner.first_name = "guest"
       saunner.last_name = "saunner"
-      saunner.nickname = "gestsaunner"
+      saunner.nickname = "guestsaunner"
     end
   end
 

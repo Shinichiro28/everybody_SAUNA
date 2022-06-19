@@ -1,6 +1,40 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <h1>投稿詳細</h1>
-    <%= render 'public/posts/show', sauna: @sauna, post: @post, saunner: @saunner %>
+    <div class="card" style="width: 100%; height: 100%;">
+      <div class="card-header">
+        <a><%= @post.saunner.nickname %>さん</a>
+        <a class="ml-5" style="font-size: small;">訪問日時：<%= @post.visit_date %></a>
+        <a class="card-title pl-5"><%= @sauna.name %></a><a style="font-size: small; color: gray;"><%= @sauna.prefecture %></a>
+        <a class="ml-5"><%= link_to '削除', admin_post_path(sauna_id: @sauna.id, post_id: @post.id), method: :delete, data: { confirm: '本当に削除しますか？' } , class: "btn btn-sm btn-outline-danger" %></a>
+      </div>
+      <div class="card-body text-center">
+        <p class="card-text">
+            <!--タグ-->
+          <% @post_tags.each do |tag| %>
+            <%#= link_to tag.name, sauna_post_search_tag_path(post_id: @post.id, tag_id: tag.id) %>
+            <%#="(#{tag.posts.count})" %>
+          <% end %>
+        </p>
+        <div class="container row">
+          <div class="col">
+            <p class="card-text">サウナ時間：<%= @post.sauna_minutes %>分</p>
+            <p class="card-text">水風呂時間：<%= @post.mizu_minutes %>分</p>
+            <p class="card-text">ととのい時間：<%= @post.totonoi_minutes %>分</p>
+            <p class="card-text">セット数：<%= @post.sauna_times %>回</p>
+            <p class="card-text">サウナ室温度：<%= @post.sauna_temperature %>℃</p>
+            <p class="card-text">水風呂温度：<%= @post.mizu_temperature %>℃</p>
+          </div>
+          <div class="col">
+            <%= image_tag @post.get_sauna_image, size:'400x200' %>
+            <p class="card-text"><%= @post.sauna_post %></p>
+          </div>
+        </div>
+        <div class="pt-5">
+          <p class="card-text"><%= render 'public/comments/index', sauna: @sauna, post: @post, comments: @comments %></p>
+        </div>
+        <%= link_to "≤一覧へ戻る", admin_posts_path %>
+      </div>
+    </div>
   </div>
 </div>

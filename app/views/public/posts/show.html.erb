@@ -1,11 +1,22 @@
 <div class="container">
   <div class="card" style="width: 100%; height: 100%;">
     <div class="card-header">
-      <a><%= @saunner.nickname %>さん</a>
+      <a><%= @post.saunner.nickname %>さん</a>
       <a class="ml-5" style="font-size: small;">訪問日時：<%= @post.visit_date %></a>
       <a class="card-title pl-5"><%= @sauna.name %></a><a style="font-size: small; color: gray;"><%= @sauna.prefecture %></a>
+      <% if @post.saunner == current_saunner %>
+      <a class="ml-5"><%= link_to "編集", edit_sauna_post_path(sauna_id: @sauna.id, post_id: @post.id), class: "btn btn-sm btn-outline-success" %></a>
+      <a><%= link_to '削除', sauna_post_path(sauna_id: @sauna.id, post_id: @post.id), method: :delete, data: { confirm: '本当に削除しますか？' } , class: "btn btn-sm btn-outline-danger" %></a>
+      <% end %>
     </div>
     <div class="card-body text-center">
+      <p class="card-text">
+          <!--タグ-->
+        <% @post_tags.each do |tag| %>
+          <%= link_to tag.name, sauna_post_search_tag_path(post_id: @post.id, tag_id: tag.id) %>
+          <%="(#{tag.posts.count})" %>
+        <% end %>
+      </p>
       <div class="container row">
         <div class="col">
           <p class="card-text">サウナ時間：<%= @post.sauna_minutes %>分</p>
@@ -25,6 +36,7 @@
         <p class="card-text"><%= render 'public/comments/form', sauna: @sauna, post: @post, comment: @comment %></p>
         <p class="card-text"><%= render 'public/comments/index', sauna: @sauna, post: @post, comments: @comments %></p>
       </div>
+      <%= link_to "≤一覧へ戻る", sauna_posts_path %>
     </div>
   </div>
 </div>

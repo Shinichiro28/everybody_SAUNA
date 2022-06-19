@@ -6,8 +6,8 @@
       <table class="message table">
         <thead>
           <tr>
-            <th style="text-align: left; font-size: 20px;"><%= current_saunner.name %></th>
-            <th style="text-align: right; font-size: 20px;"><%#= chat.saunner_id.name %></th>
+            <th style="text-align: left; font-size: 20px;"><%= current_saunner.nickname %></th>
+            <th style="text-align: right; font-size: 20px;"><%= chat.saunner.nickname %></th>
           </tr>
         </thead>
         <% @chats.each do |chat| %>

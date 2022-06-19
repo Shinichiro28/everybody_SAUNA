@@ -1,7 +1,10 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #b0c4de; height: 100px;">
     <div class="container">
-      <div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse p-3" id="navbarNavDropdown" style="background: #b0c4de;">
         <ul class="navbar-nav ml-auto">
           <li>
             <%= link_to admin_saunas_path, class: 'nav-link' do %>
@@ -20,7 +23,7 @@
           </li>
           <li>
             <%= link_to admin_chat_groups_path, class: 'nav-link' do %>
-              ジャンル一覧
+              チャットグループ一覧
             <% end %>
           </li>
           <li>

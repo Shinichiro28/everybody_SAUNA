@@ -4,8 +4,8 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
+      <div class="collapse navbar-collapse p-3" id="navbarNavDropdown" style="background: #b0c4de;">
+        <ul class="navbar-nav ml-auto" style="font-size: 15px;">
           <li class="d-inline-block">
             <%= link_to root_path,class: 'nav-link text-light' do %>
               Home
@@ -26,7 +26,12 @@
               施設登録
             <% end %>
           </li>
-          <li style="padding-left: 200px;">
+          <li>
+            <%= link_to chat_groups_path,class: 'nav-link text-light' do %>
+              チャットグループ
+            <% end %>
+          </li>
+          <li style="padding-left: 50px;">
             <%= render 'public/searches/search' %>
           </li>
           <li>

@@ -32,6 +32,11 @@
   background-image: url(image5.jpeg);
 }
 
+#slide{
+  width: 1200px;
+  height: 800px;
+}
+
 body{
   position: relative;
 }
@@ -41,6 +46,12 @@ footer{
   height: 100px;
   width: 100%;
   background-color: #b0c4de;
+}
+
+.pagination {
+  border: none;     /*枠線をなくす*/
+  color: #696969;/*文字の色を変える*/
+  margin-right: 10px;
 }
 
 .top-sauna{
@@ -64,5 +75,15 @@ footer{
 
 .saunner-edit{
   padding-bottom: 165px;
+}
+
+.chat_group_introduction_title{
+  width: 50px;
+}
+
+.chat_group_introduction{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 

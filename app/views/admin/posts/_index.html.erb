@@ -10,10 +10,10 @@
         <div class="card-body">
           <table>
             <tr>
-              <th class="pr-2"><%= post.saunner.nickname %></th>
+              <th class="pr-2"><%= post.saunner.nickname %>さん</th>
             </tr>
             <tr>
-              <th class="pr-2"><%#= sauna.name %><small class="text-muted"><%#= sauna.prefecture %></small></th>
+              <th class="pr-2"><%= post.sauna.name %><small class="text-muted"><%= sauna.prefecture %></small></th>
             </tr>
             <tr>
               <td class="pr-2 pt-3">サウナ室温度：<%= post.sauna_temperature %>℃</td>
@@ -37,3 +37,4 @@
   <% end %>
   <% end %>
 </div>
+<div class="pagination"><%= paginate posts %></div>

@@ -2,6 +2,17 @@
   <div class="row">
     <h2>サ活一覧</h2>
   <div class="row">
+        <!--タグリスト-->
+    <% @tag_list.each do |list|%>
+      <%= link_to list.name, sauna_post_search_tag_path(post_id: @post.id, tag_id: list.id) %>
+      <%="(#{list.posts.count})" %>
+    <% end %>
+
+    投稿一覧画面で投稿に紐づくタグを表示
+    <% @posts.each do |post| %>
+      <i class="fas fa-tag"><%= post.tags.map(&:name).join(',') %></i>
+    <% end %>
+
     <% @posts.each do |post| %>
     <%= link_to sauna_post_path(@sauna.id, post.id) do %>
     <div class="card mb-3 mt-5" style="width: 1000px;">
@@ -13,7 +24,7 @@
           <div class="card-body">
             <table>
               <tr>
-                <th class="pr-2"><%= @saunner.nickname %>さん</th>
+                <th class="pr-2"><%= post.saunner.nickname %>さん</th>
               </tr>
               <tr>
                 <th class="pr-2"><%= @sauna.name %><small class="text-muted"><%= @sauna.prefecture %></small></th>
@@ -40,4 +51,6 @@
     <% end %>
     <% end %>
   </div>
+  <div class="pagination"><%= paginate @posts %></div>
+  <%= link_to "≤施設に戻る", sauna_path(@sauna) %>
 </div>

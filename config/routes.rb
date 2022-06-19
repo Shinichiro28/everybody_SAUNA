@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get "/saunners/my_page" => "public/saunners#show", as: "my_page"
   get "/saunners/edit" => "public/saunners#edit", as: "edit_saunners"
   patch "saunners" => "public/saunners#update"
+   #退会確認画面
   get "/saunners/unsubscribe" => "public/saunners#unsubscribe", as: "unsubscribe"
+   #論理削除用のルーティング
   patch "/saunners/withdrawal" => "public/saunners#withdrawal", as: "withdrawal"
 
 
@@ -28,6 +30,7 @@ Rails.application.routes.draw do
     resources :posts, controller: "public/posts" do
       resource :favorites, only:[:create, :destroy], controller: "public/favorites"
       resources :comments, only:[:create,:destroy], controller: "public/comments"
+      get "search_tag"=>"publics/posts#search_tag"
     end
   end
 
@@ -49,10 +52,12 @@ Rails.application.routes.draw do
     resources :saunas, expect:[:new,:create]
     resources :posts, only:[:index,:show,:destroy]
     resources :comments, only:[:index,:show,:destroy]
+    resources :chat_groups, expect:[:new, :create] do
+      delete "all_destroy" => 'admin/chat_groups#all_destroy'
+    end
     root "homes#top"
   end
 
-  get "/admin/chat_groups" => "admin/chat_groups#index"
   get "/admin" => "admin/homes#top", as: "admin"
   get "/admin/search" => "admin/searches#search"
 

@@ -22,8 +22,8 @@ class Public::ChatGroupsController < ApplicationController
   end
 
   def create
-    @chat_group_user = ChatGroupUser.find(params[:chat_group_user_id])
-    @chat_group = @chat_group_user.owned_chat_groups.new(chat_group_params)
+    @chat_group_user = ChatGroupUser.find_by(params[:chat_group_user_id])
+    @chat_group = @chat_group_user.chat_groups.new(chat_group_params)
     @chat_group.owner_id = current_saunner.id
      #作成と同時にそのグループのメンバー
     @chat_group.saunners << current_saunner
@@ -74,7 +74,7 @@ class Public::ChatGroupsController < ApplicationController
 
   def ensure_correct_saunner
     @chat_group = ChatGroup.find(params[:id])
-    unless @group.owner_id == current_saunner.id
+    unless @chat_group.owner_id == current_saunner.id
       redirect_to chat_groups_path
     end
   end

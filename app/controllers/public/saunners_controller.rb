@@ -30,7 +30,7 @@ class Public::SaunnersController < ApplicationController
     @saunner.update(is_deleted: true)
     reset_session
     flash[:notice] = "退会処理が完了しました。またのご利用をお待ちしております！"
-    redirect_to :root_path
+    redirect_to root_path
   end
 
   private
