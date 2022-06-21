@@ -32,7 +32,9 @@
         </div>
       </div>
       <div class="pt-5">
-        <p class="card-text"><%= render 'public/favorites/sauna_post_favorite', post: @post, sauna: @sauna %></p>
+        <p class="card-text" id="favorite_buttons_<%= @sauna.id%> favorite_buttons_<%= @post.id%>">
+          <%= render 'public/favorites/sauna_post_favorite', post: @post, sauna: @sauna %>
+        </p>
         <p class="card-text"><%= render 'public/comments/form', sauna: @sauna, post: @post, comment: @comment %></p>
         <p class="card-text"><%= render 'public/comments/index', sauna: @sauna, post: @post, comments: @comments %></p>
       </div>

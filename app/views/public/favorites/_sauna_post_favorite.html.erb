@@ -1,11 +1,13 @@
 <% if post.favorited?(current_saunner) %>
     <!-- 一致するレコードが存在する＝いいね済みの場合はdestroyアクションへ-->
-  <%= link_to sauna_post_favorites_path(sauna.id, post.id), method: :delete do %>
+    <!--remote:ture→非同期-->
+  <%= link_to sauna_post_favorites_path(sauna.id, post.id), method: :delete, remote: true do %>
   <span style="color:red;">❤<%= post.favorites.count %> いいね︎</span>
   <% end %>
 <% else %>
     <!--# 一致するレコードが存在しない＝いいねしていない場合はcreateアクションへ-->
-  <%= link_to sauna_post_favorites_path(sauna.id, post.id), method: :post do %>
+    <!--remote:ture→非同期-->
+  <%= link_to sauna_post_favorites_path(sauna.id, post.id), method: :post, remote: true do %>
   <span>♡<%= post.favorites.count %> いいね︎</span>
   <% end %>
 <% end %>

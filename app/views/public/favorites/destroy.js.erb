@@ -1,0 +1,1 @@
+$('#favorite_buttons_<%= @sauna.id %> #favorite_buttons_<%= @post.id %>').html("<%= j(render "favorites/sauna_post_favorite", sauna: @sauna, post: @post) %>");
