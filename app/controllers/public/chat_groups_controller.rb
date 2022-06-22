@@ -73,7 +73,7 @@ class Public::ChatGroupsController < ApplicationController
 
   def ensure_correct_saunner
     @chat_group = ChatGroup.find(params[:id])
-    unless @chat_group.saunner == current_saunner.id
+    unless @chat_group.saunner_id == current_saunner.id
       redirect_to chat_groups_path
     end
   end

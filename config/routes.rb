@@ -40,8 +40,8 @@ Rails.application.routes.draw do
   end
 
   resources :chat_groups, controller: "public/chat_groups" do
-    get "join" => "chat_groups#join"
-    delete "all_destroy" => 'chat_groups#all_destroy'
+    get "join" => "public/chat_groups#join"
+    delete "all_destroy" => 'public/chat_groups#all_destroy'
     resources :chats, only:[:show,:create,:destroy], controller: "public/chats"
   end
 
