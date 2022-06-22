@@ -45,6 +45,8 @@ Rails.application.routes.draw do
     resources :chats, only:[:show,:create,:destroy], controller: "public/chats"
   end
 
+  resources :notifications, only:[:index]
+
   get "/public/search" => "public/searches#search", as: "search"
 
   namespace :admin do

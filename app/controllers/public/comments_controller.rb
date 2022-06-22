@@ -2,9 +2,13 @@ class Public::CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.new(comment_params)
-    @comment.saunner = current_saunner
+    @comment = Comment.new(comment_params)
+    @comment.post_id = @post.id
+    @comment.saunner_id = current_saunner.id
+    post = @comment.post
     if @comment.save
+        #通知レコード
+      post.create_notification_comment!(current_saunner, @comment.id)
       flash[:notice] = "コメント投稿に成功しました！"
       redirect_to request.referer
     else
@@ -21,6 +25,6 @@ class Public::CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:comment, :sauna_id, :saunner_id, :post_id)
+    params.require(:comment).permit(:comment)
   end
 end

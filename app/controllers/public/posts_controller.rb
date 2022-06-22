@@ -13,8 +13,8 @@ class Public::PostsController < ApplicationController
     @sauna = Sauna.find(params[:sauna_id])
     @post = Post.find(params[:id])
     @post_tags = @post.tags
-    @comment = Comment.new(saunner_id: current_saunner.id, id: params[:id])
-    @comments = @post.comments.page(params[:page]).per(5)
+    @comment = Comment.new
+    @comments = Comment.page(params[:page]).per(5)
   end
 
   def index

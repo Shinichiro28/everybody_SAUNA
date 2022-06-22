@@ -21,7 +21,7 @@
               <td class="chat_group_introduction"><%= group.introduction %></td>
               <td><%= group.saunners.count %>人</td>
               <td>
-                <% if group.owner_id == current_saunner.id %>
+                <% if group.saunner_id == current_saunner.id %>
                   <%= link_to '編集', edit_chat_group_path(group), class: "btn btn-sm btn-outline-success" %>
                 <% end %>
               </td>
