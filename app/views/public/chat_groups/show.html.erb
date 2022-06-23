@@ -1,5 +1,6 @@
 <div class='container px-5 px-sm-0'>
   <h2>チャットグループ</h2>
+  <p><%= link_to "≤チャットグループ一覧に戻る", chat_groups_path %></p>
   <table class='table table-inverse'>
     <thead>
       <tr>
@@ -29,20 +30,10 @@
             <%= link_to '参加する', chat_group_join_path(@chat_group), class: "btn btn-sm btn-outline-success" %>
           <% end %>
         </td>
-        <td>
-          <% if @chat_group.saunner_id == current_saunner.id %>
-            <%= link_to '削除',chat_group_all_destroy_path(@chat_group), method: :delete, data: { confirm: '本当に削除しますか？' } , class: "btn btn-sm btn-outline-danger" %>
-          <% elsif @chat_group.saunners.include?(current_saunner) %>
-            <%= link_to 'チャットルームへ', chat_group_chat_room_path(@chat_group), class: "btn btn-sm btn-outline-success" %>
-          <% end %>
-        </td>
-        <td>
-          <% if @chat_group.saunner_id == current_saunner.id %>
-            <%= link_to 'チャットルームへ', chat_group_chat_room_path(@chat_group), class: "btn btn-sm btn-outline-success" %>
-          <% end %>
-        </td>
       </tr>
     </tbody>
   </table>
-  <%#= render 'public/chats/chat', chat_group: @chat_group, chats: @chats ,chat: @chat %>
+  <div class="chat-file mt-5">
+    <%= render 'public/chats/chat', chat_group: @chat_group, chats: @chats ,chat: @chat %>
+  </div>
 </div>

@@ -9,9 +9,11 @@ class Public::ChatsController < ApplicationController
   end
 
   def create
-    @chat = current_saunner.chats.new(chat_params)
+    @chat_group = ChatGroup.find(params[:chat_group_id])
+    @chat = @chat_group.chats.new(chat_params)
+    @chat.saunner_id = current_saunner.id
     @chat.save
-    redirect_to chat_group_chat_room_path
+    redirect_to chat_group_path(@chat_group.id)
   end
 
   def destroy

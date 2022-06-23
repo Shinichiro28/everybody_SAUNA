@@ -9,6 +9,8 @@ class Public::ChatGroupsController < ApplicationController
 
   def show
     @chat_group = ChatGroup.find(params[:id])
+    @chat = Chat.new
+    @chats = @chat_group.chats.page(params[:page]).per(20).order(created_at: :desc)
   end
 
   def join
@@ -18,7 +20,7 @@ class Public::ChatGroupsController < ApplicationController
   end
 
   def index
-    @chat_groups = ChatGroup.page(params[:page]).per(5)
+    @chat_groups = ChatGroup.page(params[:page]).per(5).order(created_at: :desc)
   end
 
   def create

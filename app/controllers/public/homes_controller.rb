@@ -5,6 +5,7 @@ class Public::HomesController < ApplicationController
      #admin作成後に有効のみ表示にする
     @new_saunas = Sauna.where(is_active: true).limit(3).order(created_at: :desc)
     @sauna = Sauna.find_by(params[:sauna_id])
+    @new_groups = ChatGroup.all.limit(3).order(created_at: :desc)
   end
 
   def about

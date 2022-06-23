@@ -40,7 +40,8 @@
           <% end %>
         </p>
         <p class="card-text"><%= render 'public/comments/form', sauna: @sauna, post: @post, comment: @comment %></p>
-        <p class="card-text comments"><%= render 'public/comments/index', sauna: @sauna, post: @post, comments: @comments %></p>
+        <p class="card-text comments"></p>
+
       </div>
       <%= link_to "≤一覧へ戻る", sauna_posts_path %>
     </div>

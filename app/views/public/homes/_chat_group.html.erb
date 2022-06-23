@@ -1,0 +1,20 @@
+<div class="container-fluid pt-5 pl-3">
+  <div class="row">
+    <% new_groups.each do |group| %>
+    <%= link_to chat_group_path(group.id) do %>
+    <div class="col mb-3">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">グループ名：<%= group.name %></h5>
+          <p class="card-text">紹介文</p>
+          <p class="card-text"><%= group.introduction %></p>
+          <p class="card-text">参加人数</p>
+          <p class="card-text"><%= group.saunners.count %>人</p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>
+

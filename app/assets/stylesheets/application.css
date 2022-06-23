@@ -87,3 +87,7 @@ footer{
   text-overflow: ellipsis;
 }
 
+.chat-file{
+  padding-left: 400px;
+  padding-right: 400px;
+}
