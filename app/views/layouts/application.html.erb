@@ -20,6 +20,10 @@
       <%= render 'layouts/saunner_header' %>
     <% end %>
     <main class="p-5">
+      <div id="flash-success">
+      <% if notice %>
+      <p id="notice" class="text-secondary text-center"><%= notice %></p>
+      <% end %>
       <%= yield %>
     </main>
 
