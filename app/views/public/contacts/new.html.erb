@@ -1,0 +1,28 @@
+<%= form_with model: @contact, local: true do |f| %>
+  <div class="container">
+    <h5 class="form-header-text">
+      お問い合わせフォーム
+    </h5>
+    <div class="m-3">
+      <%= f.label "お名前" %><br>
+      <%= f.text_field :name, placeholder: "お名前", class: "input-form" %>
+    </div>
+    <div class="m-3">
+      <%= f.label "お問合せテーマ" %><br>
+      <%= f.select(:title, ["施設編集依頼", "施設削除依頼", "その他お問合せ"]) %>
+    </div>
+    <div class="m-3">
+      <%= f.label "お問合せ内容" %><br>
+      <%= f.text_area :content,rows: '20', cols: '80', placeholder: "例)<施設情報変更の場合>
+      施設名：〇〇〇
+      変更点：料金1,000円
+      理由：料金が変更されていたため。", class: "input-form" %>
+      <%= f.button type: "submit", class:"register-red-btn", style:'border-style: none;' do %>
+        送信 <i class="fas fa-paper-plane"></i>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to "トップへ戻る", style:"background-color: #aaa" %>
+    </div>
+  </div>
+<% end %>

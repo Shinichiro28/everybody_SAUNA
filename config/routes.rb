@@ -42,18 +42,22 @@ Rails.application.routes.draw do
   resources :chat_groups, controller: "public/chat_groups" do
     get "join" => "public/chat_groups#join"
     delete "all_destroy" => 'public/chat_groups#all_destroy'
-    resources :chats, only:[:show,:create,:destroy], controller: "public/chats"
+    resources :chats, only:[:create,:destroy], controller: "public/chats"
+    get "/chat_groups/chats/:id" => "public/chats#show", as: "chat_room"
   end
 
-  resources :notifications, only:[:index]
+  resources :notifications, only:[:index], controller: "public/notifications"
 
   get "/public/search" => "public/searches#search", as: "search"
+
+  resources :contacts, only:[:new, :create], controller: "public/contacts"
 
   namespace :admin do
     resources :saunners, expect:[:new,:create,:destroy]
     resources :saunas, expect:[:new,:create]
     resources :posts, only:[:index,:show,:destroy]
     resources :comments, only:[:index,:show,:destroy]
+    resources :contacts, only:[:index, :show]
     resources :chat_groups, expect:[:new, :create] do
       delete "all_destroy" => 'admin/chat_groups#all_destroy'
     end

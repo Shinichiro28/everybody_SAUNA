@@ -7,7 +7,7 @@
         <thead>
           <tr>
             <th style="text-align: left; font-size: 20px;"><%= current_saunner.nickname %></th>
-            <th style="text-align: right; font-size: 20px;"><%= @chat_group.saunner.nickname %></th>
+            <th style="text-align: right; font-size: 20px;"><%= chat.saunner.nickname %></th>
           </tr>
         </thead>
         <% @chats.each do |chat| %>
@@ -31,7 +31,7 @@
         <% end %>
       </table>
 
-      <%= form_with model: @chat, remote: true do |f| %>
+      <%= form_with [model: chat_group, chat], remote: true do |f| %>
         <%= f.text_field :message %>
         <%= f.hidden_field :chat_group_id %>
         <%= f.submit "送信", class:"btn btn-sm btn-outline-success chat-btn" %>

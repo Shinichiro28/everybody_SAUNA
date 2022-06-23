@@ -17,7 +17,7 @@
         <td><%= @chat_group.introduction %></td>
         <td>
           <% @chat_group.saunners.each do |member| %>
-            <%= member.nickname %>
+            <%= member.nickname %>さん、
           <% end %>
         </td>
         <td>
@@ -31,10 +31,18 @@
         </td>
         <td>
           <% if @chat_group.saunner_id == current_saunner.id %>
-           <%= link_to '削除',chat_group_all_destroy_path(@chat_group), method: :delete, data: { confirm: '本当に削除しますか？' } , class: "btn btn-sm btn-outline-danger" %>
+            <%= link_to '削除',chat_group_all_destroy_path(@chat_group), method: :delete, data: { confirm: '本当に削除しますか？' } , class: "btn btn-sm btn-outline-danger" %>
+          <% elsif @chat_group.saunners.include?(current_saunner) %>
+            <%= link_to 'チャットルームへ', chat_group_chat_room_path(@chat_group), class: "btn btn-sm btn-outline-success" %>
+          <% end %>
+        </td>
+        <td>
+          <% if @chat_group.saunner_id == current_saunner.id %>
+            <%= link_to 'チャットルームへ', chat_group_chat_room_path(@chat_group), class: "btn btn-sm btn-outline-success" %>
           <% end %>
         </td>
       </tr>
     </tbody>
   </table>
+  <%#= render 'public/chats/chat', chat_group: @chat_group, chats: @chats ,chat: @chat %>
 </div>

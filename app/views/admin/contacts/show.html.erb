@@ -1,0 +1,20 @@
+<div class="container mb-5">
+  <h5>問い合わせ内容</h5>
+  <div class="mt-5">
+    <p>名前</p>
+    <%= @contact.name %>
+    <p class="mt-3">ニックネーム</p>
+    <%= @saunner.nickname %>
+  </div>
+  <div class="mt-3">
+    <p>テーマ</p>
+    <%= @contact.title %>
+  </div>
+  <div class="mt-3">
+    <p>内容</p>
+    <%= @contact.content %>
+  </div>
+  <div class="mt-3">
+    <%= link_to '≤一覧へ戻る', admin_contacts_path %>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container-fluid pt-5 pl-3">
+  <div class="row">
+    <% new_contacts.each do |contact| %>
+    <%= link_to admin_contact_path(contact.id) do %>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= contact.title %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= contact.name %></h6>
+        <p class="card-text"><%= contact.content %></p>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>

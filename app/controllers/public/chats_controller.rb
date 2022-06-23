@@ -1,23 +1,23 @@
 class Public::ChatsController < ApplicationController
 
   def show
-    @chat = Chat.find(params[:id])
      #どのグループなのかを指定
     @chat_group = ChatGroup.find_by(params[:chat_group_id])
      #指定したグループのチャットたち
     @chats = @chat_group.chats
+    @saunner = Saunner.find_by(params[:saunner_id])
   end
 
   def create
     @chat = current_saunner.chats.new(chat_params)
     @chat.save
-    redirect_to request.referer
+    redirect_to chat_group_chat_room_path
   end
 
   def destroy
     @chat = current_saunner.chats.find(params[:id])
     @chat.destroy
-    redirect_to request.referer
+    redirect_to chat_group_chat_room_path
   end
 
   private

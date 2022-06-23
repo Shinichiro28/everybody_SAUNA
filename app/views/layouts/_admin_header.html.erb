@@ -27,6 +27,11 @@
             <% end %>
           </li>
           <li>
+            <%= link_to admin_contacts_path, class: 'nav-link' do %>
+              お問合せ一覧
+            <% end %>
+          </li>
+          <li>
             <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link' do %>
               ログアウト
             <% end %>

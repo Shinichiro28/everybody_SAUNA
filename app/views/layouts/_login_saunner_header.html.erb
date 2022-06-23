@@ -17,11 +17,6 @@
             <% end %>
           </li>
           <li>
-            <%= link_to posts_path,class: 'nav-link text-light' do %>
-              サ活
-            <% end %>
-          </li>
-          <li>
             <%= link_to new_sauna_path,class: 'nav-link text-light' do %>
               施設登録
             <% end %>
@@ -42,6 +37,11 @@
           <li>
             <%= link_to my_page_path ,class: 'nav-link text-light' do %>
               マイページ
+            <% end %>
+          </li>
+          <li>
+            <%= link_to notifications_path, class: 'nav-link text-light' do %>
+              <i class="fa-thin fa-bell"></i>
             <% end %>
           </li>
         </ul>

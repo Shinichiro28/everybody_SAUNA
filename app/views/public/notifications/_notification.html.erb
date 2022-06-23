@@ -8,11 +8,11 @@
     <% end %>
   </span>
   <div>
-  <strong><%= visitor.name %>さんが</strong>
-    <% case notification.action %>
-    <% when 'favorite' then %>
-      <%= link_to "あなたの投稿", notification.post, style: "font-weight: bold;" %>
-      あなたにいいねしました
+    <strong><%= visitor.name %>さんが</strong>
+      <% case notification.action %>
+      <% when 'favorite' then %>
+        <%= link_to "あなたの投稿", notification.post, style: "font-weight: bold;" %>
+        あなたにいいねしました
   </div>
   <div>
     <% when 'comment' then %>
@@ -22,8 +22,12 @@
     <span>
       <%= link_to sauna_post_path(notification.post) do %>
         <%= image_tag avatar_url(notification.post.saunner).to_s, class: "icon_mini" %>
-        <strong><%= notification.post.user.name + 'さんの投稿'%></strong> にコメントしました
+        <strong><%= notification.post.user.name + 'さんの投稿'%></strong>
+      <% end %>
     </span>
+    <% end %>
+    <% end %>
+    <p>にコメントしました</p>
     <p class="text-muted mb-0"><%= Comment.find_by(id: notification.comment_id)&.comment %></p>
     <p class="small text-muted text-right"><%= time_ago_in_words(notification.created_at).upcase %></p>
   </div>
