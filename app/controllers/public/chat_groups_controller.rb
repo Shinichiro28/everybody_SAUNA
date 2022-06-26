@@ -52,7 +52,7 @@ class Public::ChatGroupsController < ApplicationController
   def all_destroy
     @chat_group = ChatGroup.find(params[:chat_group_id])
     if @chat_group.destroy
-    redirect_to chat_groups_path
+      redirect_to chat_groups_path
     end
   end
 
@@ -60,7 +60,7 @@ class Public::ChatGroupsController < ApplicationController
     @chat_group = ChatGroup.find(params[:id])
     if @chat_group.update(chat_group_params)
       flash[:notice] = "チャットグループを更新しました。"
-      redirect_to chat_groups_path
+      redirect_to chat_group_path(@chat_group)
     else
       render "edit"
     end

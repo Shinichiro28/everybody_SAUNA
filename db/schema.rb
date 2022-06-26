@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 2022_06_23_024421) do
   create_table "notifications", force: :cascade do |t|
     t.integer "visitor_id", null: false
     t.integer "visited_id", null: false
+    t.integer "sauna_id"
     t.integer "post_id"
     t.integer "comment_id"
     t.string "action", default: "", null: false
@@ -118,6 +119,7 @@ ActiveRecord::Schema.define(version: 2022_06_23_024421) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["comment_id"], name: "index_notifications_on_comment_id"
     t.index ["post_id"], name: "index_notifications_on_post_id"
+    t.index ["sauna_id"], name: "index_notifications_on_sauna_id"
     t.index ["visited_id"], name: "index_notifications_on_visited_id"
     t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
   end

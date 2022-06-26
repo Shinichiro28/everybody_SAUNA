@@ -1,11 +1,16 @@
-<div>
+<% notifications = @notifications.where.not(visitor_id: current_saunner.id) %>
+<div class="text-center">
   <h4 class="sub-title">通知</h4>
-  <% if @notifications.exists? %>
-    <div class="users-index">
-      <%= render @notifications %>
-      <%= paginate @notifications %>
+  <div class="card mx-auto" style="width: 50rem;">
+    <div class="card-body">
+    <% if @notifications.exists? %>
+      <div class="users-index">
+        <%= render notifications %>
+        <%= paginate @notifications %>
+      </div>
+    <% else %>
+      <p>通知はありません</p>
+    <% end %>
     </div>
-  <% else %>
-    <p>通知はありません</p>
-  <% end %>
+  </div>
 </div>

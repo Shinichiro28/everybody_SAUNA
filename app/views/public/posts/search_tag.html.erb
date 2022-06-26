@@ -1,26 +1,49 @@
-<div class="container">
-  <h5>タグが<%=@tag.name%>の投稿一覧</h5>
+<div class="container post_search_tag">
+  <h2 class="mt-5">タグが<strong><%=@tag.name%></strong>の投稿一覧</h2>
   <!--タグリスト-->
-  <% @tag_list.each do |list|%>
-    <%=link_to list.name,sauna_post_search_tag_path(tag_id: list.id) %>
-    <%="(#{list.posts.count})" %>
-  <% end %>
+  <div class="mt-3 p-3" style="background-color: #c0c0c0;">
+    <% @tag_list.each do |list|%>
+      <%=link_to list.name,sauna_post_search_tag_path(tag_id: list.id) %>
+      <%="(#{list.posts.count})" %>
+    <% end %>
+    <%= paginate @tag_list %>
+  </div>
   <% @posts.each do |post| %>
-    <!--投稿はカードで囲む-->
-  <div class="card">
-    <div class="card-body">
-        <!--タイトル表示される文字数は２５文字までにしてます-->
-      <h6 class="card-title">
-        <%=link_to post_path(post.id) do %>
-          <%= post.title.truncate(25) %>
-        <% end %>
-      </h6>
-        <!--お気に入り、コメント数、投稿者は部分テンプレ-->
-      <div id="<%=post.id %>">
-        <%= render 'favorites/favorite', post: post %>
+    <%=link_to sauna_post_path(@sauna.id, post.id) do %>
+    <div class="card mb-3 mt-5" style="width: 1000px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <%= image_tag post.get_sauna_image, size: '300x300' %>
+        </div>
+        <div class="col-md-8" style="padding-left: 100px;">
+          <div class="card-body">
+            <table>
+              <tr>
+                <th class="pr-2"><%= post.saunner.nickname %>さん</th>
+              </tr>
+              <tr>
+                <th class="pr-2"><%= @sauna.name %><small class="text-muted"><%= @sauna.prefecture %></small></th>
+              </tr>
+              <tr>
+                <td class="pr-2 pt-3">サウナ室温度：<%= post.sauna_temperature %>℃</td>
+                <td class="pl-3 pt-3">水風呂温度：<%= post.mizu_temperature %>℃</td>
+              </tr>
+              <tr>
+                <td class="pr-2">サウナ時間：<%= post.sauna_minutes %>分</td>
+                <td class="pl-3">水風呂時間：<%= post.mizu_minutes %>分</td>
+                <td class="pl-3">ととのい時間：<%= post.totonoi_minutes %>分</td>
+              </tr>
+              <tr>
+                <td class="pr-2">セット数：<%= post.sauna_times %>回</th>
+              </tr>
+            </table>
+            <p class="pt-3" style="font-size: small;">コメント</p>
+            <p><%= post.sauna_post %></p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+    <% end %>
   <% end %>
   <div class="pagination pagination-sm justify-content-center">
     <%= paginate @posts %>

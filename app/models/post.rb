@@ -53,10 +53,11 @@ class Post < ApplicationRecord
 
   def create_notification_favorite!(current_saunner)
      #既に「いいね」されているか検索 いいね連打対策
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and post_id = ? and action = ? ", current_saunner.id, saunner_id, id, 'favorite'])
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and sauna_id = ? and post_id = ? and action = ? ", current_saunner.id, saunner_id, sauna_id, id, 'favorite'])
      #いいねされていない場合のみ通知レコードを作成
     if temp.blank?
       notification = current_saunner.active_notifications.new(
+        sauna_id: sauna_id,
         post_id: id,
         visited_id: saunner_id,
         action: 'favorite'
@@ -71,7 +72,7 @@ class Post < ApplicationRecord
 
   def create_notification_comment!(current_saunner, comment_id)
       #自分以外にコメントしている人を全て取得し、全員に通知を送る
-    temp_ids = Comment.select(:saunner_id).where(post_id: id).where.not(saunner_id: current_saunner.id).distinct
+    temp_ids = Comment.select(:saunner_id).where(sauna_id: sauna_id, post_id: id).where.not(saunner_id: current_saunner.id).distinct
     temp_ids.each do |temp_id|
       save_notification_comment!(current_saunner, comment_id, temp_id['saunner_id'])
     end
@@ -82,6 +83,7 @@ class Post < ApplicationRecord
   def save_notification_comment!(current_saunner, comment_id, visited_id)
       #コメントのたびに通知
     notification = current_saunner.active_notifications.new(
+      sauna_id: sauna_id,
       post_id: id,
       comment_id: comment_id,
       visited_id: visited_id,

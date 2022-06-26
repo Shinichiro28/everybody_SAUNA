@@ -62,6 +62,7 @@ footer{
 
 .about{
   padding-bottom: 50px;
+  background-image: url(about.jpeg);
 }
 
 .top-text{
@@ -70,11 +71,31 @@ footer{
 }
 
 .mypage{
-  padding-bottom: 194px;
+  padding-bottom: 456px;
 }
 
 .saunner-edit{
-  padding-bottom: 165px;
+  padding-bottom: 427px;
+}
+
+.unsubscribe{
+  margin-bottom: 337px;
+}
+
+.unsubscribe-message{
+  font-size: 30px;
+}
+
+.post_show{
+  margin-bottom: 105px;
+}
+
+.post_search_tag{
+  margin-bottom: 263px;
+}
+
+.chat_group{
+  margin-bottom: 435px;
 }
 
 .chat_group_introduction_title{
@@ -88,6 +109,12 @@ footer{
 }
 
 .chat-file{
-  padding-left: 400px;
-  padding-right: 400px;
+  padding-left: 200px;
+  padding-right: 200px;
 }
+
+
+.admin_chat_group_show{
+  margin-bottom: 563px;
+}
+

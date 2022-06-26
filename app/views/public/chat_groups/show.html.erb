@@ -1,4 +1,4 @@
-<div class='container px-5 px-sm-0'>
+<div class='container px-5 px-sm-0 chat_group'>
   <h2>チャットグループ</h2>
   <p><%= link_to "≤チャットグループ一覧に戻る", chat_groups_path %></p>
   <table class='table table-inverse'>
@@ -30,6 +30,11 @@
             <%= link_to '参加する', chat_group_join_path(@chat_group), class: "btn btn-sm btn-outline-success" %>
           <% end %>
         </td>
+        <% if @chat_group.saunner_id == current_saunner.id %>
+        <td>
+          <%= link_to '削除', chat_group_all_destroy_path(@chat_group), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-outline-danger" %>
+        </td>
+        <% end %>
       </tr>
     </tbody>
   </table>

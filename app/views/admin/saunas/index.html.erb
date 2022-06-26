@@ -3,7 +3,7 @@
     <h2>施設一覧</h2>
     <span class="ml-5"><%= render 'admin/searches/search' %></span>
     <% @saunas.each do |sauna| %>
-    <%= link_to sauna_path(sauna.id) do %>
+    <%= link_to admin_sauna_path(sauna.id) do %>
     <div class='container px-5 px-sm-0'>
       <div class="card mb-3 mt-3" style="width: 90%;">
         <div class="row g-0">

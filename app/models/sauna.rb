@@ -16,6 +16,10 @@ class Sauna < ApplicationRecord
   validates :tel, presence: true
 
   has_one_attached :store_image
+  
+  def get_store_image
+      (store_image.attached?) ? store_image : 'no_store.jpeg'
+  end
 
   def self.looks(search, word)
     if search == "partial_match"
@@ -23,10 +27,6 @@ class Sauna < ApplicationRecord
     else
       @sauna = Sauna.where(is_active: true)
     end
-  end
-
-  def get_store_image
-      (store_image.attached?) ? store_image : 'no_store.jpeg'
   end
 
 end

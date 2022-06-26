@@ -33,21 +33,20 @@ class Public::PostsController < ApplicationController
 
   def search_tag
     #検索結果画面でもタグ一覧表示
-    @tag_list = Tag.all
-　　#検索されたタグを受け取る
+    @tag_list = Tag.page(params[:page]).per(5)
     @tag = Tag.find(params[:tag_id])
-　　#検索されたタグに紐づく投稿を表示
     @posts = @tag.posts.page(params[:page]).per(10)
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:post_id])
+    @sauna = Sauna.find(params[:sauna_id])
   end
 
   def create
     @sauna = Sauna.find_by(id: params[:sauna_id])
     @post = @sauna.posts.new(post_params)
     @post.saunner = current_saunner
-    #tag_list = params[:post][:name].split(',')
+    tag_list = params[:post][:name].split(',')
     if @post.save
-     # @post.save_tag(tag_list)
+      @post.save_tag(tag_list)
       flash[:notice] = "サ活投稿に成功しました！"
       redirect_to sauna_posts_path
     else
@@ -58,24 +57,14 @@ class Public::PostsController < ApplicationController
   def update
     @sauna = Sauna.find(params[:sauna_id])
     @post = Post.find(params[:id])
+    @post.saunner = current_saunner
      #入力されたタグを受け取る
-    tag_list=params[:post][:name].split(',')
+    tag_list = params[:post][:name].split(',')
      #情報の更新
     if @post.update(post_params)
-      if params[:post][:status] == "公開"
-         #post_idに紐づいていたタグ
-        @old_relations = PostTag.where(post_id: @post.id)
-         #それらを取り出し、消す。
-        @old_relations.each do |relation|
-          relation.delete
-        end
         @post.save_tag(tag_list)
         flash[:notice] = "投稿内容更新に成功しました！"
-        redirect_to sauna_posts_path(sauna_id: @sauna.id)
-      else
-        flash[:notice] = "下書きに登録しました。"
-        redirect_to sauna_posts_path(sauna_id: @sauna.id)
-      end
+        redirect_to sauna_post_path(sauna_id: @sauna.id)
     else
       render 'edit'
     end
@@ -98,7 +87,7 @@ class Public::PostsController < ApplicationController
 
   def ensure_current_saunner
     @post = Post.find_by(params[:post_id])
-    if @post.saunner == current_saunner
+    unless @post.saunner == current_saunner
       redirect_to request.referer
     end
   end

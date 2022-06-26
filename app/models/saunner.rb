@@ -28,6 +28,10 @@ class Saunner < ApplicationRecord
 
   has_one_attached :profile_image
 
+  def get_profile_image
+    (profile_image.attached) ? profile_image : 'no_saunner.jpeg'
+  end
+
   def self.guest
     find_or_create_by!(first_name: 'guest', last_name: 'saunner', nickname: 'guestsaunner' ,email: 'guest@example.com') do |saunner|
       saunner.password = SecureRandom.urlsafe_base64

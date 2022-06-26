@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     resources :posts, controller: "public/posts" do
       resource :favorites, only:[:create, :destroy], controller: "public/favorites"
       resources :comments, only:[:create,:destroy], controller: "public/comments"
-      get "search_tag"=>"publics/posts#search_tag"
+      get "search_tag"=>"public/posts#search_tag"
     end
   end
 
@@ -43,7 +43,6 @@ Rails.application.routes.draw do
     get "join" => "public/chat_groups#join"
     delete "all_destroy" => 'public/chat_groups#all_destroy'
     resources :chats, only:[:create,:destroy], controller: "public/chats"
-    get "/chat_groups/chats/:id" => "public/chats#show", as: "chat_room"
   end
 
   resources :notifications, only:[:index], controller: "public/notifications"
@@ -58,7 +57,7 @@ Rails.application.routes.draw do
     resources :posts, only:[:index,:show,:destroy]
     resources :comments, only:[:index,:show,:destroy]
     resources :contacts, only:[:index, :show]
-    resources :chat_groups, expect:[:new, :create] do
+    resources :chat_groups, only:[:show, :index] do
       delete "all_destroy" => 'admin/chat_groups#all_destroy'
     end
     root "homes#top"

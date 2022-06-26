@@ -1,5 +1,6 @@
 
       <h2> <%= chat_group.name %></h2>
+      <%= render 'layouts/errors', obj: chat %>
       <div>
         <%= form_with model: chat, url: chat_group_chats_path(chat_group.id) do |f| %>
           <%= f.text_field :message %>
