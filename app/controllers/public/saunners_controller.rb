@@ -41,8 +41,7 @@ class Public::SaunnersController < ApplicationController
 
     #マイページにリダイレクト
   def ensure_guest_saunner
-    @saunner = Saunner.find_by(params[:saunner_id])
-    if @saunner.nickname == "guestsaunner"
+    if current_saunner.nickname == "guestsaunner"
       redirect_to my_page_path(current_saunner) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
   end
