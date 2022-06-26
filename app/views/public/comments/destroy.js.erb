@@ -1,2 +1,2 @@
   <!--コメント一覧 class="comments"のため-->
-$(".comments").html("<%= j(render "public/comments/index", sauna: @sauna, post: @post, comment: @comment, comments: @comments) %>");
+$(".comment").html("<%= j(render 'public/comments/index', post: @post, sauna: @sauna, comments: @comments) %>");

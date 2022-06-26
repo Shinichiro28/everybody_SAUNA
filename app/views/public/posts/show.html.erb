@@ -40,7 +40,7 @@
             <% end %>
             </p>
             <p class="card-text"><%= render 'public/comments/form', sauna: @sauna, post: @post, comment: @comment %></p>
-            <p class="card-text comments"></p>
+            <p class="card-text comment"><%= render "public/comments/index", post: @post, sauna: @sauna, comments: @comments %></p>
           </div>
         </div>
       </div>

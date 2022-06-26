@@ -8,10 +8,10 @@ class Public::CommentsController < ApplicationController
     @comment.post_id = @post.id
     @comment.saunner_id = current_saunner.id
     @comment.sauna_id = @sauna.id
-    #post = @comment.post
+    post = @comment.post
     @comment.save
         #通知レコード
-      #post.create_notification_comment!(current_saunner, @comment.id)
+    post.create_notification_comment!(current_saunner, @comment.id)
     flash[:notice] = "コメント投稿に成功しました！"
   end
 
