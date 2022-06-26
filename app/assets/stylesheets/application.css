@@ -112,8 +112,16 @@ footer{
   margin-bottom: 263px;
 }
 
+.chat_group_new{
+  margin-bottom: 408px;
+}
+
 .chat_group{
   margin-bottom: 435px;
+}
+
+.chat_groups{
+  margin-bottom: 255px;
 }
 
 .chat_group_introduction_title{

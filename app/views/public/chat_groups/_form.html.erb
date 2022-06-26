@@ -1,20 +1,15 @@
 <%= form_with model: chat_group, local: true do |f| %>
-  <div class="form-group">
+  <div class="form-group mt-3">
     <%= f.label :チャットグループ名 %>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group mt-3">
     <%= f.label :チャットグループ説明 %>
     <%= f.text_area :introduction, class: 'form-control' %>
   </div>
 
-  <%# <div class="form-group"> %>
-    <%#= f.label :グループ画像 %>
-    <%#= f.file_field :image, class: "form-control-file", accept: 'image/*' %>
-  <%# </div> %>
-
-  <div class="form-group">
+  <div class="form-group mt-3">
     <%= f.submit class: 'btn btn-outline-info ' %>
   </div>
 <% end %>
