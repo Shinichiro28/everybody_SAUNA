@@ -72,21 +72,21 @@ class Post < ApplicationRecord
 
   def create_notification_comment!(current_saunner, comment_id)
       #自分以外にコメントしている人を全て取得し、全員に通知を送る
-    temp_ids = Comment.select(:saunner_id).where(sauna_id: sauna_id, post_id: post_id).where.not(saunner_id: current_saunner.id).distinct
+    temp_ids = Comment.select(:saunner_id).where(sauna_id: sauna_id, post_id: self.id).where.not(saunner_id: current_saunner.id).distinct
     temp_ids.each do |temp_id|
-      save_notification_comment!(current_saunner, comment_id, temp_id['saunner_id'])
+      save_notification_comment!(current_saunner, comment_id)
     end
       #誰もコメントしていない場合は、投稿者に通知を送る
-    save_notification_comment!(current_saunner, comment_id, saunner_id) if temp_ids.blank?
+    save_notification_comment!(current_saunner, comment_id) if temp_ids.blank?
   end
 
-  def save_notification_comment!(current_saunner, comment_id, visited_id)
+  def save_notification_comment!(current_saunner, comment_id)
       #コメントのたびに通知
     notification = current_saunner.active_notifications.new(
       sauna_id: sauna_id,
       post_id: id,
       comment_id: comment_id,
-      visited_id: visited_id,
+      visited_id: saunner_id,
       action: 'comment'
     )
       #自分の投稿に対するコメントは、通知済みとする
