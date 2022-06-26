@@ -1,2 +1,6 @@
-  <!--コメント一覧 class="comments"のため-->
+  <!--投稿フォーム-->
+$(".comment-textarea").val("");
+  <!--コメント一覧-->
 $(".comment").html("<%= j(render 'public/comments/index', post: @post, sauna: @sauna, comments: @comments) %>");
+  <!--コメント数-->
+$(".comments-count").html("コメント数: <%= @post.comments.count %>");
