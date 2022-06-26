@@ -1,7 +1,7 @@
 class Sauna < ApplicationRecord
 
 
-    #アソシエーション
+  #アソシエーション
   has_many :posts, dependent: :destroy
   belongs_to :saunner, optional: true
   has_many :favorites, through: :posts
@@ -16,7 +16,7 @@ class Sauna < ApplicationRecord
   validates :tel, presence: true
 
   has_one_attached :store_image
-  
+
   def get_store_image
       (store_image.attached?) ? store_image : 'no_store.jpeg'
   end

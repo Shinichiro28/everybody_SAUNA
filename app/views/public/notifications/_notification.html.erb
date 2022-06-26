@@ -1,33 +1,36 @@
-<% visitor = notification.visitor %>
-<% visited = notification.visited %>
-<div class="col-md-6 mx-auto form-inline">
-  <span>
-    <%= link_to my_page_path(visitor) do %>
-      <%#=  image_tag notification.visiter.image[:small].url, class:"icon_mini" %>
-    <% end %>
-  </span>
-  <div>
-    <strong><%= visitor.nickname %>さんが</strong>
-      <% case notification.action %>
-      <% when 'favorite' then %>
-        <%= link_to "あなたの投稿", notification.post, style: "font-weight: bold;" %>
-        あなたにいいねしました
-  </div>
-  <div>
-    <% when 'comment' then %>
-      <% if notification.post.saunner_id == visited.id %>
-        <%= link_to "あなたの投稿", notification.sauna.post, style: "font-weight: bold;" %>
-    <% else %>
+<% notifications.each do | notification | %>
+  <% visitor = notification.visitor %>
+  <% visited = notification.visited %>
+
+  <div class="col-md-6 mx-auto form-inline">
     <span>
-      <%= link_to sauna_post_path(notification.post) do %>
-        <%#= image_tag avatar_url(notification.post.saunner).to_s, class: "icon_mini" %>
-        <strong><%= notification.post.saunner.nickname + 'さんの投稿'%></strong>
+      <%= link_to my_page_path(visitor) do %>
+        <%#=  image_tag notification.visitor.profile_image[:small].url, class:"icon_mini" %>
       <% end %>
     </span>
-    <p>にコメントしました</p>
-    <% end %>
-    <% end %>
-    <p class="text-muted mb-0"><%= Comment.find_by(id: notification.comment_id)&.comment %></p>
-    <p class="small text-muted text-right"><%= time_ago_in_words(notification.created_at).upcase %>前</p>
+    <div>
+      <strong><%= visitor.nickname %>さんが</strong>
+        <% case notification.action %>
+        <% when 'favorite' then %>
+          <%= link_to "あなたの投稿", sauna_post_path(notification.sauna_id, notification.post_id), style: "font-weight: bold;" %>
+          にいいねしました
+    </div>
+    <div>
+      <% when 'comment' then %>
+        <% if notification.post.saunner_id == visited.id %>
+          <%= link_to "あなたの投稿", sauna_post_path(notification.sauna_id, notification.post_id), style: "font-weight: bold;" %>
+      <% else %>
+      <span>
+        <%= link_to sauna_post_path(notification.post) do %>
+          <%#= image_tag avatar_url(notification.post.saunner).to_s, class: "icon_mini" %>
+          <strong><%#= notification.post.saunner.nickname + 'さんの投稿'%></strong>
+        <% end %>
+      </span>
+      <p>にコメントしました</p>
+      <% end %>
+      <% end %>
+      <p class="text-muted mb-0"><%= Comment.find_by(id: notification.comment_id)&.comment %></p>
+      <p class="small text-muted text-right"><%= time_ago_in_words(notification.created_at).upcase %>前</p>
+    </div>
   </div>
-</div>
+<% end %>

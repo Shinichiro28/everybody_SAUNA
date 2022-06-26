@@ -1,11 +1,11 @@
-<% notifications = @notifications.where.not(visitor_id: current_saunner.id) %>
+<%# notifications = @notifications.where.not(visitor_id: current_saunner.id) %>
 <div class="text-center">
   <h4 class="sub-title">通知</h4>
   <div class="card mx-auto" style="width: 50rem;">
     <div class="card-body">
     <% if @notifications.exists? %>
       <div class="users-index">
-        <%= render notifications %>
+        <%= render "public/notifications/notification", notifications: @notifications %>
         <%= paginate @notifications %>
       </div>
     <% else %>
