@@ -26,7 +26,12 @@
               チャットグループ
             <% end %>
           </li>
-          <li style="padding-left: 50px;">
+          <li>
+            <%= link_to new_contact_path, class: 'nav-link text-light' do %>
+              お問合せ
+            <% end %>
+          </li>
+          <li style="padding-left: 20px;">
             <%= render 'public/searches/search' %>
           </li>
           <li>
