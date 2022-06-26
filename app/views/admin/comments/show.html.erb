@@ -1,0 +1,21 @@
+<div class="container">
+  <h3>コメント詳細</h3>
+  <p><%= link_to "削除", admin_comment_path, method: :delete, class: "btn btn-sm btn-outline-danger" %></p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ユーザー名</th>
+        <th>投稿id</th>
+        <th>コメント</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @comment.saunner.nickname %></td>
+        <td><%= @comment.post.id %></td>
+        <td><%= @comment.comment %></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

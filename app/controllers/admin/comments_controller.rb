@@ -1,10 +1,11 @@
 class Admin::CommentsController < ApplicationController
 
   def index
-    @saunner = Saunner.find_by(params[:saunner_id])
-    @sauna = Sauna.find_by(params[:sauna_id])
-    @post = Post.find_by(params[:post_id])
-    @comments = Comment.all
+    @comments = Comment.page(params[:page]).per(14)
+  end
+
+  def show
+    @comment = Comment.find(params[:id])
   end
 
   def destroy
