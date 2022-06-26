@@ -21,6 +21,7 @@ class Sauna < ApplicationRecord
       (store_image.attached?) ? store_image : 'no_store.jpeg'
   end
 
+  #検索機能
   def self.looks(search, word)
     if search == "partial_match"
       @sauna = Sauna.where("name LIKE?","%#{word}%").where(is_active: true)
