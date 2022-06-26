@@ -20,7 +20,7 @@ class Admin::PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.destroy
       flash[:notice] = "サ活投稿を削除しました。"
-      redirect_to admin_sauna_posts_path
+      redirect_to admin_posts_path
     end
   end
 

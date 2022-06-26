@@ -1,6 +1,5 @@
 <div class="container px-5 px-sm-0">
-  <div class="row">
-    <h2>サ活一覧</h2>
+  <h2>サ活一覧</h2>
   <div class="row">
         <!--タグリスト-->
     <% @tag_list.each do |list|%>
@@ -8,7 +7,6 @@
       <%="(#{list.posts.count})" %>
     <% end %>
 
-    投稿一覧画面で投稿に紐づくタグを表示
     <% @posts.each do |post| %>
       <i class="fas fa-tag"><%= post.tags.map(&:name).join(',') %></i>
     <% end %>
@@ -25,6 +23,7 @@
             <table>
               <tr>
                 <th class="pr-2"><%= post.saunner.nickname %>さん</th>
+                <th style="font-size: small;">訪問日時：<%= post.visit_date %></th>
               </tr>
               <tr>
                 <th class="pr-2"><%= @sauna.name %><small class="text-muted"><%= @sauna.prefecture %></small></th>
@@ -42,8 +41,8 @@
                 <td class="pr-2">セット数：<%= post.sauna_times %>回</th>
               </tr>
             </table>
-            <p class="pt-3" style="font-size: small;">コメント</p>
-            <p><%= post.sauna_post %></p>
+            <p class="pt-3" style="font-size: small;">サ活内容</p>
+            <p class="omit"><%= post.sauna_post %></p>
           </div>
         </div>
       </div>

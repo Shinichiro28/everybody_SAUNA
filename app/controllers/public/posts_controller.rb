@@ -41,14 +41,14 @@ class Public::PostsController < ApplicationController
   end
 
   def create
-    @sauna = Sauna.find_by(id: params[:sauna_id])
+    @sauna = Sauna.find(params[:sauna_id])
     @post = @sauna.posts.new(post_params)
     @post.saunner = current_saunner
     tag_list = params[:post][:name].split(',')
     if @post.save
       @post.save_tag(tag_list)
       flash[:notice] = "サ活投稿に成功しました！"
-      redirect_to sauna_posts_path
+      redirect_to sauna_post_path(sauna_id: @sauna.id, id: @post.id)
     else
       render 'new'
     end
@@ -64,7 +64,7 @@ class Public::PostsController < ApplicationController
     if @post.update(post_params)
         @post.save_tag(tag_list)
         flash[:notice] = "投稿内容更新に成功しました！"
-        redirect_to sauna_post_path(sauna_id: @sauna.id)
+        redirect_to sauna_post_path(sauna_id: @sauna.id, id: @post.id)
     else
       render 'edit'
     end

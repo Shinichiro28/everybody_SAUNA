@@ -48,13 +48,23 @@ footer{
   background-color: #b0c4de;
 }
 
+/*必須用*/
+.required{
+  color: #fff;
+  background: #f14668;
+  font-size: 1rem;
+  padding: 3px 5px;
+  border-radius: 1px;
+  margin-left: 5px;
+}
+
 .pagination {
   border: none;     /*枠線をなくす*/
   color: #696969;/*文字の色を変える*/
   margin-right: 10px;
 }
-
-.top-sauna{
+/*文字省略表示*/
+.omit{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -121,6 +131,13 @@ footer{
   margin-bottom: 500px;
 }
 
+.admin_posts{
+  margin-bottom: 400px;
+}
+
+.admin_post_show{
+  margin-bottom: 258px;
+}
 
 .admin_chat_group_show{
   margin-bottom: 563px;

@@ -13,31 +13,52 @@
           <%= f.date_field :visit_date, class: "col-md-2" %>
         </div>
         <div class="form-group row">
-          <%= f.label :sauna_minutes, "サウナ時間", class: "col-md-3" %>
+          <label class="col-md-3">
+            <%= f.label :sauna_minutes, "サウナ時間" %>
+            <span class="required">必須</span>
+          </label>
           <%= f.text_field :sauna_minutes, class: "col-md-1" %>分
         </div>
         <div class="form-group row">
-          <%= f.label :mizu_minutes, "水風呂時間", class: "col-md-3" %>
+          <label class="col-md-3">
+            <%= f.label :mizu_minutes, "水風呂時間" %>
+            <span class="required">必須</span>
+          </label>
           <%= f.text_field :mizu_minutes, class: "col-md-1" %>分
         </div>
         <div class="form-group row">
-          <%= f.label :totonoi_minutes, "ととのい時間", class: "col-md-3" %>
+          <label class="col-md-3">
+            <%= f.label :totonoi_minutes, "ととのい時間" %>
+            <span class="required">必須</span>
+          </label>
           <%= f.text_field :totonoi_minutes, class: "col-md-1" %>分
         </div>
         <div class="form-group row">
-          <%= f.label :sauna_times, "セット数", class: "col-md-3" %>
+          <label class="col-md-3">
+            <%= f.label :sauna_times, "セット数" %>
+            <span class="required">必須</span>
+          </label>
           <%= f.text_field :sauna_times, class: "col-md-1" %>回
         </div>
         <div class="form-group row">
-          <%= f.label :sauna_temperature, "サウナ室温度", class: "col-md-3" %>
+          <label class="col-md-3">
+            <%= f.label :sauna_temperature, "サウナ室温度" %>
+            <span class="required">必須</span>
+          </label>
           <%= f.text_field :sauna_temperature, class: "col-md-1" %>℃
         </div>
         <div class="form-group row">
-          <%= f.label :mizu_temperature, "水風呂温度", class: "col-md-3" %>
+          <label class="col-md-3">
+            <%= f.label :mizu_temperature, "水風呂温度" %>
+            <span class="required">必須</span>
+          </label>
           <%= f.text_field :mizu_temperature, class: "col-md-1" %>℃
         </div>
         <div class="form-group row">
-          <%= f.label :sauna_post, "サ活内容", class: "col-md-3" %>
+          <label class="col-md-3">
+            <%= f.label :sauna_post, "サ活内容" %>
+            <span class="required">必須</span>
+          </label>
           <%= f.text_area :sauna_post, class: "col-md-5" %>
         </div>
       </div>
