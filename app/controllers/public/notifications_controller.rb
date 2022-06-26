@@ -3,9 +3,6 @@ class Public::NotificationsController < ApplicationController
 
     @notifications = current_saunner.passive_notifications.page(params[:page]).per(10)
       #未確認の通知のみ取り出し、確認後の更新する
-    @notifications.checked_false
-    
-    
     @notifications.where(checked: false).each do |notification|
       notification.update(checked: true)
     end
