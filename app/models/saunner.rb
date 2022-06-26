@@ -16,6 +16,8 @@ class Saunner < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :saunas
+  #お問合せ
+  has_many :contacts, dependent: :destroy
    #自分からの通知
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
    #相手からの通知
