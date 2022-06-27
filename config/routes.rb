@@ -34,11 +34,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts, only:[:index], controller: "public/posts" do
-    resource :favorites, only:[:create,:destroy], controller: "public/favorites"
-    resources :comments, only:[:create,:destroy], controller: "public/comments"
-  end
-
   resources :chat_groups, controller: "public/chat_groups" do
     get "join" => "public/chat_groups#join"
     delete "all_destroy" => 'public/chat_groups#all_destroy'
