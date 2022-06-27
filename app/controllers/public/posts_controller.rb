@@ -84,7 +84,7 @@ class Public::PostsController < ApplicationController
   end
 
   def ensure_current_saunner
-    @post = Post.find_by(params[:post_id])
+    @post = Post.find(params[:id])
     unless @post.saunner == current_saunner
       redirect_to request.referer
     end
