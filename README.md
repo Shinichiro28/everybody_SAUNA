@@ -27,6 +27,17 @@
 - サウナ施設関係者からも自身の施設の評価の一つとして参考にしてもらえる。
 
 
+## 設計書
+- ER図<br>
+  https://drive.google.com/file/d/1q8LD_xBBIguOJrBYeJ0khkubmgphiLCc/view?usp=sharing
+- テーブル定義書<br>
+  https://docs.google.com/spreadsheets/d/1v778q7Z6fUQqGTg7qUbc1CmYZ573XP0dbaOS59HkWQg/edit?usp=sharing
+- アプリケーション詳細設計<br>
+  https://docs.google.com/spreadsheets/d/1fCVF83I0a4sWk6r6DMByJ7LJkgmlGCMie9iSrUg2OuY/edit?usp=sharing
+- テスト仕様書<br>
+  https://docs.google.com/spreadsheets/d/1CsI7L-952T48zXACEroS9C2A2LLUYEzG/edit?usp=sharing&ouid=116903648576670482690&rtpof=true&sd=true
+
+
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
