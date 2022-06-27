@@ -20,9 +20,9 @@ class Public::PostsController < ApplicationController
 
   def index
     @sauna = Sauna.find(params[:sauna_id])
-    @saunner = Saunner.find_by(params[:saunner_id])
+    @saunner = Saunner.find(params[:saunner_id])
     @posts = @sauna.posts.page(params[:page]).per(5)
-    @post = Post.find_by(params[:id])
+    @post = Post.find(params[:id])
     @tag_list = @post.tags
   end
 
