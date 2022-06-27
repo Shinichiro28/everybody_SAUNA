@@ -7,8 +7,8 @@ class Post < ApplicationRecord
   belongs_to :sauna, foreign_key: 'sauna_id'
   belongs_to :saunner, foreign_key: 'saunner_id'
 
-  has_many :post_tags,dependent: :destroy
-  has_many :tags,through: :post_tags
+  has_many :post_tags, dependent: :destroy
+  has_many :tags, through: :post_tags
    #通知モデルとの紐付け
   has_many :notifications, dependent: :destroy
 

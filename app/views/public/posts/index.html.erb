@@ -3,7 +3,7 @@
   <div class="row">
         <!--タグリスト-->
     <% @tag_list.each do |list|%>
-      <%= link_to list.name, sauna_post_search_tag_path(post_id: @post.id, tag_id: list.id) %>
+      <%= link_to list.name, sauna_post_search_tag_path(post_id: list.post.id, tag_id: list.id) %>
       <%="(#{list.posts.count})" %>
     <% end %>
 
