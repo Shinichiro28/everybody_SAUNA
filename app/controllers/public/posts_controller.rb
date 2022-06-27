@@ -4,7 +4,7 @@ class Public::PostsController < ApplicationController
 
 
   def new
-    @post = Post.new(saunner_id: current_saunner.id, sauna_id: params[:sauna_id])
+    @post = Post.new
     @sauna = Sauna.find(params[:sauna_id])
   end
 
