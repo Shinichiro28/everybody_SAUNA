@@ -9,7 +9,8 @@ class Public::SaunasController < ApplicationController
   end
 
   def index
-    @saunas = Sauna.where(is_active: true)
+    #公開ステータスtrueで５投稿ごとのページネーション
+    @saunas = Sauna.where(is_active: true).page(params[:page]).per(5)
   end
 
   def create
