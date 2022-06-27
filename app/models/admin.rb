@@ -4,10 +4,5 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  #saunaモデルの投稿写真
-  def get_store_image
-      (store_image.attached?) ? store_image : 'no_store.jpeg'
-  end
-
 
 end
