@@ -14,6 +14,7 @@ class Post < ApplicationRecord
 
 
     #バリデーション
+  validates :visit_date, presence: true
   validates :sauna_minutes, presence: true
   validates :mizu_minutes, presence: true
   validates :totonoi_minutes, presence: true

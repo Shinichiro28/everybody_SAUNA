@@ -9,8 +9,11 @@
       <h4 class="pt-3">◆サウナ</h4>
       <div class="pl-2">
         <div class="form-group row">
-          <%= f.label :visit_date, "訪問日", class: "col-md-3" %>
-          <%= f.date_field :visit_date, class: "col-md-2" %>
+          <label class="col-md-3">
+            <%= f.label :visit_date, "訪問日" %>
+            <span class="required">必須</span>
+          </label>
+            <%= f.date_field :visit_date, class: "col-md-2" %>
         </div>
         <div class="form-group row">
           <label class="col-md-3">
