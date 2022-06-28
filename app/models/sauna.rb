@@ -10,10 +10,19 @@ class Sauna < ApplicationRecord
 
     #バリデーション
   validates :name, presence: true
-  validates :prefecture, presence: true
   validates :postcode, presence: true
   validates :address, presence: true
   validates :tel, presence: true
+  validates :hp, presence: true
+  validates :access, presence: true
+  validates :holiday, presence: true
+  validates :open, presence: true
+  validates :fee, presence: true
+  validates :sauna_temperature, presence: true
+  validates :sauna_capacity, presence: true
+  validates :mizu_temperature, presence: true
+  validates :mizu_capacity, presence: true
+  validates :depth, presence: true
 
   has_one_attached :store_image
 
