@@ -1,4 +1,5 @@
 class Public::SaunasController < ApplicationController
+  before_action :authenticate_saunner!, only: [:new]
 
   def new
     @sauna = Sauna.new

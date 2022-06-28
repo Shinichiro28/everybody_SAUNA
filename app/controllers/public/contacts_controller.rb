@@ -1,4 +1,5 @@
 class Public::ContactsController < ApplicationController
+  before_action :authenticate_saunner!
 
   def new
     @contact = Contact.new

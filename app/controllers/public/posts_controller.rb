@@ -1,5 +1,5 @@
 class Public::PostsController < ApplicationController
-
+  before_action :authenticate_saunner!, only: [:new, :edit]
   before_action :ensure_current_saunner, only: [:edit, :destroy]
 
 
