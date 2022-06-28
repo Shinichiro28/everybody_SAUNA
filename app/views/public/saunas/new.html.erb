@@ -13,7 +13,7 @@
           <%= f.label :name, "施設名" %>
           <span class="required">必須</span>
         </label>
-        <%= f.text_field :name, class: "col-md-2" %>
+        <%= f.text_field :name, class: "col-8" %>
       </div>
       <div class="form-group row">
         <%= f.label :store_type, "施設タイプ", class: "col-md-3" %>
@@ -36,53 +36,56 @@
           <%= f.label :postcode, "郵便番号" %>
           <span class="required">必須</span>
         </label>
-        <%= f.text_field :postcode, class: "col-md-2" %>
+        <%= f.text_field :postcode, class: "col-8" %>
       </div>
       <div class="form-group row">
         <label class="col-md-3">
           <%= f.label :address, "住所" %>
           <span class="required">必須</span>
         </label>
-        <%= f.text_field :address, class: "col-md-2" %>
+        <%= f.text_field :address, class: "col-8" %>
       </div>
       <div class="form-group row">
         <label class="col-md-3">
           <%= f.label :tel, "電話番号" %>
           <span class="required">必須</span>
         </label>
-        <%= f.text_field :tel, class: "col-md-2" %>
+        <%= f.text_field :tel, class: "col-8" %>
       </div>
       <div class="form-group row">
-        <%= f.label :hp, "HP", class: "col-md-3" %>
-        <%= f.text_field :hp, class: "col-md-2" %>
+        <label class="col-md-3">
+          <%= f.label :hp, "HP" %>
+          <span class="required">必須</span>
+        </label>
+        <%= f.text_field :hp, class: "col-8" %>
       </div>
       <div class="form-group row">
         <label class="col-md-3">
           <%= f.label :access, "アクセス" %>
           <span class="required">必須</span>
         </label>
-        <%= f.text_area :access, class: "col-md-2" %>
+        <%= f.text_area :access, class: "col-8" %>
       </div>
       <div class="form-group row">
         <label class="col-md-3">
           <%= f.label :holiday, "定休日" %>
           <span class="required">必須</span>
         </label>
-        <%= f.text_area :holiday, class: "col-md-2" %>
+        <%= f.text_area :holiday, class: "col-8" %>
       </div>
       <div class="form-group row">
         <label class="col-md-3">
           <%= f.label :open, "営業時間" %>
           <span class="required">必須</span>
         </label>
-        <%= f.text_area :open, class: "col-md-2" %>
+        <%= f.text_area :open, class: "col-8" %>
       </div>
       <div class="form-group row">
         <label class="col-md-3">
         <%= f.label :fee, "料金" %>
         <span class="required">必須</span>
       </label>
-        <%= f.text_field :fee, class: "col-md-2" %>
+        <%= f.text_area :fee, class: "col-8" %>
       </div>
     </div>
     <div class="pt-5">
@@ -115,7 +118,7 @@
       </div>
       <div class="form-group row">
         <%= f.label :complement, "補足", class: "col-md-3" %>
-        <%= f.text_area :complement, class: "col-md-2" %>
+        <%= f.text_area :complement, class: "col-8" %>
       </div>
     </div>
 
@@ -148,7 +151,7 @@
       </div>
       <div class="form-group row">
         <%= f.label :mizu_complement, "補足", class: "col-md-3" %>
-        <%= f.text_area :mizu_complement, class: "col-md-2" %>
+        <%= f.text_area :mizu_complement, class: "col-8" %>
     </div>
 
     <div class="pt-5">
@@ -178,7 +181,7 @@
       </div>
       <div class="form-group row">
         <%= f.label :aufguss_frequency, "頻度", class: "col-md-3" %>
-        <%= f.text_area :aufguss_frequency, class: "col-md-3" %>
+        <%= f.text_area :aufguss_frequency, class: "col-8" %>
       </div>
       <div class="form-group row">
         <%= f.label :auto_loyly, "オートロウリュ", class: "col-md-3" %>
@@ -186,7 +189,7 @@
       </div>
       <div class="form-group row">
         <%= f.label :auto_loyly_frequency, "頻度", class: "col-md-3" %>
-        <%= f.text_area :auto_loyly_frequency, class: "col-md-3" %>
+        <%= f.text_area :auto_loyly_frequency, class: "col-8" %>
       </div>
       <div class="form-group row">
         <%= f.label :self_loyly, "セルフロウリュ", class: "col-md-3" %>
@@ -310,7 +313,7 @@
       <h3>補足事項</h3>
       <div class="form-group row">
           <%= f.label :free_text, "その他", class: "col-md-3" %>
-          <%= f.text_area :free_text, class: "col-md-3" %>
+          <%= f.text_area :free_text, class: "col-8" %>
       </div>
       <div class="actions m-2 pull-right">
             <%= f.submit "新規登録" , class: "btn btn-outline-success col-md-offset-6" %>
