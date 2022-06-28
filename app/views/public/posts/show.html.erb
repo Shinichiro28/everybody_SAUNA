@@ -34,19 +34,22 @@
           <%#= image_tag @post.get_sauna_image, size:'400x200' %>
           <div class="pt-5 row">
             <div class="card-text col-6 col-md-4" id="post_<%= @post.id%>">
+              <!--ログインしていない場合は、いいね数のみ表示-->
             <% if saunner_signed_in? %>
               <%= render 'public/favorites/sauna_post_favorite', post: @post, sauna: @sauna %>
             <% else %>
-              <span style="color:red;">❤<%= post.favorites.count %> いいね︎</span>
+              <span style="color:red;">❤<%= @post.favorites.count %> いいね︎</span>
             <% end %>
             </div>
               <!--コメント数-->
             <div class="comments-count col-6 col-md-4">
               コメント件数：<%= @post.comments.count %>
             </div>
+            <% if saunner_signed_in? %>
             <p class="card-text"><%= render 'public/comments/form', sauna: @sauna, post: @post, comment: @comment %></p>
+            <% end %>
               <!--コメント欄-->
-            <div class="card-text comment">
+            <div class="card-text comment mt-3">
               <%= render "public/comments/index", post: @post, sauna: @sauna, comments: @comments %>
             </div>
           </div>

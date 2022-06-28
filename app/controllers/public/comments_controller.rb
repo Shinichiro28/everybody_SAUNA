@@ -1,4 +1,5 @@
 class Public::CommentsController < ApplicationController
+  before_action :authenticate_saunner!
 
   def create
     @sauna = Sauna.find(params[:sauna_id])
