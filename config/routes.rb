@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "/saunners/my_page" => "public/saunners#show", as: "my_page"
   get "/saunners/edit" => "public/saunners#edit", as: "edit_saunners"
   patch "saunners" => "public/saunners#update"
+  #いいね一覧
+  get "/saunners/favorites" => "public/saunners#favorites", as: "favorites"
    #退会確認画面
   get "/saunners/unsubscribe" => "public/saunners#unsubscribe", as: "unsubscribe"
    #論理削除用のルーティング

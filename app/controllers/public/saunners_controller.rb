@@ -21,6 +21,11 @@ class Public::SaunnersController < ApplicationController
     end
   end
 
+  def favorites
+    favorites = Favorite.where(saunner_id: current_saunner.id).pluck(:post_id)
+    @favorite_posts = Post.order(created_at: :desc).find(favorites)
+  end
+
   def unsubscribe
     @saunner = current_saunner
   end
