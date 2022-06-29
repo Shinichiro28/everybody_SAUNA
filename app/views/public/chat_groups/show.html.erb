@@ -39,6 +39,8 @@
     </tbody>
   </table>
   <div class="chat-file mt-5">
+    <% if @chat_group.saunner_id == current_saunner.id || @chat_group.saunners.include?(current_saunner) %>
     <%= render 'public/chats/chat', chat_group: @chat_group, chats: @chats ,chat: @chat %>
+    <% end %>
   </div>
 </div>
