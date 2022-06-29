@@ -27,7 +27,7 @@ class Sauna < ApplicationRecord
   has_one_attached :store_image
 
   def get_store_image
-      (store_image.attached?) ? store_image : 'no_store.jpeg'
+      (store_image.attached?) ? store_image : 'no_store.jpg'
   end
 
   #検索機能
