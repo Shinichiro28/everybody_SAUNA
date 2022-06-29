@@ -31,7 +31,7 @@
           <p class="card-text"><%= @post.sauna_post %></p>
         </div>
         <div class="col">
-          <%#= image_tag @post.get_sauna_image, size:'400x200' %>
+          <%= image_tag @post.get_sauna_image, size:'400x200' %>
           <div class="pt-5 row">
             <div class="card-text col-6 col-md-4" id="post_<%= @post.id%>">
               <!--ログインしていない場合は、いいね数のみ表示-->

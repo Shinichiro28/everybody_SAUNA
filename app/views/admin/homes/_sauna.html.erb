@@ -4,7 +4,7 @@
     <%= link_to admin_sauna_path(sauna.id) do %>
     <div class="col mb-3">
       <div class="card" style="width: 18rem;">
-        <%#= image_tag sauna.get_store_image, width: '100%', height: '50%' %>
+        <%= image_tag sauna.get_store_image, width: '100%', height: '50%' %>
         <div class="card-body">
           <h5 class="card-title"><%= sauna.name %><br><small class="text-muted"><%= sauna.prefecture %></small></h5>
           <p class="card-text">サウナ室温度：<%= sauna.sauna_temperature %>℃</p>

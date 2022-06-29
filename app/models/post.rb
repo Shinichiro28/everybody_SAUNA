@@ -25,7 +25,7 @@ class Post < ApplicationRecord
   has_one_attached :food_image
 
   def get_sauna_image
-      (sauna_image.attached?) ? sauna_image : 'no_sauna.jpeg'
+      (sauna_image.attached?) ? sauna_image : 'no_sauna.jpg'
   end
 
   def favorited?(saunner)
