@@ -3,7 +3,7 @@
     <% new_saunas.each do |sauna| %>
     <%= link_to sauna_path(sauna.id) do %>
     <div class="col mb-3">
-      <div class="card" style="width: 18rem;">
+      <div class="card shadow" style="width: 18rem;">
         <%= image_tag sauna.get_store_image, width: '100%', height: '50%' %>
         <div class="card-body">
           <h5 class="card-title"><%= sauna.name %><br><small class="text-muted"><%= sauna.prefecture %></small></h5>
