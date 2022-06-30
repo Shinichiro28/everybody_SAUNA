@@ -6,7 +6,7 @@ class Admin::SaunnersController < ApplicationController
   end
 
   def index
-    @saunners = Saunner.page(params[:page]).per(5)
+    @saunners = Saunner.page(params[:page]).per(5).order(created_at: :desc)
   end
 
   def edit

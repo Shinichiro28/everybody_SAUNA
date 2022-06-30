@@ -19,7 +19,7 @@ class Public::PostsController < ApplicationController
 
   def index
     @sauna = Sauna.find(params[:sauna_id])
-    @posts = @sauna.posts.page(params[:page]).per(5)
+    @posts = @sauna.posts.page(params[:page]).per(5).order(created_at: :desc)
     @tag_list = Tag.all
   end
 

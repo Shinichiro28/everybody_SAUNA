@@ -5,8 +5,8 @@
       <div class="card-header container">
         <p class="d-inline ml-3"><%= @post.saunner.nickname %>さん</p>
         <p class="d-inline ml-3" style="font-size: small;">訪問日時：<%= @post.visit_date %></p>
-        <p class="card-title d-inline ml-3"><%= @sauna.name %><a style="font-size: small; color: gray;"><%= @sauna.prefecture %></a></p>
-        <a><%= link_to '削除', admin_post_path(sauna_id: @sauna.id, post_id: @post.id), method: :delete, data: { confirm: '本当に削除しますか？' } , class: "btn btn-sm btn-outline-danger" %></p>
+        <p class="card-title d-inline ml-3"><%= @post.sauna.name %><a style="font-size: small; color: gray;"><%= @post.sauna.prefecture %></a></p>
+        <a><%= link_to '削除', admin_post_path(sauna_id: @post.sauna.id, post_id: @post.id), method: :delete, data: { confirm: '本当に削除しますか？' } , class: "btn btn-sm btn-outline-danger" %></p>
       </div>
       <div class="card-body text-center">
         <div class="container row">
@@ -21,7 +21,7 @@
             <p class="card-text"><%= @post.sauna_post %></p>
           </div>
           <div class="col">
-            <%#= image_tag @post.get_sauna_image, size:'400x200' %>
+            <%= image_tag @post.get_sauna_image, size:'400x200' %>
 
           </div>
         </div>

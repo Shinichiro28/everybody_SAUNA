@@ -1,19 +1,13 @@
 class Admin::PostsController < ApplicationController
 
   def show
-    @saunner = Saunner.find_by(params[:saunner_id])
-    @sauna = Sauna.find_by(params[:sauna_id])
     @post = Post.find(params[:id])
     @post_tags = @post.tags
     @comments = @post.comments
   end
 
   def index
-    @saunner = Saunner.find_by(params[:saunner_id])
-    @sauna = Sauna.find_by(params[:sauna_id])
-    @posts = @sauna.posts.page(params[:page]).per(5)
-    @post = Post.find_by(params[:id])
-    @tag_list = @post.tags
+    @posts = Post.page(params[:page]).per(5).order(created_at: :desc)
   end
 
   def destroy
