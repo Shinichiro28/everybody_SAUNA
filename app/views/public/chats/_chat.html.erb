@@ -1,41 +1,43 @@
-
+<div id="bms_messages_container">
+  <div id="bms_chat_header">
+    <div id="bms_chat_user_status">
       <h2> グループ名：<%= chat_group.name %>のチャット</h2>
-      <%= render 'layouts/errors', obj: chat %>
-      <div>
-        <%= form_with model: chat, url: chat_group_chats_path(chat_group.id) do |f| %>
-          <%= f.text_field :message %>
-          <%= f.submit "送信", class:"btn btn-sm btn-outline-success chat-btn" %>
-        <% end %>
-      </div>
-
-    <div id="bms_messages_container">
-      <div id="bms_messages">
-        <% chats.each do |chat| %>
-        <% if chat.saunner_id == current_saunner.id %>
-        <div class="bms_message bms_left">
-          <p class="bms_message_saunner"><%= current_saunner.nickname %>さん</p>
-          <p class="bms_message_time"><small><%= chat.created_at.strftime('%Y/%m/%d') %></small></p>
-          <div class="bms_message_box">
-            <div class="bms_message_content">
-              <div class="bms_message_text"><%= chat.message %></div>
-            </div>
-          </div>
+    </div>
+  </div>
+  <%= render 'layouts/errors', obj: chat %>
+  <div id="bms_messages">
+    <div>
+      <%= form_with model: chat, url: chat_group_chats_path(chat_group.id) do |f| %>
+        <%= f.text_field :message %>
+        <%= f.submit "送信", class:"btn btn-sm btn-outline-success chat-btn" %>
+      <% end %>
+    </div>
+    <% chats.each do |chat| %>
+    <% if chat.saunner_id == current_saunner.id %>
+    <div class="bms_message bms_left">
+      <p class="bms_message_saunner"><%= current_saunner.nickname %>さん</p>
+      <p class="bms_message_time"><small><%= chat.created_at.strftime('%Y/%m/%d') %></small></p>
+      <div class="bms_message_box">
+        <div class="bms_message_content">
+          <div class="bms_message_text"><%= chat.message %></div>
         </div>
-        <div class="bms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
-      <% else %>
-                  <!--メッセージ２（右側）-->
-        <div class="bms_message bms_right">
-          <p class="bms_message_saunner"><%= chat.saunner.nickname %>さん</p>
-          <p class="bms_message_time"><small><%= chat.created_at.strftime('%Y/%m/%d') %></small></p>
-          <div class="bms_message_box">
-            <div class="bms_message_content">
-              <div class="bms_message_text"><%= chat.message %></div>
-            </div>
-          </div>
-        </div>
-        <div class="bms_clear"></div>
-        <% end %>
-        <% end %>
-        <div class="pagination"><%= paginate chats %></div>
       </div>
     </div>
+    <div class="bms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
+    <% else %>
+    <!--メッセージ２（右側）-->
+    <div class="bms_message bms_right">
+      <p class="bms_message_saunner"><%= chat.saunner.nickname %>さん</p>
+      <p class="bms_message_time"><small><%= chat.created_at.strftime('%Y/%m/%d') %></small></p>
+      <div class="bms_message_box">
+        <div class="bms_message_content">
+          <div class="bms_message_text"><%= chat.message %></div>
+        </div>
+      </div>
+    </div>
+    <div class="bms_clear"></div>
+    <% end %>
+    <% end %>
+    <div class="pagination"><%= paginate chats %></div>
+  </div>
+</div>
