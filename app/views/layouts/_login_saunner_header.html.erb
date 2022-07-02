@@ -1,6 +1,6 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #b0c4de; height: 100px;">
-    <div class="container">
+    <div class="login-header">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -44,6 +44,9 @@
               マイページ
             <% end %>
           </li>
+          <% if unchecked_notifications.any? %>
+            <small><i class="fa fa-circle" style="color: gold;"></i></small>
+          <% end %>
           <li>
             <%= link_to notifications_path, class: 'nav-link text-light' do %>
               <i class="fas fa-bell"></i>
