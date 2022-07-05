@@ -14,7 +14,7 @@
       <tr onclick='window.location="<%= '/admin/comments/' + comment.id.to_s %>"' role="link">
         <td><%= comment.saunner.nickname %></td>
         <td><%= comment.post.id %></td>
-        <td><%= comment.comment %></td>
+        <td class="omit"><%= comment.comment %></td>
         <td>[<%= comment.score %>]</td>
       </tr>
       <% end %>
