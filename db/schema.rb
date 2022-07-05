@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_23_024421) do
+ActiveRecord::Schema.define(version: 2022_07_05_023622) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 2022_06_23_024421) do
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "score", precision: 5, scale: 3
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["sauna_id"], name: "index_comments_on_sauna_id"
     t.index ["saunner_id"], name: "index_comments_on_saunner_id"
@@ -149,6 +150,7 @@ ActiveRecord::Schema.define(version: 2022_06_23_024421) do
     t.boolean "is_active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "score", precision: 5, scale: 3
   end
 
   create_table "saunas", force: :cascade do |t|

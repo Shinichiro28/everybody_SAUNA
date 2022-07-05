@@ -42,6 +42,8 @@ class Public::PostsController < ApplicationController
     @sauna = Sauna.find(params[:sauna_id])
     @post = @sauna.posts.new(post_params)
     @post.saunner = current_saunner
+    #Google Natural Language API
+    @post.score = Language.get_data(post_params[:sauna_post])
     tag_list = params[:post][:name].split(',')
     if @post.save
       @post.save_tag(tag_list)

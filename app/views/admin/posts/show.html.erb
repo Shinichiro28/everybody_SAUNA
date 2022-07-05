@@ -19,6 +19,7 @@
             <p class="card-text">水風呂温度：<%= @post.mizu_temperature %>℃</p>
             <p class="card-text">コメント</p>
             <p class="card-text"><%= @post.sauna_post %></p>
+            <p class="card-text">本文の感情分析スコア：[<%= @post.score %>]</p>
           </div>
           <div class="col">
             <%= image_tag @post.get_sauna_image, size:'400x200' %>

@@ -5,6 +5,8 @@ class Public::CommentsController < ApplicationController
     @sauna = Sauna.find(params[:sauna_id])
     @post = Post.find(params[:post_id])
     @comment = Comment.new(comment_params)
+    #Google Natural Language API
+    @comment.score = Language.get_data(comment_params[:comment])
     @comments = Comment.page(params[:page]).per(5)
     @comment.post_id = @post.id
     @comment.saunner_id = current_saunner.id
