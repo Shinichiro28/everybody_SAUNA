@@ -15,15 +15,16 @@
               </tr>
               <tr>
                 <th>
-                 <a style="color: blue; clamp(1px, 18px, 18px);"><%= post.sauna.name %></a><br>
+                 <a class="omit top_post_tiile"><%= post.sauna.name %></a><br>
                  <a style="color: gray; font-size: small;">[<%= post.sauna.prefecture %>]</a>
                 </th>
+                <th><%= post.favorites.count %>❤️ <%= post.comments.count %><i class="far fa-comment"></i></th>
               </tr>
             </thead>
             <tbody style="font-size: small;">
               <tr>
-                <td>サウナ室温度：<%= post.sauna_temperature %>℃</td>
-                <td class="pl-3">水風呂温度：<%= post.mizu_temperature %>℃</td>
+                <td>サウナ室：<%= post.sauna_temperature %>℃</td>
+                <td class="pl-3">水風呂：<%= post.mizu_temperature %>℃</td>
               </tr>
               <tr>
                 <td>サウナ時間：<%= post.sauna_minutes %>分</td>

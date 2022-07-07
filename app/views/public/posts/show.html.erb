@@ -43,7 +43,7 @@
             </div>
               <!--コメント数-->
             <div class="comments-count col-6 col-md-4">
-              コメント件数：<%= @post.comments.count %>
+              <i class="far fa-comment"></i><%= @post.comments.count %>件
             </div>
             <% if saunner_signed_in? %>
             <p class="card-text"><%= render 'public/comments/form', sauna: @sauna, post: @post, comment: @comment %></p>

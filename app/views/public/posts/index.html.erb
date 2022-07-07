@@ -32,7 +32,11 @@
                 <td class="pr-2">セット数：<%= post.sauna_times %>回</th>
               </tr>
             </table>
-            <p class="pt-3" style="font-size: small;">サ活内容</p>
+            <p class="pt-3">
+              <%= post.favorites.count %>❤
+              <%= post.comments.count %><i class="far fa-comment"></i>
+            </p>
+            <p style="font-size: small;">サ活内容</p>
             <p class="omit"><%= post.sauna_post %></p>
           </div>
         </div>
