@@ -19,18 +19,18 @@ class Public::SessionsController < Devise::SessionsController
   #   super
   # end
 
-   protected
+  protected
 
-   def saunner_state
-  ## 入力されたemailからアカウントを1件取得
-      @saunner = Saunner.find_by(email: params[:saunner][:email])
-      ## アカウントを取得できなかった場合、このメソッドを終了する
-      return if !@saunner
-      ## 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
-      if @saunner.valid_password?(params[:saunner][:password]) && @saunner.is_deleted
-        redirect_to new_saunner_registration_path
-      end
-   end
+  def saunner_state
+    ## 入力されたemailからアカウントを1件取得
+    @saunner = Saunner.find_by(email: params[:saunner][:email])
+    ## アカウントを取得できなかった場合、このメソッドを終了する
+    return if !@saunner
+    ## 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
+    if @saunner.valid_password?(params[:saunner][:password]) && @saunner.is_deleted
+      redirect_to new_saunner_registration_path
+    end
+  end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])

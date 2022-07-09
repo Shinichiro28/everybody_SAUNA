@@ -1,5 +1,4 @@
 class Public::Saunners::SessionsController < Devise::SessionsController
-
   def guest_sign_in
     saunner = Saunner.guest
     sign_in saunner

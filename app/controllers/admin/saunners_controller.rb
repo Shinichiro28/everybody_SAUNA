@@ -10,7 +10,7 @@ class Admin::SaunnersController < ApplicationController
   end
 
   def edit
-    @saunner =Saunner.find(params[:id])
+    @saunner = Saunner.find(params[:id])
   end
 
   def update
@@ -28,5 +28,4 @@ class Admin::SaunnersController < ApplicationController
   def saunner_params
     params.require(:saunner).permit(:first_name, :last_name, :email, :nickname, :is_deleted)
   end
-
 end

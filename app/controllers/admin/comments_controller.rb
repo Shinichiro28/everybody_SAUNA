@@ -1,5 +1,4 @@
 class Admin::CommentsController < ApplicationController
-
   def index
     @comments = Comment.page(params[:page]).per(14).order(created_at: :desc)
   end
@@ -14,5 +13,4 @@ class Admin::CommentsController < ApplicationController
     flash[:notice] = "コメントを削除しました"
     redirect_to admin_comments_path
   end
-
 end

@@ -1,6 +1,6 @@
 class Public::ChatGroupsController < ApplicationController
   before_action :authenticate_saunner!
-   #オーナー以外のユーザーが直接URLで編集画面に入った時の対処
+  # オーナー以外のユーザーが直接URLで編集画面に入った時の対処
   before_action :ensure_correct_saunner, only: [:edit, :update]
 
   def new
@@ -26,7 +26,7 @@ class Public::ChatGroupsController < ApplicationController
   def create
     @chat_group = ChatGroup.new(chat_group_params)
     @chat_group.saunner_id = current_saunner.id
-     #作成と同時にそのグループのメンバー
+    # 作成と同時にそのグループのメンバー
     @chat_group.saunners << current_saunner
     if @chat_group.save
       flash[:notice] = "チャットグループを作成しました"
@@ -43,12 +43,12 @@ class Public::ChatGroupsController < ApplicationController
 
   def destroy
     @chat_group = ChatGroup.find(params[:id])
-     #ログインユーザーが@chat_group.saunnersから消去
+    # ログインユーザーが@chat_group.saunnersから消去
     @chat_group.saunners.delete(current_saunner)
     redirect_to chat_groups_path
   end
 
-   #グループ削除
+  # グループ削除
   def all_destroy
     @chat_group = ChatGroup.find(params[:chat_group_id])
     if @chat_group.destroy
@@ -66,11 +66,10 @@ class Public::ChatGroupsController < ApplicationController
     end
   end
 
-
   private
 
   def chat_group_params
-    params.require(:chat_group).permit(:name,:introduction)
+    params.require(:chat_group).permit(:name, :introduction)
   end
 
   def ensure_correct_saunner
@@ -79,5 +78,4 @@ class Public::ChatGroupsController < ApplicationController
       redirect_to chat_groups_path
     end
   end
-
 end

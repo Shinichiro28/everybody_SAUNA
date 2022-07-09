@@ -1,6 +1,6 @@
 class Public::SaunnersController < ApplicationController
   before_action :authenticate_saunner!
-   #ゲストユーザーユーザー編集画面遷移不可(URL直接入力された場合)
+  # ゲストユーザーユーザー編集画面遷移不可(URL直接入力された場合)
   before_action :ensure_guest_saunner, only: [:edit]
 
   def show
@@ -41,14 +41,13 @@ class Public::SaunnersController < ApplicationController
   private
 
   def saunner_params
-    params.require(:saunner).permit(:sauna_id, :post_id, :last_name,:first_name,:nickname, :email, :sauna_image)
+    params.require(:saunner).permit(:sauna_id, :post_id, :last_name, :first_name, :nickname, :email, :sauna_image)
   end
 
-    #マイページにリダイレクト
+  # マイページにリダイレクト
   def ensure_guest_saunner
     if current_saunner.nickname == "guestsaunner"
-      redirect_to my_page_path(current_saunner) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+      redirect_to my_page_path(current_saunner), notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
   end
-
 end

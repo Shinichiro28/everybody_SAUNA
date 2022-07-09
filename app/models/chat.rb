@@ -1,10 +1,8 @@
 class Chat < ApplicationRecord
-
-    #アソシエーション
+  # アソシエーション
   belongs_to :saunner
   belongs_to :chat_group
 
-    #バリデーション
+  # バリデーション
   validates :message, presence: true
-
 end

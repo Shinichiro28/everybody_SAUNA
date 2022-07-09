@@ -1,9 +1,8 @@
 class Contact < ApplicationRecord
-
-  #アソシエーション
+  # アソシエーション
   belongs_to :saunner
 
-  #バリデーション
+  # バリデーション
   validates :name, presence: true
   validates :content, presence: true
 end

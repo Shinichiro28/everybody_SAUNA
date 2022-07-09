@@ -1,13 +1,11 @@
 class ChatGroup < ApplicationRecord
-
-    #アソシエーション
+  # アソシエーション
   has_many :chats, dependent: :destroy
   has_many :chat_group_users
   has_many :saunners, through: :chat_group_users, dependent: :destroy
-   #グループオーナー表示
+  # グループオーナー表示
   belongs_to :saunner
 
-    #バリデーション
+  # バリデーション
   validates :name, presence: true
-
 end

@@ -2,7 +2,6 @@ class Public::PostsController < ApplicationController
   before_action :authenticate_saunner!, only: [:new, :edit]
   before_action :ensure_current_saunner, only: [:edit, :destroy]
 
-
   def new
     @post = Post.new
     @post.saunner = current_saunner
@@ -26,11 +25,11 @@ class Public::PostsController < ApplicationController
   def edit
     @sauna = Sauna.find(params[:sauna_id])
     @post = Post.find(params[:id])
-    @tag_list=@post.tags.pluck(:name).join(',')
+    @tag_list = @post.tags.pluck(:name).join(',')
   end
 
   def search_tag
-    #検索結果画面でもタグ一覧表示
+    # 検索結果画面でもタグ一覧表示
     @tag_list = Tag.page(params[:page]).per(5)
     @tag = Tag.find(params[:tag_id])
     @posts = @tag.posts.page(params[:page]).per(10)
@@ -42,7 +41,7 @@ class Public::PostsController < ApplicationController
     @sauna = Sauna.find(params[:sauna_id])
     @post = @sauna.posts.new(post_params)
     @post.saunner = current_saunner
-    #Google Natural Language API
+    # Google Natural Language API
     @post.score = Language.get_data(post_params[:sauna_post])
     tag_list = params[:post][:name].split(',')
     if @post.save
@@ -58,13 +57,13 @@ class Public::PostsController < ApplicationController
     @sauna = Sauna.find(params[:sauna_id])
     @post = Post.find(params[:id])
     @post.saunner = current_saunner
-     #入力されたタグを受け取る
+    # 入力されたタグを受け取る
     tag_list = params[:post][:name].split(',')
-     #情報の更新
+    # 情報の更新
     if @post.update(post_params)
-        @post.save_tag(tag_list)
-        flash[:notice] = "投稿内容更新に成功しました！"
-        redirect_to sauna_post_path(sauna_id: @sauna.id, id: @post.id)
+      @post.save_tag(tag_list)
+      flash[:notice] = "投稿内容更新に成功しました！"
+      redirect_to sauna_post_path(sauna_id: @sauna.id, id: @post.id)
     else
       render 'edit'
     end
@@ -78,7 +77,6 @@ class Public::PostsController < ApplicationController
     end
   end
 
-
   private
 
   def post_params
@@ -91,5 +89,4 @@ class Public::PostsController < ApplicationController
       redirect_to request.referer
     end
   end
-
 end

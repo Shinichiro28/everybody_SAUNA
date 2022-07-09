@@ -21,5 +21,4 @@ class Public::ContactsController < ApplicationController
   def contact_params
     params.require(:contact).permit(:name, :title, :content)
   end
-
 end

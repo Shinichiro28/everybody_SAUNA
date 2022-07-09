@@ -1,9 +1,8 @@
 class Public::ChatsController < ApplicationController
-
   def show
-     #どのグループなのかを指定
+    # どのグループなのかを指定
     @chat_group = ChatGroup.find_by(params[:chat_group_id])
-     #指定したグループのチャットたち
+    # 指定したグループのチャットたち
     @chats = @chat_group.chats
     @saunner = Saunner.find_by(params[:saunner_id])
   end
@@ -27,5 +26,4 @@ class Public::ChatsController < ApplicationController
   def chat_params
     params.require(:chat).permit(:saunner_id, :chat_group_id, :message)
   end
-
 end
