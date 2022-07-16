@@ -4,39 +4,45 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse p-3" id="navbarNavDropdown" style="background: #b0c4de;">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown" style="background: #b0c4de;">
         <ul class="navbar-nav ml-auto">
-          <li class="d-inline-block" style="font-size: 15px;">
+          <li class="d-inline-block">
             <%= link_to root_path,class: 'nav-link text-light' do %>
-              Home
+              <i class="fas fa-home"></i>
+              <p><small>Home</small></p>
             <% end %>
           </li>
-          <li>
+          <li class="pl-3">
             <%= link_to about_path,class: 'nav-link text-light' do %>
-              everybodySAUNAとは？
+              <i class="fas fa-question-circle"></i>
+              <p><small>everybodySAUNAとは</small></p>
             <% end %>
           </li>
-          <li>
-            <%= link_to saunas_path,class: 'nav-link text-light' do %>
-              施設登録
+          <li class="pl-3">
+            <%= link_to new_sauna_path,class: 'nav-link text-light' do %>
+              <i class="fas fa-pen-nib"></i>
+              <p><small>施設登録</small></p>
             <% end %>
           </li>
-          <li>
+          <li class="pl-3">
             <%= link_to chat_groups_path,class: 'nav-link text-light' do %>
-              チャットグループ
+              <i class="fas fa-users"></i>
+              <p><small>チャットグループ</small></p>
             <% end %>
           </li>
-          <li style="padding-left: 50px;">
+          <li class="p-3">
             <%= render 'public/searches/search' %>
           </li>
           <li>
             <%= link_to new_saunner_session_path ,class: 'nav-link text-light' do %>
-              ログイン
+              <i class="fas fa-sign-in-alt"></i>
+              <p><small>ログイン</small></p>
             <% end %>
           </li>
           <li>
             <%= link_to new_saunner_registration_path,class: 'nav-link text-light' do %>
-              新規登録
+              <i class="fas fa-user-plus"></i>
+              <p><small>新規登録</small></p>
             <% end %>
           </li>
         </ul>
