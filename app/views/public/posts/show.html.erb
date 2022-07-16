@@ -21,12 +21,51 @@
       </p>
       <div class="container row">
         <div class="col">
-          <p class="card-text">サウナ時間：<%= @post.sauna_minutes %>分</p>
-          <p class="card-text">水風呂時間：<%= @post.mizu_minutes %>分</p>
-          <p class="card-text">ととのい時間：<%= @post.totonoi_minutes %>分</p>
-          <p class="card-text">セット数：<%= @post.sauna_times %>回</p>
-          <p class="card-text">サウナ室温度：<%= @post.sauna_temperature %>℃</p>
-          <p class="card-text">水風呂温度：<%= @post.mizu_temperature %>℃</p>
+          <p class="card-text bubbleoya">
+            サウナ時間：<%= @post.sauna_minutes %>分
+            <span class="right_bubble">
+              サウナ室に入っている時間。<br>
+              目安は10分<br>
+              ※10分はあくまで目安なので、無理せず自分の体と相談しよう！
+            </span>
+          </p>
+          <p class="card-text bubbleoya">
+            水風呂時間：<%= @post.mizu_minutes %>分
+            <span class="right_bubble">
+              水風呂に入っている時間。<br>
+              目安は1分〜2分<br>
+              水風呂にはかけ湯して汗を流してから入ろう！
+            </span>
+          </p>
+          <p class="card-text bubbleoya">
+            ととのい時間：<%= @post.totonoi_minutes %>分
+            <span class="right_bubble">
+              ととのっている時間。<br>
+              　※ととのいの意味は<%= link_to "こちら", about_path(anchor: 'term'), style: "color: gray;" %><br>
+              椅子などに腰掛けてボーッとしている瞬間が至福の時間！
+            </span>
+          </p>
+          <p class="card-text bubbleoya">
+            セット数：<%= @post.sauna_times %>回
+            <span class="right_bubble">
+              サウナ→水風呂→ととのいを繰り返した回数。<br>
+              目安は3回
+            </span>
+          </p>
+          <p class="card-text bubbleoya">
+            サウナ室温度：<%= @post.sauna_temperature %>℃
+            <span class="right_bubble">
+              施設によって様々な温度設定がされているので、<br>
+              色々なサウナに入って自分の好きな温度を見つけてみよう！
+            </span>
+          </p>
+          <p class="card-text bubbleoya">
+            水風呂温度：<%= @post.mizu_temperature %>℃
+            <span class="right_bubble">
+              サウナ室同様、施設によって様々な温度設定がされているので、<br>
+              こちらも自分の好きな温度を見つけてみよう！
+            </span>
+          </p>
           <p class="card-text">コメント</p>
           <p class="card-text"><%= @post.sauna_post %></p>
         </div>
