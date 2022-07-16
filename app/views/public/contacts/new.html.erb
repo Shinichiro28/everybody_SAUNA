@@ -9,7 +9,17 @@
       <%= f.text_field :name, placeholder: "お名前", class: "input-form" %>
     </div>
     <div class="m-3">
-      <%= f.label "お問合せテーマ" %><br>
+      <p class="mt-3 w-50 bubbleoya">
+        お問合せテーマ
+        <span class="right_bubble">
+          <施設編集依頼><br>
+          施設情報の変更の必要がある場合に選択下さい。<br>
+          <編集削除依頼><br>
+          施設の閉店などで削除の必要がある場合に選択下さい。<br>
+          <その他お問合せ><br>
+          何かございましたら、こちらを選択下さい。
+        </span>
+      </p>
       <%= f.select(:title, ["施設編集依頼", "施設削除依頼", "その他お問合せ"]) %>
     </div>
     <div class="m-3">

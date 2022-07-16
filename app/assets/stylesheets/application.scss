@@ -52,7 +52,7 @@ footer{
   padding-left: 300px;
 }
 
-/*吹き出し*/
+/*下に吹き出し*/
 .bubbleoya{
   position: relative; /* 指定した分だけ相対的に移動 */
 }
@@ -76,6 +76,56 @@ footer{
   border-right: 10px solid transparent; /* 吹き出し口の幅１／２ */
   top: -12px; /* 吹き出し口の位置調整 */
   left : 5%; /* 吹き出し口の横位置 */
+  content: ""; /* コンテンツの挿入 */
+  position: absolute; /* 親要素を基準 */
+}
+
+/*右に吹き出し*/
+.bubbleoya:hover .right_bubble{
+  display: inline; /* インライン要素として表示 */
+}
+.right_bubble{
+  position: absolute; /* 親要素を基準 */
+  display: none; /* 要素を非表示 */
+  padding: 5px; /* テキストの前後の余白 */
+  background-color: rgb(0, 0, 255); /* 背景色（透明度） */
+  width: 400px; /* 吹き出し全体の幅 */
+  right: -1%; /* 表示位置 */
+  font-size: 80%; /* 文字サイズ */
+  color: #fff;/*文字色*/
+  z-index: 100;/*最前面*/
+}
+.right_bubble:after{
+  border-right: 12px solid rgb(0, 0, 255); /* 吹き出し口の幅・色 */
+  border-top: 10px solid transparent; /* 吹き出し口の高さ１／２ */
+  border-bottom: 10px solid transparent; /* 吹き出し口の高さ１／２ */
+  left: -12px; /* 吹き出し口の位置調整 */
+  top: 5%; /* 吹き出し口の縦位置 */
+  content: ""; /* コンテンツの挿入 */
+  position: absolute; /* 親要素を基準 */
+}
+
+/*左に吹き出し*/
+.bubbleoya:hover .left_bubble{
+  display: inline; /* インライン要素として表示 */
+}
+.left_bubble{
+  position: absolute; /* 親要素を基準 */
+  display: none; /* 要素を非表示 */
+  padding: 2px; /* テキストの前後の余白 */
+  background-color: rgb(0, 0, 255); /* 背景色（透明度） */
+  width: 400px; /* 吹き出し全体の幅 */
+  left : -1%; /* 表示位置 */
+  font-size: 80%; /* 文字サイズ */
+  color: #fff; /*文字色*/
+  z-index: 100; /*最前面*/
+}
+.left_bubble:after{
+  border-left: 12px solid rgb(0, 0, 255); /* 吹き出し口の幅・色 */
+  border-top: 10px solid transparent; /* 吹き出し口の高さ１／２ */
+  border-bottom: 10px solid transparent;/* 吹き出し口の高さ１／２ */
+  right: -12px; /* 吹き出し口の位置調整 */
+  top: 5%; /* 吹き出し口の縦位置 */
   content: ""; /* コンテンツの挿入 */
   position: absolute; /* 親要素を基準 */
 }
