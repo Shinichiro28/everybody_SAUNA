@@ -12,23 +12,37 @@
               <p><small>Home</small></p>
             <% end %>
           </li>
-          <li class="pl-3">
+          <li class="pl-3 bubbleoya">
             <%= link_to about_path,class: 'nav-link text-light' do %>
               <i class="fas fa-question-circle"></i>
               <p><small>everybodySAUNAとは</small></p>
             <% end %>
+            <span class="bubble">
+              このサイトを初めての方はまずはこのページをご覧ください。<br>
+              サウナをのことをまだ詳しいことがよく分からない方、<br>
+              ととのうって何？ ロウリュって何？などなど…<br>
+              サウナ用語も簡単にまとめているので是非ご参考ください。
+            </span>
           </li>
-          <li class="pl-3">
+          <li class="pl-3 bubbleoya">
             <%= link_to new_sauna_path,class: 'nav-link text-light' do %>
               <i class="fas fa-pen-nib"></i>
               <p><small>施設登録</small></p>
             <% end %>
+            <span class="bubble">
+              こちらからサウナ施設の登録ができます。<br>
+              まだ登録されていない施設があれば、是非お願いします。🙇
+            </span>
           </li>
-          <li class="pl-3">
+          <li class="pl-3 bubbleoya">
             <%= link_to chat_groups_path,class: 'nav-link text-light' do %>
               <i class="fas fa-users"></i>
               <p><small>チャットグループ</small></p>
             <% end %>
+            <span class="bubble">
+              ここでは他のサウナーとチャットを使ってコミュニケーションをとることができます。<br>
+              是非情報交換などにご活用ください！
+            </span>
           </li>
           <li class="p-3">
             <%= render 'public/searches/search' %>
