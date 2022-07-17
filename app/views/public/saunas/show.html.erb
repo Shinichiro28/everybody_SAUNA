@@ -7,6 +7,7 @@
     <a><%= link_to "サ活投稿", new_sauna_post_path(@sauna.id) %></a>
     <a class="ml-3"><%= link_to "サ活一覧", sauna_posts_path(@sauna) %></a>
   </div>
+  <p class="text-right">⭐️がついている箇所は、用語説明を吹き出しで行っております。</p>
 
   <div class="card" style="width: 100%;">
     <div class="card-body row">
@@ -52,22 +53,45 @@
         <table class="table">
           <tbody>
             <tr>
-              <th>アウフグース</th>
+              <th class="bubbleoya">
+                ⭐️アウフグース
+                <span class="right_bubble">
+                  ロウリュを行なった後に、立ち昇った蒸気をタオルなどであおぐ行為のこと。<br>
+                  日本ではアウフグースのことを「熱波」と呼ぶサウナ施設もある。
+                </span>
+              </th>
               <td><%= @sauna.aufguss %></td>
               <td><%= @sauna.aufguss_frequency %></td>
             </tr>
             <tr>
-              <th>オートロウリュ</th>
+              <th class="bubbleoya">
+                ⭐️オートロウリュ
+                <span class="right_bubble">
+                  自動でロウリュされるシステム。<br>
+                  　※ロウリュの意味は<%= link_to "こちら",about_path(anchor: 'term'), style: "color: gray;" %>
+                </span>
+              </th>
               <th><%= @sauna.auto_loyly %></th>
               <th><%= @sauna.auto_loyly_frequency %></th>
             </tr>
             <tr>
-              <th>セルフロウリュ</th>
+              <th class="bubbleoya">
+                ⭐️セルフロウリュ
+                <span class="right_bubble">
+                  自分でロウリュできるシステム。<br>
+                  　※ロウリュの意味は<%= link_to "こちら",about_path(anchor: 'term'), style: "color: gray;" %>
+                </span>
+              </th>
               <td><%= @sauna.self_loyly %></td>
               <td></td>
             </tr>
             <tr>
-              <th>外気浴</th>
+              <th class="bubbleoya">
+                ⭐️外気浴
+                <span class="right_bubble">
+                  外気に当たりながらととのうこと。
+                </span>
+              </th>
               <td><%= @sauna.air_bath %></td>
               <td></td>
             </tr>
@@ -112,7 +136,13 @@
             <td><%= @sauna.parking %></td>
             <th>給水器</th>
             <td><%= @sauna.dispenser %></td>
-            <th>オロポ</th>
+            <th class="bubbleoya">
+              ⭐️オロポ
+              <span class="bubble">
+                オロナミンCでポカリスエットを割った飲み物。<br>
+                期待される効果が様々あり、サウナーの間で愛されている。
+              </span>
+            </th>
             <td><%= @sauna.oropo %></td>
           </tr>
           <tr>
