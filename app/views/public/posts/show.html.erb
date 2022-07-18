@@ -1,5 +1,9 @@
 <div class="container post_show">
+
+  <!--投稿-->
   <div class="card mt-5" style="width: 100%; height: 100%;">
+
+    <!--投稿ヘッダー(投稿者名,日時,施設名(都道府県))-->
     <div class="card-header container">
       <p class="d-inline ml-3"><%= @post.saunner.nickname %>さん</p>
       <p class="d-inline ml-3" style="font-size: small;">訪問日時：<%= @post.visit_date %></p>
@@ -9,11 +13,15 @@
       <a><%= link_to '削除', sauna_post_path(sauna_id: @sauna.id, post_id: @post.id), method: :delete, data: { confirm: '本当に削除しますか？' } , class: "btn btn-sm btn-outline-danger" %></a>
       <% end %>
     </div>
+
+    <!--投稿内容-->
     <div class="card-body">
       <p class="card-text">
-          <!--タグ-->
+        <!--タグ-->
         <%= render "public/posts/post_tag", post: @post, post_tags: @post_tags %>
       </p>
+
+      <!--サウナ内容-->
       <div class="container row">
         <div class="col">
           <p class="card-text bubbleoya">
@@ -68,7 +76,9 @@
           <%= image_tag @post.get_sauna_image, size:'400x300' %>
         </div>
       </div>
-      <%# unless food_name: "" %>
+
+        <!--サ飯内容-->
+        <%# unless food_name: "" %>
         <div class="mt-5 mb-5 container row">
           <div class="col">
             <p class="card-text bubbleoya">
@@ -87,24 +97,31 @@
           </div>
         </div>
       <%# end %>
+
+      <!--コメント・いいね-->
       <div class="pt-5 container row">
         <div class="col">
           <div class="row">
+
+            <!--いいね-->
             <div class="card-text col-6 col-md-4" id="post_<%= @post.id%>">
-              <!--ログインしていない場合は、いいね数のみ表示-->
               <% if saunner_signed_in? %>
                 <%= render 'public/favorites/sauna_post_favorite', post: @post, sauna: @sauna %>
               <% else %>
                 <span style="color:red;">❤<%= @post.favorites.count %> いいね︎</span>
               <% end %>
             </div>
-            <!--コメント数-->
+
+            <!--コメント-->
             <div class="comments-count col-6 col-md-4">
               <i class="far fa-comment"></i><%= @post.comments.count %>件
             </div>
           </div>
+          <!--コメントフォーム-->
           <% if saunner_signed_in? %>
-            <p class="card-text"><%= render 'public/comments/form', sauna: @sauna, post: @post, comment: @comment %></p>
+            <p class="card-text">
+              <%= render 'public/comments/form', sauna: @sauna, post: @post, comment: @comment %>
+            </p>
           <% end %>
         </div>
         <div class="col">
@@ -113,7 +130,9 @@
             <%= render "public/comments/index", post: @post, sauna: @sauna, comments: @comments %>
           </div>
         </div>
+
       </div>
+
       <%= link_to "≤一覧へ戻る", sauna_posts_path %>
     </div>
   </div>
