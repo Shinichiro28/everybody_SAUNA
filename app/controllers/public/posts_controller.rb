@@ -11,6 +11,7 @@ class Public::PostsController < ApplicationController
   def show
     @sauna = Sauna.find(params[:sauna_id])
     @post = Post.find(params[:id])
+    @no_food_post = Post.where(food_name: "")
     @post_tags = @post.tags
     @comment = Comment.new
     @comments = Comment.page(params[:page]).per(5)

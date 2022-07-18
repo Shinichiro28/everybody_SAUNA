@@ -1,5 +1,5 @@
 <%= render 'layouts/errors', obj: @comment %>
 <%= form_with model: [sauna, post, comment], local: false do |f| %>
-  <%= f.text_area :comment, rows: '5', cols: '40', class: "comment-textarea" %>
+  <%= f.text_area :comment, rows: '3', cols: '30', class: "comment-textarea", placeholder: "コメントを入力" %>
   <%= f.submit "送信", class: "btn btn-sm btn-outline-primary" %>
 <% end %>
