@@ -1,7 +1,11 @@
 <div class="p-3">
   <h4>タグリスト</h4>
-  <% post_tags.each do |tag| %>
-    <%= link_to tag.name, sauna_post_search_tag_path(post_id: post.id, tag_id: tag.id) %>
-    <%="(#{tag.posts.count})" %>
+  <% if post_tags.present? %>
+    <% post_tags.each do |tag| %>
+      <%= link_to tag.name, sauna_post_search_tag_path(post_id: post.id, tag_id: tag.id) %>
+      <%="(#{tag.posts.count})" %>
+    <% end %>
+  <% else %>
+    <p>--該当するタグはありません--</p>
   <% end %>
 </div>

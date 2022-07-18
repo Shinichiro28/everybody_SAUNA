@@ -44,7 +44,7 @@ class Post < ApplicationRecord
 
     # 古いタグを消す
     old_tags.each do |old|
-      tags.delete　Tag.find_by(name: old)
+      tags.delete Tag.find_by(name: old)
     end
 
     # 新しいタグを保存
