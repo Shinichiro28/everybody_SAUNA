@@ -32,7 +32,6 @@ class Public::ChatGroupsController < ApplicationController
       flash[:notice] = "チャットグループを作成しました"
       redirect_to chat_group_path(@chat_group)
     else
-      flash[:notice] = "チャットグループ作成に失敗しました"
       render :new
     end
   end
