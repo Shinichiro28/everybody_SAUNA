@@ -121,11 +121,11 @@
         </div>
         <div class="col">
           <!--コメント欄-->
-          <div class="card-text comment mt-3">
-            <!--コメント数-->
+          <!--コメント数-->
           <div class="comments-count col-6 col-md-4">
             <i class="far fa-comment"></i><%= @post.comments.count %>件
           </div>
+          <div class="card-text comment mt-3">
             <%= render "public/comments/index", post: @post, sauna: @sauna, comments: @comments %>
           </div>
         </div>
