@@ -70,13 +70,20 @@
           <p class="card-text"><%= @post.sauna_post %></p>
         </div>
         <div class="col">
-          <%= image_tag @post.get_sauna_image, size:'400x200' %>
+          <%= image_tag @post.get_sauna_image, size:'400x300' %>
         </div>
       </div>
       <%# unless food_name: "" %>
         <div class="mt-5 mb-5 container row">
           <div class="col">
-            <p class="card-text">サ飯名：<%= @post.food_name %></p>
+            <p class="card-text bubbleoya">
+              サ飯名：<%= @post.food_name %>
+              <span class="right_bubble">
+                サ飯とは…<br>
+                サ活後に食べたいメニューの通称<br>
+                自分のサ飯を見つけてみよう！
+              </span>
+            </p>
             <p class="card-text">サ飯コメント</p>
             <p class="card-text"><%= @post.food_post %></p>
           </div>
