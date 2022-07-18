@@ -48,8 +48,15 @@ footer{
   background-color: #b0c4de;
 }
 
-.login-header{
+.header{
   padding-left: 300px;
+  background-color: #b0c4de;
+  height: 100px;
+}
+
+.header_drop_down{
+  z-index: 99;
+  background: #b0c4de;
 }
 
 /*下に吹き出し*/
