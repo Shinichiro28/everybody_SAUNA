@@ -12,12 +12,7 @@
     <div class="card-body">
       <p class="card-text">
           <!--タグ-->
-        <div class="p-3" style="background-color: #c0c0c0;">
-          <% @post_tags.each do |tag| %>
-            <%= link_to tag.name, sauna_post_search_tag_path(post_id: @post.id, tag_id: tag.id) %>
-            <%="(#{tag.posts.count})" %>
-          <% end %>
-        </div>
+        <%= render "public/posts/post_tag", post: @post, post_tags: @post_tags %>
       </p>
       <div class="container row">
         <div class="col">

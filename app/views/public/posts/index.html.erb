@@ -1,50 +1,7 @@
 <div class="container px-5 px-sm-0">
   <h2>サ活一覧</h2>
-  <div class="row">
-
-    <% @posts.each do |post| %>
-    <div class="card mb-3 mt-5" style="width: 1000px;">
-      <%= link_to sauna_post_path(@sauna.id, post.id) do %>
-      <div class="row g-0">
-        <div class="col-md-4">
-          <%= image_tag post.get_sauna_image, size: '300x320' %>
-        </div>
-        <div class="col-md-8" style="padding-left: 100px;">
-          <div class="card-body">
-            <table>
-              <tr>
-                <th class="pr-2"><%= post.saunner.nickname %>さん</th>
-                <th style="font-size: small;">訪問日時：<%= post.visit_date %></th>
-              </tr>
-              <tr>
-                <th class="pr-2"><%= @sauna.name %><small class="text-muted"><%= @sauna.prefecture %></small></th>
-              </tr>
-              <tr>
-                <td class="pr-2 pt-3">サウナ室温度：<%= post.sauna_temperature %>℃</td>
-                <td class="pl-3 pt-3">水風呂温度：<%= post.mizu_temperature %>℃</td>
-              </tr>
-              <tr>
-                <td class="pr-2">サウナ時間：<%= post.sauna_minutes %>分</td>
-                <td class="pl-3">水風呂時間：<%= post.mizu_minutes %>分</td>
-                <td class="pl-3">ととのい時間：<%= post.totonoi_minutes %>分</td>
-              </tr>
-              <tr>
-                <td class="pr-2">セット数：<%= post.sauna_times %>回</th>
-              </tr>
-            </table>
-            <p class="pt-3">
-              <%= post.favorites.count %>❤
-              <%= post.comments.count %><i class="far fa-comment"></i>
-            </p>
-            <p style="font-size: small;">サ活内容</p>
-            <p class="omit"><%= post.sauna_post %></p>
-          </div>
-        </div>
-      </div>
-      <% end %>
-    </div>
-    <% end %>
-  </div>
-  <div class="pagination"><%= paginate @posts %></div>
+  <!--投稿一覧-->
+  <%= render "public/posts/index", posts: @posts, sauna: @sauna %>
+  <!--施設ページへのリンク-->
   <%= link_to "≤施設に戻る", sauna_path(@sauna) %>
 </div>
