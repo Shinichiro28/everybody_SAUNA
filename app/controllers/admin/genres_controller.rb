@@ -3,10 +3,11 @@ class Admin::GenresController < ApplicationController
 
   def index
     @genre = Genre.new
-    @genres = Genre.all
+    @genres = Genre.page(params[:page]).per(10)
   end
 
   def edit
+    @genre = Genre.find(params[:id])
   end
 
   def create
@@ -18,6 +19,11 @@ class Admin::GenresController < ApplicationController
   end
 
   def update
+    @genre = Genre.find(params[:id])
+    if @genre.update
+      flash[:notice] = "ジャンルを更新しました"
+      redirect_to admin_genres_path
+    end
   end
 
   def destroy

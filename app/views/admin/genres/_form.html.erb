@@ -1,0 +1,7 @@
+<%= form_with model: genre, url: {controller: 'admin/genres', action: 'create'} do |f| %>
+<div class="form-inline pt-5">
+  <div class="pl-5">ジャンル</div>
+  <%= f.text_field :name, class: "ml-5", placeholder: "ジャンル名" %>
+  <%= f.submit "登録" , class: "btn btn-sm btn-outline-success col-md-offset-6 ml-5" %>
+</div>
+<% end %>

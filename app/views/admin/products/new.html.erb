@@ -1,2 +1,7 @@
-<h1>Admin::Products#new</h1>
-<p>Find me in app/views/admin/products/new.html.erb</p>
+<div class="container px-5 px-sm-0 new_admin_product">
+  <h2>商品新規登録</h2>
+  <%= render "/layouts/errors", obj: @product %>
+  <div class="mt-5">
+    <%= render "form", product: @product %>
+  </div>
+</div>

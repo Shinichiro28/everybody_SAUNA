@@ -1,36 +1,5 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'shipping_addresses/index'
-    get 'shipping_addresses/edit'
-  end
-  namespace :public do
-    get 'orders/new'
-    get 'orders/show'
-    get 'orders/index'
-    get 'orders/confirm'
-    get 'orders/complete'
-  end
-  namespace :public do
-    get 'cart_products/index'
-  end
-  namespace :admin do
-    get 'orders/show'
-  end
-  namespace :admin do
-    get 'genres/index'
-    get 'genres/edit'
-  end
-  namespace :admin do
-    get 'products/new'
-    get 'products/show'
-    get 'products/index'
-    get 'products/edit'
-    get 'products/destroy'
-  end
-  namespace :public do
-    get 'products/show'
-    get 'products/index'
-  end
+
   root to: "public/homes#top"
   get "/about" => "public/homes#about", as: "about"
 

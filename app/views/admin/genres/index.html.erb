@@ -1,14 +1,7 @@
-<div class="container px-5 px-sm-0">
-
-    <h2>ジャンル一覧・追加</h2>
-    <%= form_with model: @genre, url: {controller: 'admin/genres', action: 'create'} do |f| %>
-    <div class="form-inline pt-5">
-      <div class="pl-5">ジャンル</div>
-      <%= f.text_field :name, class: "ml-5", placeholder: "ジャンル名" %>
-      <%= f.submit "新規登録" , class: "btn btn-sm btn-outline-success col-md-offset-6 ml-5" %>
-    </div>
-    <% end %>
-    <div class="mt-5">
-      <%= render "index", genres: @genres %>
-    </div>
+<div class="container px-5 px-sm-0 admin_genres">
+  <h2>ジャンル一覧・追加</h2>
+  <%= render "form", genre: @genre %>
+  <div class="mt-5">
+    <%= render "index", genres: @genres %>
+  </div>
 </div>

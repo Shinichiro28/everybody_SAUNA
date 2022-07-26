@@ -3,9 +3,8 @@
     <tr>
       <th></th>
       <th>ジャンル</th>
+      <th colspan="2"></th>
     </tr>
-    <th></th>
-    <th></th>
   </thead>
   <tbody>
     <% genres.each do |genre| %>
@@ -18,3 +17,4 @@
     <% end %>
   </tbody>
 </table>
+<div class="pagination"><%= paginate genres %></div>

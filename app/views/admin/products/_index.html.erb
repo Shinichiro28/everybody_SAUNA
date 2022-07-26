@@ -1,0 +1,32 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>商品ID</th>
+      <th>商品名</th>
+      <th>税抜価格</th>
+      <th>ジャンル</th>
+      <th>ステータス</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% products.each do |product| %>
+    <tr onclick='window.location="<%= '/admin/products/' + product.id.to_s %>"' role="link" >
+      <td><%= product.id %></td>
+      <td><%= product.name %></td>
+      <td>¥<%= product.price.to_s(:delimited) %></td>
+      <td><%= product.genre.name %></td>
+      <td>
+        <% if product.is_active %>
+          <span>販売中</span>
+        <% else %>
+          <span>販売停止中</span>
+        <% end %>
+      </td>
+      <td><%= link_to "編集", edit_admin_product_path(product.id), class: "btn btn-sm btn-outline-success" %></td>
+      <td><%= link_to '削除', admin_product_path(product.id), method: :delete, data: { confirm: '本当に削除しますか？' } , class: "btn btn-sm btn-outline-danger" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="pagination"><%= paginate products %></div>
