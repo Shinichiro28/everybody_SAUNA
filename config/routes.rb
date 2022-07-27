@@ -46,14 +46,14 @@ Rails.application.routes.draw do
 
   resources :contacts, only: [:new, :create], controller: "public/contacts"
 
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show], controller: "public/products"
   resources :cart_products, expect: [:new, :show, :edit], controller: "public/cart_products" do
     delete "/cart_products/destroy_all" => "public/cart_products#destroy_all", as: "destroy_all"
   end
   post "/orders/confirm" => "public/orders#confirm", as: "confirm"
   get "/orders/complete" => "public/orders#complete", as: "complete"
-  resources :orders, expect: [:edit, :update, :destroy]
-  resources :shipping_addresses, expect: [:new, :show]
+  resources :orders, expect: [:edit, :update, :destroy], controller: "public/orders"
+  resources :shipping_addresses, expect: [:new, :show], controller: "public/shipping_addresses"
 
   namespace :admin do
     resources :saunners, expect: [:new, :create, :destroy]
