@@ -11,13 +11,7 @@
           <% end %>
         </div>
         <ul class="navbar-nav ml-auto">
-          <li class="d-inline-block">
-            <%= link_to root_path,class: 'nav-link text-light' do %>
-              <i class="fas fa-home"></i>
-              <p><small>Home</small></p>
-            <% end %>
-          </li>
-          <li class="pl-3 bubbleoya">
+          <li class="d-inline-block bubbleoya">
             <%= link_to about_path,class: 'nav-link text-light' do %>
               <i class="fas fa-question-circle"></i>
               <p><small>everybodySAUNAとは</small></p>
@@ -48,6 +42,12 @@
               ここでは他のサウナーとチャットを使ってコミュニケーションをとることができます。<br>
               是非情報交換などにご活用ください！
             </span>
+          </li>
+          <li class="pl-3 bubbleoya">
+            <%= link_to products_path,class: 'nav-link text-light' do %>
+              <i class="fas fa-book-open"></i>
+              <p><small>オンラインストア</small></p>
+            <% end %>
           </li>
           <li class="p-3">
             <%= render 'public/searches/search' %>

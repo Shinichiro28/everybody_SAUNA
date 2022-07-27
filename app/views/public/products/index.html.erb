@@ -1,4 +1,10 @@
 <div class="px-5 px-sm-0 mt-5 product">
+  <div class="text-right mr-5">
+    <%= link_to cart_products_path, class: "btn btn-outline-success" do %>
+      <i class="fas fa-shopping-cart"></i>
+      <p><small>カートの中を見る</small></p>
+    <% end %>
+  </div>
   <div class="row">
     <div class="col-md-2">
       <table class="table">
