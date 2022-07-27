@@ -23,6 +23,11 @@ class Saunner < ApplicationRecord
   # 相手からの通知
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
+  has_many :cart_products, dependent: :destroy
+  has_many :products, through: :cart_products
+  has_many :orders, dependent: :destroy
+  has_many :shipping_addresses, dependent: :destroy
+
   # バリデーション
   validates :last_name, presence: true
   validates :first_name, presence: true

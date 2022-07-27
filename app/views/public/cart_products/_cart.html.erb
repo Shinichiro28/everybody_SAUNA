@@ -1,0 +1,27 @@
+<table class="table table-bordered mt-5">
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th></th>
+    </tr>
+  </thead>
+  <% cart_products.each do |cart| %>
+  <tbody>
+    <tr>
+      <td><%= cart.product.name %></td>
+      <td>¥<%= cart.product.with_tax_price.to_s(:delimited) %></td>
+      <td>
+        <%= form_with model: cart, method: :patch do |f| %>
+          <%= f.select :quantity, *[1..10] %>
+          <%= f.submit "変更", class: "btn btn-sm btn-outline-success" %>
+        <% end %>
+      </td>
+      <td>¥<%= cart.subtotal.to_s(:delimited) %></td>
+      <td><%= link_to "削除", cart_product_path(cart), method: :delete, class: "btn btn-sm btn-outline-danger" %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
