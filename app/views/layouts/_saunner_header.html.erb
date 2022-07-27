@@ -1,10 +1,15 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark header">
-    <div class="container">
+    <div style="padding-left: 160px;">
       <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse header_drop_down" id="navbarNavDropdown">
+        <div class="mb-3 mr-5">
+          <%= link_to root_path do %>
+            <%= image_tag 'home.jpg', size: '100x50' %>
+          <% end %>
+        </div>
         <ul class="navbar-nav ml-auto">
           <li class="d-inline-block">
             <%= link_to root_path,class: 'nav-link text-light' do %>

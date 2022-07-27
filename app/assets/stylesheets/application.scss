@@ -49,7 +49,7 @@ footer{
 }
 
 .header{
-  padding-left: 300px;
+  padding-left: 100px;
   background-color: #b0c4de;
   height: 100px;
 }
@@ -75,7 +75,7 @@ footer{
   left : -1%; /* 表示位置 */
   font-size: 80%; /* 文字サイズ */
   color: #fff;/*文字色*/
-  z-index: 100;/*最前面*/
+  z-index: 990;/*最前面*/
 }
 .bubble:after{
   border-bottom: 12px solid rgb(0, 0, 255); /* 吹き出し口の高さ・色 */
@@ -100,7 +100,7 @@ footer{
   right: -1%; /* 表示位置 */
   font-size: 80%; /* 文字サイズ */
   color: #fff;/*文字色*/
-  z-index: 100;/*最前面*/
+  z-index: 999;/*最前面*/
 }
 .right_bubble:after{
   border-right: 12px solid rgb(0, 0, 255); /* 吹き出し口の幅・色 */
