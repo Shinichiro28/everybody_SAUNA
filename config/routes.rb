@@ -63,7 +63,7 @@ Rails.application.routes.draw do
     resources :contacts, only: [:index, :show]
     resources :products
     resources :genres, expect: [:new, :show]
-    resources :orders, only: [:show, :update]
+    resources :orders, only: [:show, :index, :update]
     resources :order_products, only: [:update]
     resources :chat_groups, only: [:show, :index] do
       delete "all_destroy" => 'admin/chat_groups#all_destroy'
