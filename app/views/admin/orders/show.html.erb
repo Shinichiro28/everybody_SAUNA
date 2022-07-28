@@ -67,7 +67,7 @@
           <td>
             <% @order_products.each do |f| %>
               <% @subtotal += (f.product.price * 1.1).floor * f.quantity %>
-            <% end%>
+            <% end %>
             ¥<%= @subtotal.to_s(:delimited) %>
           </td>
         </tr>

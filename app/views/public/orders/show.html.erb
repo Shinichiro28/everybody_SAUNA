@@ -1,2 +1,76 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <h2 class="mt-5">注文履歴詳細</h2>
+  <div class="mt-3 row">
+    <div class="col">
+      <h5>注文情報</h5>
+      <table class="table">
+        <tr>
+          <th>注文日</th>
+          <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+        <tr>
+          <th>配送先</th>
+          <td>
+            <%= @order.postcode %><br>
+            <%= @order.address %>
+           </td>
+        </tr>
+        <tr>
+          <th>支払方法</th>
+          <td><%= @order.payment_method %></td>
+        </tr>
+        <tr>
+          <th>ステータス</th>
+          <td><%= @order.order_status_i18n %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col">
+      <h5>ご請求情報</h5>
+      <table class="table">
+        <tr>
+          <th>商品合計</th>
+          <td>
+            <% @order_products.each do |f| %>
+              <% @subtotal += (f.product.price * 1.1).floor * f.quantity %>
+            <% end %>
+            ¥<%= @subtotal.to_s(:delimited) %>
+          </td>
+        </tr>
+        <tr>
+          <th>配送料</th>
+          <td>¥<%= @order.shipping_fee %></td>
+        </tr>
+        <tr>
+          <th>ご請求額</th>
+          <td>¥<%= (@order.total_price).to_s(:delimited) %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="mt-3">
+    <h5>注文内容</h5>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>商品</th>
+          <th>単価</th>
+          <th>個数</th>
+          <th>小計</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order_products.each do |order_product| %>
+        <tr>
+          <td><%= order_product.product.name %></td>
+          <td>¥<%= ((order_product.product.price * 1.1).floor).to_s(:delimited) %></td>
+          <td><%= order_product.quantity %></td>
+          <td>¥<%= ((order_product.product.price * 1.1).floor * order_product.quantity).to_s(:delimited) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= link_to "≤注文履歴一覧に戻る", orders_path(@saunner) %><br>
+  <%= link_to "≤マイページに戻る", my_page_path(@saunner) %>
+</div>
