@@ -52,6 +52,11 @@
             <% end %>
           </li>
           <li class="pl-3">
+            <%= link_to admin_orders_path, class: 'nav-link' do %>
+              注文一覧
+            <% end %>
+          </li>
+          <li class="pl-3">
             <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link' do %>
               ログアウト
             <% end %>
