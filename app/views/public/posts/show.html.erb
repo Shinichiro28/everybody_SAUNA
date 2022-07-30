@@ -73,7 +73,7 @@
           <p class="card-text"><%= @post.sauna_post %></p>
         </div>
         <div class="col">
-          <%= image_tag @post.get_sauna_image, size:'400x300' %>
+          <%= image_tag @post.get_sauna_image, class: "post_index_sauna_image" %>
         </div>
       </div>
 
@@ -93,7 +93,7 @@
             <p class="card-text"><%= @post.food_post %></p>
           </div>
           <div class="col">
-            <%= image_tag @post.get_food_image, size:'400x200' %>
+            <%= image_tag @post.get_food_image, class: "post_index_food_image" %>
           </div>
         </div>
       <%# end %>

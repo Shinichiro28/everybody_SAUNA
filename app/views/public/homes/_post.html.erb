@@ -4,7 +4,7 @@
     <%= link_to sauna_post_path(post.sauna.id, post.id) do %>
     <div class="col mb-3">
       <div class="card shadow" style="width: 18rem;">
-        <%= image_tag post.get_sauna_image, size: "286x180" %>
+        <%= image_tag post.get_sauna_image, class: "top_post_image" %>
         <div class="card-body">
           <table>
             <thead>

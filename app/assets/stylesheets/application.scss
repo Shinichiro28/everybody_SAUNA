@@ -201,8 +201,26 @@ footer{
   clamp: 1px, 18px, 18px;
 }
 
+.top_post_image{
+  width: 286px;
+	height: 180px;
+	object-fit: cover;
+}
+
+.top_sauna_image{
+  width: 286px;
+	height: 220px;
+	object-fit: cover;
+}
+
 .mypage{
   padding-bottom: 456px;
+}
+
+.mypage_image{
+  width: 50px;
+	height: 50px;
+	object-fit: cover;
 }
 
 .saunner-edit{
@@ -221,8 +239,38 @@ footer{
   margin-bottom: 500px;
 }
 
+.sauna_index_image{
+  width: 300px;
+	height: 300px;
+	object-fit: cover;
+}
+
+.sauna_show_image{
+  width: 300px;
+	height: 200px;
+	object-fit: cover;
+}
+
 .post_show{
   margin-bottom: 105px;
+}
+
+.post_index_image{
+  width: 300px;
+	height: 320px;
+	object-fit: cover;
+}
+
+.post_index_sauna_image{
+  width: 400px;
+	height: 300px;
+	object-fit: cover;
+}
+
+.post_index_food_image{
+  width: 400px;
+	height: 200px;
+	object-fit: cover;
 }
 
 .post_search_tag{
@@ -352,8 +400,20 @@ footer{
   margin-bottom: 428px;
 }
 
+.product_show_image{
+  width: 500px;
+	height: 400px;
+	object-fit: cover;
+}
+
 .products{
   margin-bottom: 356px;
+}
+
+.product_index_image{
+  width: 200px;
+	height: 150px;
+	object-fit: cover;
 }
 
 .cart_products{

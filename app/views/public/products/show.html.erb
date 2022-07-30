@@ -28,7 +28,7 @@
     <div class="col-md-10">
       <div class="row ml-5">
         <div class="col-4">
-          <%= image_tag @product.product_image, size: "500x400" %>
+          <%= image_tag @product.product_image, class: "product_show_image" %>
         </div>
         <div class="col-4 ml-3">
           <%= render "admin/products/show", product: @product %>
