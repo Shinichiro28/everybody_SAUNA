@@ -11,11 +11,14 @@ class Public::CommentsController < ApplicationController
     @comment.post_id = @post.id
     @comment.saunner_id = current_saunner.id
     @comment.sauna_id = @sauna.id
-    @comment.save
-    post = @comment.post
-    # 通知レコード
-    post.create_notification_comment!(current_saunner, @comment.id)
-    flash[:notice] = "コメント投稿に成功しました！"
+    if @comment.save
+      post = @comment.post
+      # 通知レコード
+      post.create_notification_comment!(current_saunner, @comment.id)
+      flash[:notice] = "コメント投稿に成功しました！"
+    else
+      render request.referer
+    end
   end
 
   def destroy
