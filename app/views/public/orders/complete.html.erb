@@ -1,2 +1,11 @@
-<h1>Public::Orders#complete</h1>
-<p>Find me in app/views/public/orders/complete.html.erb</p>
+<div class="complete">
+  <img src="/assets/complete.jpeg" alt="" class="complete_image">
+  <div class="pt-5">
+    <%= link_to "こちら", root_path %>をクリックするとトップページに移動します。
+  </div>
+  <div class="pt-4">
+    <%= link_to "買い物を続ける", products_path, class: "btn btn-sm btn-outline-primary mr-3" %>
+    |
+    <%= link_to "注文履歴一覧画面へ", orders_path, class: "btn btn-sm btn-outline-primary ml-3" %>
+  </div>
+</div>
