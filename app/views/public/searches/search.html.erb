@@ -1,7 +1,7 @@
 <% @saunas.each do |sauna| %>
   <%= link_to sauna_path(sauna.id) do %>
   <div class='container px-5 px-sm-0 mt-5 search'>
-    <div class="card mb-3 mt-3" style="width: 90%;">
+    <div class="card mb-3 mt-3" style="max-width: 640px;">
       <div class="row g-0">
         <div class="col-6">
           <%= image_tag sauna.get_store_image, class: "sauna_index_image" %>
