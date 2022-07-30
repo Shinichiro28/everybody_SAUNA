@@ -73,7 +73,7 @@
           <p class="card-text"><%= @post.sauna_post %></p>
         </div>
         <div class="col">
-          <%= image_tag @post.get_sauna_image, class: "post_index_sauna_image" %>
+          <%= image_tag @post.get_sauna_image, class: "post_show_sauna_image" %>
         </div>
       </div>
 
@@ -93,7 +93,7 @@
             <p class="card-text"><%= @post.food_post %></p>
           </div>
           <div class="col">
-            <%= image_tag @post.get_food_image, class: "post_index_food_image" %>
+            <%= image_tag @post.get_food_image, class: "post_show_food_image" %>
           </div>
         </div>
       <%# end %>
@@ -122,7 +122,7 @@
         <div class="col">
           <!--コメント欄-->
           <div class="card-text comment mt-3">
-            <%= render "public/comments/index", post: @post, sauna: @sauna, comments: @comments, comment: @comment %>
+            <%= render "public/comments/index", post: @post, sauna: @sauna, comments: @comments %>
           </div>
         </div>
 

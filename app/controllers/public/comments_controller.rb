@@ -22,6 +22,7 @@ class Public::CommentsController < ApplicationController
   end
 
   def destroy
+    @sauna = Sauna.find(params[:sauna_id])
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     @comments = Comment.page(params[:page]).per(5)
