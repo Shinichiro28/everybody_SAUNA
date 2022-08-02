@@ -23,6 +23,10 @@ class Sauna < ApplicationRecord
 
   has_one_attached :store_image
 
+  #API addressから経度・緯度を取得
+  geocoded_by :address
+  after_validation :geocode
+
   def get_store_image
     store_image.attached? ? store_image : 'no_store.jpg'
   end
