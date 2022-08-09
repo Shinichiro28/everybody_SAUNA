@@ -3,6 +3,8 @@ class Order < ApplicationRecord
   belongs_to :saunner
   has_many :order_products, dependent: :destroy
 
+  validates :order_status, presence: true
+
   enum payment_method: {credit_card: 0, transfer: 1 }
 
   enum order_status: {
