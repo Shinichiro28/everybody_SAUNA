@@ -40,7 +40,9 @@ class Public::OrdersController < ApplicationController
     @cart_products = current_saunner.cart_products.all
     @total_price = @cart_products.inject(0) { |sum, product| sum + product.subtotal }
     @fee = 800
+    @order_status = 0
     @order.shipping_fee = @fee
+    @order.order_status = @order_status
     #お届け先を「登録済み住所から選択」を選んだ場合
     if params[:order][:select_address] == "0"
       unless ShippingAddress.exists?(name: params[:order][:address_id])
