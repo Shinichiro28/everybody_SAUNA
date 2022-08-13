@@ -61,6 +61,7 @@
       <%= f.hidden_field :total_price, :value => @total_price + @fee %>
       <%= f.hidden_field :shipping_fee %>
       <%= f.hidden_field :payment_method %>
+      <%= f.hidden_field :order_status %>
       <%= f.submit "注文を確定する", class: "btn btn-outline-success" %>
     <% end %>
   </div>
