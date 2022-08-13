@@ -18,6 +18,7 @@ class Public::OrdersController < ApplicationController
   def create
     cart_products = current_saunner.cart_products.all
     @order = Order.new(order_params)
+    @order.order_status = 0
     if @order.save
       cart_products.each do |cart|
         order_product = OrderProduct.new
