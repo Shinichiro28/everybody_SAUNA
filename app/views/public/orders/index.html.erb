@@ -21,10 +21,10 @@
           </td>
           <td>
             <% f.order_products.each do |order_product| %>
-              <%= order_product.product.name %>
+              <%= order_product.product.name %><br>
             <% end %>
           </td>
-          <td><% f.total_price %></td>
+          <td>¥<%= f.total_price.to_s(:delimited) %></td>
           <td><%= f.order_status_i18n %></td>
         </tr>
       </tbody>
