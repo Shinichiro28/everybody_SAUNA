@@ -1,7 +1,7 @@
 <table class="table">
   <tbody>
     <tr>
-      <th>商品名</th>
+      <th style="width: 150px;">商品名</th>
       <td><%= product.name %></td>
     </tr>
     <tr>
@@ -18,8 +18,8 @@
         <p>(税抜価格)</p>
       </th>
       <td>
-        ¥<%= ((product.price * 1.1).floor).to_s(:delimited) %>
-        (¥<%= (product.price).to_s(:delimited) %>)
+        <p>¥<%= ((product.price * 1.1).floor).to_s(:delimited) %></p>
+        <p>(¥<%= (product.price).to_s(:delimited) %>)</p>
       </td>
     </tr>
   </tbody>
