@@ -35,8 +35,9 @@
               <%= image_tag product.product_image, class: "product_index_image" %>
             </div>
             <div class="card-body ml-5">
-              <p class="card-text"><%= product.name %></p>
-              <p class="card-text"><%= product.price.to_s(:delimited) %></p>
+              <!--最大13文字に省略-->
+              <p class="card-text"><%= product.name.truncate(13) %></p>
+              <p class="card-text">¥<%= product.price.to_s(:delimited) %></p>
             </div>
             <% end %>
           <% end %>
