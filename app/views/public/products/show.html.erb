@@ -30,7 +30,7 @@
         <div class="col-4">
           <%= image_tag @product.product_image, class: "product_show_image" %>
         </div>
-        <div class="col-4 ml-3">
+        <div class="col-4 ml-5">
           <%= render "admin/products/show", product: @product %>
           <% if @product.is_active %>
             <% if saunner_signed_in? %>
